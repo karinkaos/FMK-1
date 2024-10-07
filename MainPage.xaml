@@ -10,5 +10,12 @@
 
     <Grid Background="Pink">
         
+        <Grid Background="Blue" Visibility="Collapsed">
+            
+        </Grid>
+        
+        <Grid Name="Start" Width="300" Height="600" Background="Gray">
+            
+        </Grid>
     </Grid>
 </Page>
