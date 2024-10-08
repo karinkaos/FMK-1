@@ -9,6 +9,25 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="Pink">
-        
+        <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+        <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+        <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+        <Rectangle Name="RedPiece4" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+       
+        <Rectangle Name="GreenPiece1" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+        <Rectangle Name="GreenPiece2" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+        <Rectangle Name="GreenPiece3" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+        <Rectangle Name="GreenPiece4" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+
+        <Rectangle Name="BluePiece1" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+        <Rectangle Name="BluePiece2" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+        <Rectangle Name="BluePiece3" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+        <Rectangle Name="BluePiece4" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+
+        <Rectangle Name="YellowPiece1" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+        <Rectangle Name="YellowPiece2" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+        <Rectangle Name="YellowPiece3" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+        <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+
     </Grid>
 </Page>
