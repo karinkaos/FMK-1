@@ -61,20 +61,21 @@
 
         <Grid Name="Start" Width="450" Height="600" Background="Gray">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!--<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="50" Height="50" Margin="5"/>
-                <Button Width="50" Height="50" Margin="5"/>
-                <Button Width="50" Height="50" Margin="5"/>
-                <Button Width="50" Height="50" Margin="5"/>
-            </StackPanel>-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="ChooseClrBtn1" Background="Red" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+                <Button Name="ChooseClrBtn2" Background="Green" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+                <Button Name="ChooseClrBtn3" Background="Blue" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+                <Button Name="ChooseClrBtn4" Background="Yellow" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+            </StackPanel>
 
-            <Button Name="StartGameBtn" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+            <Button Name="StartGameBtn" Grid.Row="2" Width="200" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
-            
+
         </Grid>
     </Grid>
 </Page>
