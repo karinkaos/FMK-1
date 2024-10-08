@@ -13,7 +13,7 @@
         <Grid Background="Blue" Visibility="Collapsed">
             
         </Grid>
-        
+
         <Grid Name="Start" Width="450" Height="600" Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -29,53 +29,54 @@
 
             <Button Name="StartGameBtn" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
-        <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
+            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
 
-            <Grid>
-                <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center"/>
-                <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                <Grid>
+                    <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center"/>
+                    <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
-                    <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
-                    <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
-                    <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
-                    <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
-                    <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                        <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                        <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                    </Grid>
+                    <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
                 </Grid>
-                <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
+
+
+
+                <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+                <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+                <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+                <Rectangle Name="RedPiece4" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+
+                <Rectangle Name="GreenPiece1" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+                <Rectangle Name="GreenPiece2" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+                <Rectangle Name="GreenPiece3" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+                <Rectangle Name="GreenPiece4" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+
+                <Rectangle Name="BluePiece1" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+                <Rectangle Name="BluePiece2" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+                <Rectangle Name="BluePiece3" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+                <Rectangle Name="BluePiece4" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+
+                <Rectangle Name="YellowPiece1" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+                <Rectangle Name="YellowPiece2" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+                <Rectangle Name="YellowPiece3" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+                <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
             </Grid>
-
-
-
-            <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-            <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-            <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-            <Rectangle Name="RedPiece4" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-
-            <Rectangle Name="GreenPiece1" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-            <Rectangle Name="GreenPiece2" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-            <Rectangle Name="GreenPiece3" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-            <Rectangle Name="GreenPiece4" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-
-            <Rectangle Name="BluePiece1" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-            <Rectangle Name="BluePiece2" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-            <Rectangle Name="BluePiece3" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-            <Rectangle Name="BluePiece4" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-
-            <Rectangle Name="YellowPiece1" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-            <Rectangle Name="YellowPiece2" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-            <Rectangle Name="YellowPiece3" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-            <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Page>
