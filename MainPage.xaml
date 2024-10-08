@@ -6,158 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1300" Height="1200">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="Pink" Height="1200">
-        <Grid x:Name="Spelbrädet" Width="1300" Visibility="Collapsed">
-            <Grid>
-                <!-- Grön linje till Höger -->
-                <Ellipse HorizontalAlignment="Left" Margin="150,470,0,0" Stroke="White" Fill="#FF538B4A" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="240,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="330,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="420,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Grön linjeHöger till upp -->
-                <Ellipse HorizontalAlignment="Left" Margin="510,380,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,290,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,200,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,110,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Grön linje upp till rosa -->
-                <Ellipse HorizontalAlignment="Left" Margin="600,110,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,110,0,0" Stroke="White" Fill="#FF8B277B" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Rosa linje upp till ned -->
-                <Ellipse HorizontalAlignment="Left" Margin="690,200,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,290,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,380,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Rosa linje ned till höger -->
-                <Ellipse HorizontalAlignment="Left" Margin="780,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="870,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="960,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="1050,470,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Rosa linje höger till Blå -->
-                <Ellipse HorizontalAlignment="Left" Margin="1050,560,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="1050,650,0,0" Stroke="White" Fill="#FF665EBC" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Blå linje till vänster -->
-                <Ellipse HorizontalAlignment="Left" Margin="960,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="870,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="780,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Blå linje vänster till ned -->
-                <Ellipse HorizontalAlignment="Left" Margin="690,740,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,830,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,920,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="690,1010,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Blå linje ned till röd -->
-                <Ellipse HorizontalAlignment="Left" Margin="600,1010,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,1010,0,0" Stroke="White" Fill="#FFFB7171" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- röd linje till upp -->
-                <Ellipse HorizontalAlignment="Left" Margin="510,920,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,830,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,740,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- röd linje upp till vänster -->
-                <Ellipse HorizontalAlignment="Left" Margin="420,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="330,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="240,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="150,650,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- röd linje vänster till upp -->
-                <Ellipse HorizontalAlignment="Left" Margin="150,560,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Grön mål -->
-                <Ellipse HorizontalAlignment="Left" Margin="240,560,0,0" Stroke="White" Fill="#FF538B4A" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="330,560,0,0" Stroke="White" Fill="#FF538B4A" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="420,560,0,0" Stroke="White" Fill="#FF538B4A" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="510,560,0,0" Stroke="White" Fill="#FF538B4A" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Rosa mål -->
-                <Ellipse HorizontalAlignment="Left" Margin="600,470,0,0" Stroke="White" Fill="#FF8B277B" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,380,0,0" Stroke="White" Fill="#FF8B277B" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,290,0,0" Stroke="White" Fill="#FF8B277B" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,200,0,0" Stroke="White" Fill="#FF8B277B" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Blå mål -->
-                <Ellipse HorizontalAlignment="Left" Margin="690,560,0,0" Stroke="White" Fill="#FF665EBC" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="780,560,0,0" Stroke="White" Fill="#FF665EBC" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="870,560,0,0" Stroke="White" Fill="#FF665EBC" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="960,560,0,0" Stroke="White" Fill="#FF665EBC" VerticalAlignment="Top" Width="82" Height="82"/>
-
-                <!-- Röd mål -->
-                <Ellipse HorizontalAlignment="Left" Margin="600,650,0,0" Stroke="White" Fill="#FFFB7171" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,740,0,0" Stroke="White" Fill="#FFFB7171" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,830,0,0" Stroke="White" Fill="#FFFB7171" VerticalAlignment="Top" Width="82" Height="82"/>
-                <Ellipse HorizontalAlignment="Left" Margin="600,920,0,0" Stroke="White" Fill="#FFFB7171" VerticalAlignment="Top" Width="82" Height="82"/>
-            </Grid>
-
-            <Grid>
-                <!-- Grön namn -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140">
-                    <Rectangle Stroke="Transparent" Fill="#24FF00"/>
-                    <TextBlock Text="Grön" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                </Grid>
-
-                <!-- Rosa namn -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140" Margin="1160,0,0,0">
-                    <Rectangle Stroke="Transparent" Fill="#FF00D6"/>
-                    <TextBlock Text="Rosa" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-                </Grid>
-
-                <!-- Blå namn -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140" Margin="1160,1055,0,0">
-                    <Rectangle Stroke="Transparent" Fill="#1400FF"/>
-                    <TextBlock Text="Blå" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-                </Grid>
-
-                <!-- Röd namn -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Height="140" Margin="0,1055,0,0">
-                    <Rectangle Stroke="Transparent" Fill="#FF0000"/>
-                    <TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-                </Grid>
-            </Grid>
-
-            <Grid>
-                <!-- Grön pjäsnäst -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="155,110,0,0" Width="340" Height="340">
-                    <Rectangle Stroke="Transparent" Fill="#538B4A"/>
-                </Grid>
-
-                <!-- Rosa pjäsnäst -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="155,750,0,0" Width="340" Height="340">
-                    <Rectangle Stroke="Transparent" Fill="#FB7171"/>
-                </Grid>
-
-                <!-- Blå pjäsnäst -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="800,110,0,0" Width="340" Height="340">
-                    <Rectangle Stroke="Transparent" Fill="#8B277B"/>
-                </Grid>
-
-                <!-- Röd pjäsnäst -->
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="800,750,0,0" Width="340" Height="340">
-                    <Rectangle Stroke="Transparent" Fill="#665EBC"/>
-                </Grid>
-
-            </Grid>
-        </Grid>
-
+    <Grid Background="Pink">
+        
         <Grid Background="Blue" Visibility="Collapsed">
-
+            
         </Grid>
-
+        
         <Grid Name="Start" Width="300" Height="600" Background="Gray">
-
+            
         </Grid>
-
-
     </Grid>
 </Page>
