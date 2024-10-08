@@ -18,6 +18,12 @@ namespace FMK_1
         {
             Start.Visibility = Visibility.Collapsed;
         }
+        private void Bts_click(object sender, RoutedEventArgs e)
+        {
+            Start.Visibility = Visibility.Visible;
+            End.Visibility = Visibility.Collapsed;
+        }
+
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
             int DiceValue = random.Next(1, 7);
@@ -70,6 +76,11 @@ namespace FMK_1
             Dot4.Visibility = Visibility.Collapsed;
             Dot5.Visibility = Visibility.Collapsed;
             Dot6.Visibility = Visibility.Collapsed;
+        }
+
+        private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            End.Visibility = Visibility.Visible;
         }
     }
 }
