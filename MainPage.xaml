@@ -65,6 +65,7 @@
                 <Rectangle Stroke="Transparent" Fill="#665EBC"/>
             </Grid>
 
+            <!-- ellipse grupp spelplan-->
             <Grid Grid.Row="1" Grid.Column="1">
                 <!-- Grön linje till Höger -->
                 <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,-140,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
