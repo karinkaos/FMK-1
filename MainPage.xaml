@@ -28,7 +28,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                        
+
                     <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
                     <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
                     <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
@@ -40,33 +40,34 @@
             </Grid>
 
 
-    Pieces
-        <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-        <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-        <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-        <Rectangle Name="RedPiece4" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
-       
-        <Rectangle Name="GreenPiece1" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-        <Rectangle Name="GreenPiece2" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-        <Rectangle Name="GreenPiece3" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
-        <Rectangle Name="GreenPiece4" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
 
-        <Rectangle Name="BluePiece1" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-        <Rectangle Name="BluePiece2" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-        <Rectangle Name="BluePiece3" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
-        <Rectangle Name="BluePiece4" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+            <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+            <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+            <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
+            <Rectangle Name="RedPiece4" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
 
-        <Rectangle Name="YellowPiece1" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-        <Rectangle Name="YellowPiece2" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-        <Rectangle Name="YellowPiece3" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-        <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
-      
-      <Grid Background="Blue" Visibility="Collapsed">
-            
-        </Grid>
-        
-        <Grid Name="Start" Width="300" Height="600" Background="Gray">
-            
+            <Rectangle Name="GreenPiece1" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+            <Rectangle Name="GreenPiece2" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+            <Rectangle Name="GreenPiece3" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+            <Rectangle Name="GreenPiece4" Height="50" Width="50" Fill="Green" Visibility="Collapsed"/>
+
+            <Rectangle Name="BluePiece1" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+            <Rectangle Name="BluePiece2" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+            <Rectangle Name="BluePiece3" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+            <Rectangle Name="BluePiece4" Height="50" Width="50" Fill="Blue" Visibility="Collapsed"/>
+
+            <Rectangle Name="YellowPiece1" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+            <Rectangle Name="YellowPiece2" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+            <Rectangle Name="YellowPiece3" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+            <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
+
+            <Grid Background="Blue" Visibility="Collapsed">
+
+            </Grid>
+
+            <Grid Name="Start" Width="300" Height="600" Background="Gray">
+
+            </Grid>
         </Grid>
     </Grid>
 </Page>
