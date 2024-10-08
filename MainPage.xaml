@@ -158,7 +158,7 @@
             </Grid>
         </Grid>
         
-        <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Collapsed">
+        <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
 
             <Grid >
                 <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
@@ -207,7 +207,7 @@
             <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
         </Grid>
 
-        <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed">
+        <Grid Name="Start" Width="450" Height="600" Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
