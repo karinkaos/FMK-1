@@ -19,6 +19,12 @@ namespace FMK_1
         {
             Start.Visibility = Visibility.Collapsed;
         }
+        private void Bts_click(object sender, RoutedEventArgs e)
+        {
+            Start.Visibility = Visibility.Visible;
+            End.Visibility = Visibility.Collapsed;
+        }
+
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
             int DiceValue = random.Next(1, 7);
@@ -73,6 +79,7 @@ namespace FMK_1
             Dot6.Visibility = Visibility.Collapsed;
         }
 
+
         private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             if (e.NewValue == 1)
@@ -91,6 +98,10 @@ namespace FMK_1
             {
                 PlayersNum = 4;
             }
+
+        private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            End.Visibility = Visibility.Visible;
         }
     }
 }
