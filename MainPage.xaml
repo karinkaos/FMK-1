@@ -67,7 +67,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="ChooseClrBtn1" Background="Red" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+                <Button Name="ChooseClrBtn1" Background="Red" Width="50" Height="50" Margin="5" ClickMode="Press" Click="ChooseClr_Click"/>
                 <Button Name="ChooseClrBtn2" Background="Green" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
                 <Button Name="ChooseClrBtn3" Background="Blue" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
                 <Button Name="ChooseClrBtn4" Background="Yellow" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
