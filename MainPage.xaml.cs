@@ -98,10 +98,10 @@ namespace FMK_1
             {
                 PlayersNum = 4;
             }
-
-        private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            End.Visibility = Visibility.Visible;
+        }
+            private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+            {
+                End.Visibility = Visibility.Visible;
+            }
         }
     }
-}
