@@ -218,26 +218,27 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
             
-            <TextBlock FontSize="60">
+            <TextBlock FontSize="60" Visibility="Collapsed">
                 Started
             </TextBlock>
 
             </StackPanel>
 
-            <Button Name="StartGameBtn" Grid.Row="2" Width="200" Height="100" HorizontalAlignment="Center" 
+            <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
 
 
-            <Grid x:Name="Players" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+            <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
                 <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
                 <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
                 <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>

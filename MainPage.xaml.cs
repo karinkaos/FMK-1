@@ -105,31 +105,30 @@ namespace FMK_1
 				colorIndex = 0;
 			}
 		}
+
+		private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+		{
+			if (e.NewValue == 1)
+			{
+				PlayersNum = 2;
+			}
+			else if (e.NewValue == 2)
+			{
+				PlayersNum = 2;
+			}
+			else if (e.NewValue == 3)
+			{
+				PlayersNum = 3;
+			}
+			else if (e.NewValue == 4)
+			{
+				PlayersNum = 4;
+			}
+		}
+
+		private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+		{
+			End.Visibility = Visibility.Visible;
+		}
 	}
 }
-
-        private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
-        {
-            if (e.NewValue == 1)
-            {
-                PlayersNum = 2;
-            }
-            else if (e.NewValue == 2)
-            {
-                PlayersNum = 2;
-            }
-            else if (e.NewValue == 3)
-            {
-                PlayersNum = 3;
-            }
-            else if (e.NewValue == 4)
-            {
-                PlayersNum = 4;
-            }
-        }
-            private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-            {
-                End.Visibility = Visibility.Visible;
-            }
-        }
-    }
