@@ -12,8 +12,8 @@
 
         <!--Dice-->
         <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
-            <Grid>
-                <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center"/>
+            <Grid >
+                <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
                 <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
                     
                     <Grid.RowDefinitions>
