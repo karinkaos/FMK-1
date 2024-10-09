@@ -20,7 +20,8 @@ namespace FMK_1
         };
 
 		private int colorIndex = 0;  //Used to go through Color List.
-		private Random random = new Random();
+        private Random random = new Random();
+        private int PlayersNum = 0;
 
         public MainPage()
         {
@@ -31,6 +32,12 @@ namespace FMK_1
         {
             Start.Visibility = Visibility.Collapsed;
         }
+        private void Bts_click(object sender, RoutedEventArgs e)
+        {
+            Start.Visibility = Visibility.Visible;
+            End.Visibility = Visibility.Collapsed;
+        }
+
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
             int DiceValue = random.Next(1, 7);
@@ -100,3 +107,29 @@ namespace FMK_1
 		}
 	}
 }
+
+        private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if (e.NewValue == 1)
+            {
+                PlayersNum = 2;
+            }
+            else if (e.NewValue == 2)
+            {
+                PlayersNum = 2;
+            }
+            else if (e.NewValue == 3)
+            {
+                PlayersNum = 3;
+            }
+            else if (e.NewValue == 4)
+            {
+                PlayersNum = 4;
+            }
+        }
+            private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+            {
+                End.Visibility = Visibility.Visible;
+            }
+        }
+    }

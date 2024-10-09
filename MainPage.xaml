@@ -6,20 +6,171 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Pink">
+
 
     <Grid Background="Pink">
+        <Grid x:Name="Spelplan" Width="940">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Grön namn -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Rectangle Stroke="Transparent" Fill="#24FF00"/>
+                <TextBlock Text="Grön" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Grid>
+
+            <!-- Rosa namn -->
+            <Grid Grid.Column="3">
+                <Rectangle Stroke="Transparent" Fill="#FF00D6"/>
+                <TextBlock Text="Rosa" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Blå namn -->
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Rectangle Stroke="Transparent" Fill="#1400FF"/>
+                <TextBlock Text="Blå" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Röd namn -->
+            <Grid Grid.Row="3">
+                <Rectangle Stroke="Transparent" Fill="#FF0000"/>
+                <TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Grön pjäsnäst -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <Rectangle Stroke="Transparent" Fill="#538B4A"/>
+            </Grid>
+
+            <!-- Röd pjäsnäst -->
+            <Grid Grid.Column="1" Grid.Row="1" Height="240" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <Rectangle Stroke="Transparent" Fill="#FB7171"/>
+            </Grid>
+
+            <!-- Rosa pjäsnäst -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Rectangle Stroke="Transparent" Fill="#8B277B"/>
+            </Grid>
+
+            <!-- Blå pjäsnäst -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Rectangle Stroke="Transparent" Fill="#665EBC"/>
+            </Grid>
+
+            <!-- ellipse grupp spelplan-->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <!-- Grön linje till Höger -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,-140,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Grön linje höger till upp -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-270,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-400,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-530,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-660,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Grön linje upp till Rosa -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-660,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-660,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+
+                <!-- Rosa linje till ner -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-530,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-400,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-270,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Rosa linje ner till höger -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Rosa linje höger till blå -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,-10,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,120,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+
+                <!-- blå linje till vänster -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- blå linje vänster till ner -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,250,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,380,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,510,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,640,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- blå linje ner till röd -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,640,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,640,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+
+                <!-- röd linje till upp -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,510,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,380,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,250,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- röd linje upp till vänster -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- röd linje vänster till grön -->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,-10,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Grön mål-->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+
+                <!-- Blå mål-->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+
+                <!-- Röd Mål-->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,510,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,380,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,250,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,120,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+
+                <!-- Rosa mål-->
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-530,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-400,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-270,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-140,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+
+            </Grid>
+        </Grid>
+    <Grid>
+
+        <!--Dice-->
 
         <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
-
             <Grid >
                 <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
                 <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
+                    
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -34,10 +185,12 @@
                     <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
                 </Grid>
                 <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
+                <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
             </Grid>
+        </Grid>
 
-
-
+        <!--Pieces-->
+        <Grid>
             <Rectangle Name="RedPiece1" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
             <Rectangle Name="RedPiece2" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
             <Rectangle Name="RedPiece3" Height="50" Width="50" Fill="Red" Visibility="Collapsed"/>
@@ -59,6 +212,7 @@
             <Rectangle Name="YellowPiece4" Height="50" Width="50" Fill="Yellow" Visibility="Collapsed"/>
         </Grid>
 
+        <!--StartView-->
         <Grid Name="Start" Width="450" Height="600" Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -66,17 +220,60 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
                 <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
                 <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
                 <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+            
+            <TextBlock FontSize="60">
+                Started
+            </TextBlock>
 
             </StackPanel>
 
             <Button Name="StartGameBtn" Grid.Row="2" Width="200" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
 
+
+            <Grid x:Name="Players" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Slider x:Name="PlayerSlider"
+                        Height="40"
+                        Width="350"
+                        Minimum="1"
+                        Maximum="4"
+                        TickFrequency="1"
+                        Value="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="White"
+                        Foreground="White"
+                        TickPlacement="Outside"
+                        IsThumbToolTipEnabled="False"
+                        ValueChanged="PlayerSlider_ValueChanged">
+                </Slider>
+            </Grid>
         </Grid>
+        
+        <!--EndView-->
+        <Grid Name="End" Width="450" Height="600" Background="Blue" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock FontSize="60">
+                Ended
+            </TextBlock>
+            
+            <Button Name="Extra"  Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+            Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+        </Grid>
+       </Grid>
     </Grid>
 </Page>
