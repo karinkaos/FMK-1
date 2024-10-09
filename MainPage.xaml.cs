@@ -31,12 +31,83 @@ namespace FMK_1
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Collapsed;
+            if(PlayersNum == 1 || PlayersNum ==2)
+            {
+				RedPiece1.Visibility = Visibility.Visible;
+				RedPiece2.Visibility = Visibility.Visible;
+				RedPiece3.Visibility = Visibility.Visible;
+				RedPiece4.Visibility = Visibility.Visible;
+
+				GreenPiece1.Visibility = Visibility.Visible;
+				GreenPiece2.Visibility = Visibility.Visible;
+				GreenPiece3.Visibility = Visibility.Visible;
+				GreenPiece4.Visibility = Visibility.Visible;
+			}
+            else if(PlayersNum == 3)
+            {
+				RedPiece1.Visibility = Visibility.Visible;
+				RedPiece2.Visibility = Visibility.Visible;
+				RedPiece3.Visibility = Visibility.Visible;
+				RedPiece4.Visibility = Visibility.Visible;
+
+				GreenPiece1.Visibility = Visibility.Visible;
+				GreenPiece2.Visibility = Visibility.Visible;
+				GreenPiece3.Visibility = Visibility.Visible;
+				GreenPiece4.Visibility = Visibility.Visible;
+
+				BluePiece1.Visibility = Visibility.Visible;
+				BluePiece2.Visibility = Visibility.Visible;
+				BluePiece3.Visibility = Visibility.Visible;
+				BluePiece4.Visibility = Visibility.Visible;
+			}
+            else
+            {
+				RedPiece1.Visibility = Visibility.Visible;
+				RedPiece2.Visibility = Visibility.Visible;
+				RedPiece3.Visibility = Visibility.Visible;
+				RedPiece4.Visibility = Visibility.Visible;
+
+				GreenPiece1.Visibility = Visibility.Visible;
+				GreenPiece2.Visibility = Visibility.Visible;
+				GreenPiece3.Visibility = Visibility.Visible;
+				GreenPiece4.Visibility = Visibility.Visible;
+
+				BluePiece1.Visibility = Visibility.Visible;
+				BluePiece2.Visibility = Visibility.Visible;
+				BluePiece3.Visibility = Visibility.Visible;
+				BluePiece4.Visibility = Visibility.Visible;
+
+				YellowPiece1.Visibility = Visibility.Visible;
+                YellowPiece2.Visibility = Visibility.Visible;
+                YellowPiece3.Visibility = Visibility.Visible;
+                YellowPiece4.Visibility = Visibility.Visible;
+            }
         }
         private void Bts_click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Visible;
             End.Visibility = Visibility.Collapsed;
-        }
+			
+            RedPiece1.Visibility = Visibility.Collapsed;
+			RedPiece2.Visibility = Visibility.Collapsed;
+			RedPiece3.Visibility = Visibility.Collapsed;
+			RedPiece4.Visibility = Visibility.Collapsed;
+
+			GreenPiece1.Visibility = Visibility.Collapsed;
+			GreenPiece2.Visibility = Visibility.Collapsed;
+			GreenPiece3.Visibility = Visibility.Collapsed;
+			GreenPiece4.Visibility = Visibility.Collapsed;
+
+			BluePiece1.Visibility = Visibility.Collapsed;
+			BluePiece2.Visibility = Visibility.Collapsed;
+			BluePiece3.Visibility = Visibility.Collapsed;
+			BluePiece4.Visibility = Visibility.Collapsed;
+			
+            YellowPiece1.Visibility = Visibility.Collapsed;
+			YellowPiece2.Visibility = Visibility.Collapsed;
+			YellowPiece3.Visibility = Visibility.Collapsed;
+			YellowPiece4.Visibility = Visibility.Collapsed;
+		}
 
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
