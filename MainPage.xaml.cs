@@ -8,6 +8,7 @@ namespace FMK_1
     public sealed partial class MainPage : Page
     {
         private Random random = new Random();
+        private int PlayersNum = 0;
 
         public MainPage()
         {
@@ -70,6 +71,26 @@ namespace FMK_1
             Dot4.Visibility = Visibility.Collapsed;
             Dot5.Visibility = Visibility.Collapsed;
             Dot6.Visibility = Visibility.Collapsed;
+        }
+
+        private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if (e.NewValue == 1)
+            {
+                PlayersNum = 2;
+            }
+            else if (e.NewValue == 2)
+            {
+                PlayersNum = 2;
+            }
+            else if (e.NewValue == 3)
+            {
+                PlayersNum = 3;
+            }
+            else if (e.NewValue == 4)
+            {
+                PlayersNum = 4;
+            }
         }
     }
 }

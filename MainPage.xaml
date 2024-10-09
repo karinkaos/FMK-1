@@ -74,7 +74,29 @@
 
             <Button Name="StartGameBtn" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
-            
+
+
+            <Grid x:Name="Players" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                <Slider x:Name="PlayerSlider"
+                        Height="40"
+                        Width="350"
+                        Minimum="1"
+                        Maximum="4"
+                        TickFrequency="1"
+                        Value="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="White"
+                        Foreground="White"
+                        TickPlacement="Outside"
+                        IsThumbToolTipEnabled="False"
+                        ValueChanged="PlayerSlider_ValueChanged">
+                </Slider>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
