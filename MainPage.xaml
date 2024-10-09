@@ -67,10 +67,11 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="ChooseClrBtn1" Background="Red" Width="50" Height="50" Margin="5" ClickMode="Press" Click="ChooseClr_Click"/>
-                <Button Name="ChooseClrBtn2" Background="Green" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
-                <Button Name="ChooseClrBtn3" Background="Blue" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
-                <Button Name="ChooseClrBtn4" Background="Yellow" Width="50" Height="50" Margin="5" Click="ChooseClr_Click"/>
+                <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="50" Height="50" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+
             </StackPanel>
 
             <Button Name="StartGameBtn" Grid.Row="2" Width="200" Height="100" HorizontalAlignment="Center" 

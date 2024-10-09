@@ -3,6 +3,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 
 
 namespace FMK_1
@@ -84,12 +85,12 @@ namespace FMK_1
             Dot6.Visibility = Visibility.Collapsed;
         }
 
-		private void ChooseClr_Click(object sender, RoutedEventArgs e)
+		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
 		{
-            Button clickedButton = sender as Button;
-			            
-			clickedButton.Background = new SolidColorBrush(colors[colorIndex]);
-			
+			Rectangle clickedRectangle = sender as Rectangle ;
+
+			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+
 			colorIndex++;
 
 			if (colorIndex >= colors.Length)
@@ -97,5 +98,5 @@ namespace FMK_1
 				colorIndex = 0;
 			}
 		}
-    }
+	}
 }
