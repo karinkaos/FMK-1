@@ -111,18 +111,26 @@ namespace FMK_1
 			if (e.NewValue == 1)
 			{
 				PlayersNum = 2;
+                BlockClrSqr3.Visibility = Visibility.Visible;
+				BlockClrSqr4.Visibility = Visibility.Visible;
 			}
 			else if (e.NewValue == 2)
 			{
 				PlayersNum = 2;
+				BlockClrSqr3.Visibility = Visibility.Visible;
+				BlockClrSqr4.Visibility = Visibility.Visible;
 			}
 			else if (e.NewValue == 3)
 			{
 				PlayersNum = 3;
+				BlockClrSqr3.Visibility = Visibility.Collapsed;
+				BlockClrSqr4.Visibility = Visibility.Visible;
 			}
 			else if (e.NewValue == 4)
 			{
 				PlayersNum = 4;
+				BlockClrSqr3.Visibility = Visibility.Collapsed;
+				BlockClrSqr4.Visibility = Visibility.Collapsed;
 			}
 		}
 
