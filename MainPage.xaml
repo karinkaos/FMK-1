@@ -46,25 +46,110 @@
                 <TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
             </Grid>
 
-            <!-- Grön pjäsnäst -->
+            <!-- Grön pjäsnäst och pjäser -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <Rectangle Stroke="Transparent" Fill="#538B4A"/>
+
+                <Rectangle x:Name="GreenPiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
             </Grid>
 
-            <!-- Röd pjäsnäst -->
+            <!-- Röd pjäsnäst och pjäser-->
             <Grid Grid.Column="1" Grid.Row="1" Height="240" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <Rectangle Stroke="Transparent" Fill="#FB7171"/>
+
+                <Rectangle x:Name="RedPiece1" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece2" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece3" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece4" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
             </Grid>
 
-            <!-- Rosa pjäsnäst -->
+            <!-- Rosa pjäsnäst och pjäser -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Rectangle Stroke="Transparent" Fill="#8B277B"/>
+
+                <Rectangle x:Name="YellowPiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
             </Grid>
 
-            <!-- Blå pjäsnäst -->
+            <!-- Blå pjäsnäst och pjäser -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Rectangle Stroke="Transparent" Fill="#665EBC"/>
+
+                <Rectangle x:Name="BluePiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
             </Grid>
+
 
             <!-- ellipse grupp spelplan-->
             <Grid Grid.Row="1" Grid.Column="1">
@@ -214,6 +299,65 @@
 
             <!--StartView-->
             <Grid Name="Start" Width="450" Height="600" Background="Gray">
+
+            <!-- Dice on Board-->
+            <Grid x:Name="Dice2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="20,20,0,0" Width="80" Height="80" Background="#FFFFFF">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Ellipse x:Name="Dot11" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                <Ellipse x:Name="Dot21" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                <Ellipse x:Name="Dot31" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                <Ellipse x:Name="Dot41" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                <Ellipse x:Name="Dot51" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                <Ellipse x:Name="Dot61" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+            </Grid>
+            
+            <!--End Turn-->
+            <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
+            
+        </Grid>
+        
+        <Grid>
+
+            <!--Dice-->
+            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
+                <Grid >
+                    <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
+                    <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                        <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                    </Grid>
+                    <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
+                    <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
+                </Grid>
+            </Grid>
+
+            <!--StartView-->
+            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -228,6 +372,7 @@
                     <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped"></Rectangle>
                     <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped"></Rectangle>
                         
+
                     <TextBlock FontSize="60" Visibility="Collapsed">
                 Started
                     </TextBlock>
@@ -236,7 +381,7 @@
 
                 <Rectangle x:Name="BlockClrSqr3" Fill="#7F808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
                 <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
-
+               
                 <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
 
@@ -275,7 +420,8 @@
                 Ended
                 </TextBlock>
 
-                <Button Name="Extra"  Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        
             Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
             </Grid>
         </Grid>
