@@ -19,6 +19,10 @@ namespace FMK_1
             Colors.Yellow 
         };
 
+		private SolidColorBrush PlayerOneColor;
+		private SolidColorBrush PlayerTwoColor;
+		private SolidColorBrush PlayerThreeColor;
+		private SolidColorBrush PlayerFourColor;
 		private int colorIndex = 0;  //Used to go through Color List.
         private Random random = new Random();
         private int PlayersNum = 0;
@@ -26,12 +30,20 @@ namespace FMK_1
         public MainPage()
         {
             this.InitializeComponent();
-        }
+			colorIndex = 0;
+			PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
+			PlayerTwoColor = new SolidColorBrush(colors[colorIndex + 1]);
+			PlayerThreeColor = new SolidColorBrush(colors[colorIndex + 2]);
+			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
+		}
 
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Collapsed;
-            if(PlayersNum == 1 || PlayersNum ==2)
+
+			ColorPieces();
+            
+			if(PlayersNum == 1 || PlayersNum ==2)
             {
 				RedPiece1.Visibility = Visibility.Visible;
 				RedPiece2.Visibility = Visibility.Visible;
@@ -107,6 +119,9 @@ namespace FMK_1
 			YellowPiece2.Visibility = Visibility.Collapsed;
 			YellowPiece3.Visibility = Visibility.Collapsed;
 			YellowPiece4.Visibility = Visibility.Collapsed;
+
+			colorIndex = 0;
+
 		}
 
         private void DiceButton_Click(object sender, RoutedEventArgs e)
@@ -163,20 +178,6 @@ namespace FMK_1
             Dot6.Visibility = Visibility.Collapsed;
         }
 
-		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-		{
-			Rectangle clickedRectangle = sender as Rectangle ;
-
-			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
-
-			colorIndex++;
-
-			if (colorIndex >= colors.Length)
-			{
-				colorIndex = 0;
-			}
-		}
-
 		private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
 		{
 			if (e.NewValue == 1)
@@ -208,6 +209,96 @@ namespace FMK_1
 		private void DiceButton_Click_1(object sender, RoutedEventArgs e)
 		{
 			End.Visibility = Visibility.Visible;
+		}
+
+		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		{
+			Rectangle clickedRectangle = sender as Rectangle;
+
+			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+
+			PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
+
+			colorIndex++;
+
+			if (colorIndex >= colors.Length)
+			{
+				colorIndex = 0;
+			}
+
+		}
+
+		private void ChooseClrSqr2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		{
+			Rectangle clickedRectangle = sender as Rectangle;
+
+			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+
+			PlayerTwoColor = new SolidColorBrush(colors[colorIndex]);
+
+			colorIndex++;
+
+			if (colorIndex >= colors.Length)
+			{
+				colorIndex = 0;
+			}
+		}
+
+		private void ChooseClrSqr3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		{
+			Rectangle clickedRectangle = sender as Rectangle;
+
+			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+
+			PlayerThreeColor = new SolidColorBrush(colors[colorIndex]);
+
+			colorIndex++;
+
+			if (colorIndex >= colors.Length)
+			{
+				colorIndex = 0;
+			}
+
+		}
+
+		private void ChooseClrSqr4_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		{
+			Rectangle clickedRectangle = sender as Rectangle;
+
+			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+
+			PlayerFourColor = new SolidColorBrush(colors[colorIndex]);
+
+			colorIndex++;
+
+			if (colorIndex >= colors.Length)
+			{
+				colorIndex = 0;
+			}
+
+		}
+
+		private void ColorPieces()
+		{
+			RedPiece1.Fill = PlayerOneColor;
+			RedPiece2.Fill = PlayerOneColor;
+			RedPiece3.Fill = PlayerOneColor;
+			RedPiece4.Fill = PlayerOneColor;
+
+			GreenPiece1.Fill = PlayerTwoColor;
+			GreenPiece2.Fill = PlayerTwoColor;
+			GreenPiece3.Fill = PlayerTwoColor;
+			GreenPiece4.Fill = PlayerTwoColor;
+
+			BluePiece1.Fill = PlayerThreeColor;
+			BluePiece2.Fill = PlayerThreeColor;
+			BluePiece3.Fill = PlayerThreeColor;
+			BluePiece4.Fill = PlayerThreeColor;
+
+			YellowPiece1.Fill = PlayerFourColor;
+			YellowPiece2.Fill = PlayerFourColor;
+			YellowPiece3.Fill = PlayerFourColor;
+			YellowPiece4.Fill = PlayerFourColor;
 		}
 	}
 }
