@@ -57,17 +57,17 @@
                 </Rectangle>
                 <Rectangle x:Name="GreenPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="GreenPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="GreenPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
@@ -78,22 +78,22 @@
 
                 <Rectangle x:Name="RedPiece1" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="RedPiece2" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="RedPiece3" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="RedPiece4" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
@@ -104,22 +104,22 @@
 
                 <Rectangle x:Name="YellowPiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="YellowPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="YellowPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="YellowPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
@@ -130,22 +130,22 @@
 
                 <Rectangle x:Name="BluePiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="BluePiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="BluePiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Rectangle x:Name="BluePiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
                     <Rectangle.Fill>
-                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png"/>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
