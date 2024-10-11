@@ -11,8 +11,9 @@ namespace FMK_1
 {
     public sealed partial class MainPage : Page
     {
+        public int player;
         //Color List
-		private Color[] colors = new Color[]
+        private Color[] colors = new Color[]
 		{
 			Colors.Red,    
             Colors.Green, 
@@ -31,8 +32,37 @@ namespace FMK_1
             this.InitializeComponent();
         }
 
+        private Grid CreateGrid(string gridName, Thickness margin)
+        {
+            Grid grid = new Grid
+            {
+                Name = gridName,
+                Background = new SolidColorBrush(Colors.Red),
+                Height = 50,
+                Width = 50,
+                Visibility = Visibility.Visible,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Margin = margin,
+                CanDrag = true 
+            };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Name = "Textblock_" + gridName,
+                Text = "TEST",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            grid.Children.Add(textBlock);
+
+            grid.DragStarting += Test1_DragStarting;
+
+            return grid;
+        }
+
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
+            player = 0;
             Start.Visibility = Visibility.Collapsed;
         }
         private void Bts_click(object sender, RoutedEventArgs e)
