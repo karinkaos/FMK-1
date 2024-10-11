@@ -130,10 +130,16 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Goal.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Pieces\BluePiece.png" />
     <Content Include="Assets\Pieces\GreenPiece.png" />
     <Content Include="Assets\Pieces\RedPiece.png" />
     <Content Include="Assets\Pieces\YellowPiece.png" />
+    <Content Include="Assets\Win.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
