@@ -1,4 +1,5 @@
 using System;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,8 +11,9 @@ namespace FMK_1
 {
     public sealed partial class MainPage : Page
     {
+        public int player;
         //Color List
-		private Color[] colors = new Color[]
+        private Color[] colors = new Color[]
 		{
 			Colors.Red,    
             Colors.Green, 
@@ -39,9 +41,45 @@ namespace FMK_1
 			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
 		}
 
+        private Grid CreateGrid(string gridName, Thickness margin)
+        {
+            Grid grid = new Grid
+            {
+                Name = gridName,
+                Background = new SolidColorBrush(Colors.Red),
+                Height = 50,
+                Width = 50,
+                Visibility = Visibility.Visible,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Margin = margin,
+                CanDrag = true 
+            };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Name = "Textblock_" + gridName,
+                Text = "TEST",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            grid.Children.Add(textBlock);
+
+            grid.DragStarting += Test1_DragStarting;
+
+            return grid;
+        }
+
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
+            player = 0;
             Start.Visibility = Visibility.Collapsed;
+           
+           Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
+            Test.Children.Add(P1);
+
+            // Create and add the second Grid (P2)
+            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
+            Test.Children.Add(P2);
 
 			ColorPieces();
 
@@ -97,6 +135,7 @@ namespace FMK_1
 				YellowPiece4.Visibility = Visibility.Visible;
 			}
 		}
+
         private void Bts_click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Visible;
@@ -385,5 +424,61 @@ namespace FMK_1
 			YellowPiece3.Fill = PlayerFourColor;
 			YellowPiece4.Fill = PlayerFourColor;
 		}
-	}
+	
+
+        //TODO: Byt så när man lyfter så ändras lyft iconen till något passande
+        private void Test_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+            e.DragUIOverride.Caption = "";
+            e.DragUIOverride.IsGlyphVisible = true;
+        }
+
+        private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                string name = element.Name;
+
+                args.Data.Properties.Add("Name", name);
+
+                args.Data.SetText(name);
+
+                args.DragUI.SetContentFromDataPackage();
+            }
+        }
+
+        private async void Test_Drop(object sender, DragEventArgs e)
+        {
+            if (e.DataView.Properties.ContainsKey("Name"))
+            {
+                var name = e.DataView.Properties["Name"] as string;
+
+                var draggedElement = (UIElement)this.FindName(name);
+
+                if (draggedElement != null)
+                {
+                    draggedElement.Visibility = Visibility.Collapsed;
+                    player++;
+                }
+                if (player == 2)
+                {
+                    End.Visibility = Visibility.Visible;
+                    MediaElement SoundPlayer = new MediaElement();
+                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
+                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    SoundPlayer.SetSource(stream, soundFile.ContentType);
+                    SoundPlayer.Play();
+                }
+                else
+                {
+                    MediaElement SoundPlayer = new MediaElement();
+                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
+                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    SoundPlayer.SetSource(stream, soundFile.ContentType);
+                    SoundPlayer.Play();
+                }
+            }
+        }
+    }
 }
