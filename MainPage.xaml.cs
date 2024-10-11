@@ -250,12 +250,25 @@ namespace FMK_1
 
                 if (draggedElement != null)
                 {
+                    draggedElement.Visibility = Visibility.Collapsed;
+                    player++;
+                }
+                if (player == 2)
+                {
+                    End.Visibility = Visibility.Visible;
+                    MediaElement SoundPlayer = new MediaElement();
+                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
+                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    SoundPlayer.SetSource(stream, soundFile.ContentType);
+                    SoundPlayer.Play();
+                }
+                else
+                {
+                    MediaElement SoundPlayer = new MediaElement();
                     var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
                     var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
                     SoundPlayer.SetSource(stream, soundFile.ContentType);
                     SoundPlayer.Play();
-                    draggedElement.Visibility = Visibility.Collapsed;
-
                 }
             }
         }
