@@ -349,15 +349,18 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                    <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                    <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
-                    <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped"></Rectangle>
 
                     <TextBlock FontSize="60" Visibility="Collapsed">
                 Started
                     </TextBlock>
 
                 </StackPanel>
+
+                <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
+                <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
 
                 <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
