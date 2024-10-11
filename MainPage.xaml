@@ -153,93 +153,120 @@
 
             <!-- ellipse grupp spelplan-->
             <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
                 <!-- Grön linje till Höger -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,-140,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- Grön linje höger till upp -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-270,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-400,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-530,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-660,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
 
                 <!-- Grön linje upp till Rosa -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-660,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-660,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
 
                 <!-- Rosa linje till ner -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-530,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-400,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-270,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- Rosa linje ner till höger -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,-140,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- Rosa linje höger till blå -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,-10,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="660,120,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
 
                 <!-- blå linje till vänster -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- blå linje vänster till ner -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,250,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,380,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,510,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,640,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- blå linje ner till röd -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,640,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,640,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
 
                 <!-- röd linje till upp -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,510,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,380,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,250,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- röd linje upp till vänster -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,120,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- röd linje vänster till grön -->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,-10,0,0" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
 
                 <!-- Grön mål-->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="270,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="205,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="75,-10,0,0" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
 
                 <!-- Blå mål-->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="595,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="530,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="400,-10,0,0" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
 
                 <!-- Röd Mål-->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,510,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,380,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,250,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,120,0,0" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
 
                 <!-- Rosa mål-->
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-530,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-400,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-270,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse HorizontalAlignment="Left" VerticalAlignment="Center" Margin="335,-140,0,0" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
 
             </Grid>
 
