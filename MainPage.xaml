@@ -298,6 +298,21 @@
         
         <Grid>
 
+            <!--Test Function för DragNDrop-->
+            <Grid Name="Test" Width="250" Height="250" Background="Gray" AllowDrop="True" DragOver="Test_DragOver" Drop="Test_Drop" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Name="xd" Text="GOAL!" FontSize="56"/>
+
+            </Grid>
+
+            <Grid Name="Gaming" Background="Red" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" CanDrag="True" DragStarting="Test1_DragStarting">
+                <TextBlock Name="Textblock" Text="TEST"/>
+            </Grid>
+
+            <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
+
+            <!--Test Function för DragNDrop-->
+
+
             <!--Dice-->
             <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
                 <Grid >

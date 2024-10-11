@@ -1,4 +1,5 @@
 using System;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -215,6 +216,48 @@ namespace FMK_1
 
             // Call the DicePlaceOnBoard function to move the dice based on the player's turn
             DicePlaceOnBoard(playerTurn);
+        }
+
+        //TODO: Byt så när man lyfter så ändras lyft iconen till något passande
+        private void Test_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+            e.DragUIOverride.Caption = "";
+            e.DragUIOverride.IsGlyphVisible = true;
+        }
+
+        private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                string name = element.Name;
+
+                args.Data.Properties.Add("Name", name);
+
+                args.Data.SetText(name);
+
+                args.DragUI.SetContentFromDataPackage();
+            }
+        }
+
+        private async void Test_Drop(object sender, DragEventArgs e)
+        {
+            if (e.DataView.Properties.ContainsKey("Name"))
+            {
+                var name = e.DataView.Properties["Name"] as string;
+
+                var draggedElement = (UIElement)this.FindName(name);
+
+                if (draggedElement != null)
+                {
+                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
+                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    SoundPlayer.SetSource(stream, soundFile.ContentType);
+                    SoundPlayer.Play();
+                    draggedElement.Visibility = Visibility.Collapsed;
+
+                }
+            }
         }
     }
 }
