@@ -64,6 +64,12 @@ namespace FMK_1
         {
             player = 0;
             Start.Visibility = Visibility.Collapsed;
+            Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
+            Test.Children.Add(P1);
+
+            // Create and add the second Grid (P2)
+            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
+            Test.Children.Add(P2);
         }
         private void Bts_click(object sender, RoutedEventArgs e)
         {

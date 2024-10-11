@@ -304,10 +304,6 @@
 
             </Grid>
 
-            <Grid Name="Gaming" Background="Red" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" CanDrag="True" DragStarting="Test1_DragStarting">
-                <TextBlock Name="Textblock" Text="TEST"/>
-            </Grid>
-
             <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
 
             <!--Test Function för DragNDrop-->
