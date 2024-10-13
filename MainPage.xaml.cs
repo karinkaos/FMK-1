@@ -50,7 +50,7 @@ namespace FMK_1
                 Height = 50,
                 Width = 50,
                 Visibility = Visibility.Visible,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                //HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = margin,
                 CanDrag = true 
             };
@@ -74,11 +74,11 @@ namespace FMK_1
             player = 0;
             Start.Visibility = Visibility.Collapsed;
            
-            Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
+            Grid P1 = CreateGrid("P1", new Thickness(0, 0, 0, 0));
             home.Children.Add(P1);
 
             // Create and add the second Grid (P2)
-            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
+            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 0));
             home.Children.Add(P2);
 
 			ColorPieces();
@@ -461,9 +461,23 @@ namespace FMK_1
 
                 if (draggedElement != null)
                 {
-                    draggedElement.Visibility = Visibility.Collapsed;
+                    var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
+
+                    if (parent != null)
+                    {
+                        parent.Children.Remove(draggedElement);
+                    }
+                    if (draggedElement is FrameworkElement fe)
+                    {
+                        //fe.HorizontalAlignment = HorizontalAlignment.Stretch;
+                        //fe.VerticalAlignment = VerticalAlignment.Stretch;
+                    }
+
+                    Test.Children.Add(draggedElement);
                     player++;
                 }
+
+                /*
                 if (player == 2)
                 {
                     End.Visibility = Visibility.Visible;
@@ -481,6 +495,7 @@ namespace FMK_1
                     SoundPlayer.SetSource(stream, soundFile.ContentType);
                     SoundPlayer.Play();
                 }
+                */
             }
         }
     }
