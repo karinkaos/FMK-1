@@ -74,12 +74,12 @@ namespace FMK_1
             player = 0;
             Start.Visibility = Visibility.Collapsed;
            
-           Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
-            Test.Children.Add(P1);
+            Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
+            home.Children.Add(P1);
 
             // Create and add the second Grid (P2)
             Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
-            Test.Children.Add(P2);
+            home.Children.Add(P2);
 
 			ColorPieces();
 
@@ -424,15 +424,10 @@ namespace FMK_1
 			YellowPiece3.Fill = PlayerFourColor;
 			YellowPiece4.Fill = PlayerFourColor;
 		}
-	
+
 
         //TODO: Byt så när man lyfter så ändras lyft iconen till något passande
-        private void Test_DragOver(object sender, DragEventArgs e)
-        {
-            e.AcceptedOperation = DataPackageOperation.Move;
-            e.DragUIOverride.Caption = "";
-            e.DragUIOverride.IsGlyphVisible = true;
-        }
+        
 
         private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
         {
@@ -444,13 +439,21 @@ namespace FMK_1
 
                 args.Data.SetText(name);
 
-                args.DragUI.SetContentFromDataPackage();
+                //args.DragUI.SetContentFromDataPackage(); 
+                //HÄR^
             }
+        }
+
+        private void Test_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+            e.DragUIOverride.IsGlyphVisible = false;
+            e.DragUIOverride.IsCaptionVisible = false;
+            e.DragUIOverride.IsContentVisible = true;
         }
 
         private async void Test_Drop(object sender, DragEventArgs e)
         {
-            if (e.DataView.Properties.ContainsKey("Name"))
             {
                 var name = e.DataView.Properties["Name"] as string;
 
