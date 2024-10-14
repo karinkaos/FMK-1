@@ -8,6 +8,48 @@
     mc:Ignorable="d"
     Background="Pink">
 
+    <Page.Resources>
+        <Storyboard x:Name="Push">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-28.433"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.899"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="41.093"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-10.274"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-20.556"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-62.612"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-91.342"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-68.493"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-68.493"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-30.822"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-30.822"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
 
     <Grid Background="Pink">
         <Grid x:Name="Spelplan" Width="940">
@@ -290,12 +332,12 @@
                 <Ellipse x:Name="Dot51" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
                 <Ellipse x:Name="Dot61" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
             </Grid>
-            
+
             <!--End Turn-->
             <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
-            
+
         </Grid>
-        
+
         <Grid>
 
             <!--Test Function för DragNDrop-->
@@ -308,6 +350,37 @@
 
             <!--Test Function för DragNDrop-->
 
+
+
+            <!-- Knuffanimation -->
+
+            <Grid>
+
+                <Rectangle x:Name="PushPiece1" HorizontalAlignment="Left" Height="210" Width="135" Margin="533,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform Rotation="0"/>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Rectangle x:Name="PushPiece2" HorizontalAlignment="Left" Height="210" Width="135" Margin="825,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform Rotation="0"/>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Button Content="Knuffa!" Height="75" Margin="900,720,0,0" VerticalAlignment="Top" Width="253" Click="Push_Click"/>
+
+                <MediaElement x:Name="PushSound" AutoPlay="False" Source="Assets/PushSound.mp3" Visibility="Collapsed"/>
+                <Image x:Name="ExplosionImage2" Source="/Assets/Explosion-Craiyon.png" Width="300" Height="300" Visibility="Collapsed" Margin="550,0,500,50"/>
+                <Image x:Name="ExplosionImage1" Source="/Assets/Explosion-Craiyon.png" Width="200" Height="200" Visibility="Collapsed" Margin="550,0,500,50"/>
+
+            </Grid>
 
             <!--Dice-->
             <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
