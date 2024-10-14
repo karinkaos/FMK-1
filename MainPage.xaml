@@ -10,6 +10,10 @@
 
 
     <Grid Background="Pink">
+        
+        <Grid Name="Test" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="Test_DragOver" Drop="Test_Drop"/>
+        <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
+        
         <Grid x:Name="Spelplan" Width="940">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -21,7 +25,6 @@
                 <RowDefinition Height="7*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
             <!-- Grön namn -->
             <Grid Grid.Row="0" Grid.Column="0">
                 <Rectangle Stroke="Transparent" Fill="#24FF00"/>
@@ -181,93 +184,262 @@
                 </Grid.RowDefinitions>
 
                 <!-- Grön linje till Höger -->
-                <Ellipse Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
-                <Ellipse Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+
+                <Grid Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Grön linje höger till upp -->
-                <Ellipse Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
-                <Ellipse Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
-                <Ellipse Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
-                <Ellipse Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Grid Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Grön linje upp till Rosa -->
-                <Ellipse Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Grid Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+
+                <Grid Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Rosa linje till ner -->
-                <Ellipse Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Rosa linje ner till höger -->
-                <Ellipse Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Rosa linje höger till blå -->
-                <Ellipse Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Grid Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- blå linje till vänster -->
-                <Ellipse Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- blå linje vänster till ner -->
-                <Ellipse Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- blå linje ner till röd -->
-                <Ellipse Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Grid Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- röd linje till upp -->
-                <Ellipse Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- röd linje upp till vänster -->
-                <Ellipse Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
-                <Ellipse Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- röd linje vänster till grön -->
-                <Ellipse Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Grid Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Grön mål-->
-                <Ellipse Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
-                <Ellipse Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Grid Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Blå mål-->
-                <Ellipse Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse Grid.Column="8" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
-                <Ellipse Grid.Column="6" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Grid Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="8" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="6" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
 
                 <!-- Röd Mål-->
-                <Ellipse Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
-
+                <Grid Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                
                 <!-- Rosa mål-->
-                <Ellipse Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-                <Ellipse Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
-
+                <Grid Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
+                <Grid Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="Test_DragOver" Drop="Drop2"/>
+                </Grid>
             </Grid>
 
             <!-- Dice on Board-->
@@ -293,27 +465,14 @@
             
             <!--End Turn-->
             <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
-            
         </Grid>
         
         <Grid>
-
-            <!--Test Function för DragNDrop-->
-            <Grid Name="Test" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="Test_DragOver" Drop="Test_Drop">
-
-            </Grid>
-
-            <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
-
-            <!--Test Function för DragNDrop-->
-
-
             <!--Dice-->
             <Grid x:Name="DiceBox" Width="300" Height="300" Opacity="1" Background="#000000" Visibility="Visible" HorizontalAlignment="Left">
                 <Grid >
                     <TextBox x:Name="DiceResult" Width="300" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
                     <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
-
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -345,17 +504,13 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
                     <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped"></Rectangle>
                     <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped"></Rectangle>
                     <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped"></Rectangle>
 
-                    <TextBlock FontSize="60" Visibility="Collapsed">
-                Started
-                    </TextBlock>
-
+                    <TextBlock FontSize="60" Visibility="Collapsed" Text="Started"/>
                 </StackPanel>
 
                 <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
@@ -394,13 +549,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
-                <TextBlock FontSize="60">
-                Ended
-                </TextBlock>
-
-                <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
-            Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+                <TextBlock FontSize="60" Text="Ended"/>
+                <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
             </Grid>
         </Grid>
     </Grid>

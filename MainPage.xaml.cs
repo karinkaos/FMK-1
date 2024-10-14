@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace FMK_1
@@ -14,18 +15,18 @@ namespace FMK_1
         public int player;
         //Color List
         private Color[] colors = new Color[]
-		{
-			Colors.Red,    
-            Colors.Green, 
-            Colors.Blue,   
-            Colors.Yellow 
+        {
+            Colors.Red,
+            Colors.Green,
+            Colors.Blue,
+            Colors.Yellow
         };
 
-		private SolidColorBrush PlayerOneColor;
-		private SolidColorBrush PlayerTwoColor;
-		private SolidColorBrush PlayerThreeColor;
-		private SolidColorBrush PlayerFourColor;
-		private int colorIndex = 0;  //Used to go through Color List.
+        private SolidColorBrush PlayerOneColor;
+        private SolidColorBrush PlayerTwoColor;
+        private SolidColorBrush PlayerThreeColor;
+        private SolidColorBrush PlayerFourColor;
+        private int colorIndex = 0;  //Used to go through Color List.
         private Random random = new Random();
         private int PlayersNum = 0;
         private int playerTurn = 1;
@@ -34,12 +35,12 @@ namespace FMK_1
         public MainPage()
         {
             this.InitializeComponent();
-			colorIndex = 0;
-			PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
-			PlayerTwoColor = new SolidColorBrush(colors[colorIndex + 1]);
-			PlayerThreeColor = new SolidColorBrush(colors[colorIndex + 2]);
-			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
-		}
+            colorIndex = 0;
+            PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
+            PlayerTwoColor = new SolidColorBrush(colors[colorIndex + 1]);
+            PlayerThreeColor = new SolidColorBrush(colors[colorIndex + 2]);
+            PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
+        }
 
         private Grid CreateGrid(string gridName, Thickness margin)
         {
@@ -52,7 +53,7 @@ namespace FMK_1
                 Visibility = Visibility.Visible,
                 //HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = margin,
-                CanDrag = true 
+                CanDrag = true
             };
 
             TextBlock textBlock = new TextBlock
@@ -73,7 +74,7 @@ namespace FMK_1
         {
             player = 0;
             Start.Visibility = Visibility.Collapsed;
-           
+
             Grid P1 = CreateGrid("P1", new Thickness(0, 0, 0, 0));
             home.Children.Add(P1);
 
@@ -81,88 +82,88 @@ namespace FMK_1
             Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 0));
             home.Children.Add(P2);
 
-			ColorPieces();
+            ColorPieces();
 
-			if (PlayersNum == 1 || PlayersNum == 2)
-			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+            if (PlayersNum == 1 || PlayersNum == 2)
+            {
+                RedPiece1.Visibility = Visibility.Visible;
+                RedPiece2.Visibility = Visibility.Visible;
+                RedPiece3.Visibility = Visibility.Visible;
+                RedPiece4.Visibility = Visibility.Visible;
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
-			}
-			else if (PlayersNum == 3)
-			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+                GreenPiece1.Visibility = Visibility.Visible;
+                GreenPiece2.Visibility = Visibility.Visible;
+                GreenPiece3.Visibility = Visibility.Visible;
+                GreenPiece4.Visibility = Visibility.Visible;
+            }
+            else if (PlayersNum == 3)
+            {
+                RedPiece1.Visibility = Visibility.Visible;
+                RedPiece2.Visibility = Visibility.Visible;
+                RedPiece3.Visibility = Visibility.Visible;
+                RedPiece4.Visibility = Visibility.Visible;
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
+                GreenPiece1.Visibility = Visibility.Visible;
+                GreenPiece2.Visibility = Visibility.Visible;
+                GreenPiece3.Visibility = Visibility.Visible;
+                GreenPiece4.Visibility = Visibility.Visible;
 
-				BluePiece1.Visibility = Visibility.Visible;
-				BluePiece2.Visibility = Visibility.Visible;
-				BluePiece3.Visibility = Visibility.Visible;
-				BluePiece4.Visibility = Visibility.Visible;
-			}
-			else
-			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+                BluePiece1.Visibility = Visibility.Visible;
+                BluePiece2.Visibility = Visibility.Visible;
+                BluePiece3.Visibility = Visibility.Visible;
+                BluePiece4.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                RedPiece1.Visibility = Visibility.Visible;
+                RedPiece2.Visibility = Visibility.Visible;
+                RedPiece3.Visibility = Visibility.Visible;
+                RedPiece4.Visibility = Visibility.Visible;
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
+                GreenPiece1.Visibility = Visibility.Visible;
+                GreenPiece2.Visibility = Visibility.Visible;
+                GreenPiece3.Visibility = Visibility.Visible;
+                GreenPiece4.Visibility = Visibility.Visible;
 
-				BluePiece1.Visibility = Visibility.Visible;
-				BluePiece2.Visibility = Visibility.Visible;
-				BluePiece3.Visibility = Visibility.Visible;
-				BluePiece4.Visibility = Visibility.Visible;
+                BluePiece1.Visibility = Visibility.Visible;
+                BluePiece2.Visibility = Visibility.Visible;
+                BluePiece3.Visibility = Visibility.Visible;
+                BluePiece4.Visibility = Visibility.Visible;
 
-				YellowPiece1.Visibility = Visibility.Visible;
-				YellowPiece2.Visibility = Visibility.Visible;
-				YellowPiece3.Visibility = Visibility.Visible;
-				YellowPiece4.Visibility = Visibility.Visible;
-			}
-		}
+                YellowPiece1.Visibility = Visibility.Visible;
+                YellowPiece2.Visibility = Visibility.Visible;
+                YellowPiece3.Visibility = Visibility.Visible;
+                YellowPiece4.Visibility = Visibility.Visible;
+            }
+        }
 
         private void Bts_click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Visible;
             End.Visibility = Visibility.Collapsed;
 
-			RedPiece1.Visibility = Visibility.Collapsed;
-			RedPiece2.Visibility = Visibility.Collapsed;
-			RedPiece3.Visibility = Visibility.Collapsed;
-			RedPiece4.Visibility = Visibility.Collapsed;
+            RedPiece1.Visibility = Visibility.Collapsed;
+            RedPiece2.Visibility = Visibility.Collapsed;
+            RedPiece3.Visibility = Visibility.Collapsed;
+            RedPiece4.Visibility = Visibility.Collapsed;
 
-			GreenPiece1.Visibility = Visibility.Collapsed;
-			GreenPiece2.Visibility = Visibility.Collapsed;
-			GreenPiece3.Visibility = Visibility.Collapsed;
-			GreenPiece4.Visibility = Visibility.Collapsed;
+            GreenPiece1.Visibility = Visibility.Collapsed;
+            GreenPiece2.Visibility = Visibility.Collapsed;
+            GreenPiece3.Visibility = Visibility.Collapsed;
+            GreenPiece4.Visibility = Visibility.Collapsed;
 
-			BluePiece1.Visibility = Visibility.Collapsed;
-			BluePiece2.Visibility = Visibility.Collapsed;
-			BluePiece3.Visibility = Visibility.Collapsed;
-			BluePiece4.Visibility = Visibility.Collapsed;
+            BluePiece1.Visibility = Visibility.Collapsed;
+            BluePiece2.Visibility = Visibility.Collapsed;
+            BluePiece3.Visibility = Visibility.Collapsed;
+            BluePiece4.Visibility = Visibility.Collapsed;
 
-			YellowPiece1.Visibility = Visibility.Collapsed;
-			YellowPiece2.Visibility = Visibility.Collapsed;
-			YellowPiece3.Visibility = Visibility.Collapsed;
-			YellowPiece4.Visibility = Visibility.Collapsed;
+            YellowPiece1.Visibility = Visibility.Collapsed;
+            YellowPiece2.Visibility = Visibility.Collapsed;
+            YellowPiece3.Visibility = Visibility.Collapsed;
+            YellowPiece4.Visibility = Visibility.Collapsed;
 
-			colorIndex = 0;
-		}
+            colorIndex = 0;
+        }
 
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
@@ -246,38 +247,38 @@ namespace FMK_1
             Dot61.Visibility = Visibility.Collapsed;
         }
 
-		private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
-		{
-			if (e.NewValue == 1)
-			{
-				PlayersNum = 2;
-				BlockClrSqr3.Visibility = Visibility.Visible;
-				BlockClrSqr4.Visibility = Visibility.Visible;
-			}
-			else if (e.NewValue == 2)
-			{
-				PlayersNum = 2;
-				BlockClrSqr3.Visibility = Visibility.Visible;
-				BlockClrSqr4.Visibility = Visibility.Visible;
-			}
-			else if (e.NewValue == 3)
-			{
-				PlayersNum = 3;
-				BlockClrSqr3.Visibility = Visibility.Collapsed;
-				BlockClrSqr4.Visibility = Visibility.Visible;
-			}
-			else if (e.NewValue == 4)
-			{
-				PlayersNum = 4;
-				BlockClrSqr3.Visibility = Visibility.Collapsed;
-				BlockClrSqr4.Visibility = Visibility.Collapsed;
-			}
-		}
+        private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if (e.NewValue == 1)
+            {
+                PlayersNum = 2;
+                BlockClrSqr3.Visibility = Visibility.Visible;
+                BlockClrSqr4.Visibility = Visibility.Visible;
+            }
+            else if (e.NewValue == 2)
+            {
+                PlayersNum = 2;
+                BlockClrSqr3.Visibility = Visibility.Visible;
+                BlockClrSqr4.Visibility = Visibility.Visible;
+            }
+            else if (e.NewValue == 3)
+            {
+                PlayersNum = 3;
+                BlockClrSqr3.Visibility = Visibility.Collapsed;
+                BlockClrSqr4.Visibility = Visibility.Visible;
+            }
+            else if (e.NewValue == 4)
+            {
+                PlayersNum = 4;
+                BlockClrSqr3.Visibility = Visibility.Collapsed;
+                BlockClrSqr4.Visibility = Visibility.Collapsed;
+            }
+        }
 
-		private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-		{
-			End.Visibility = Visibility.Visible;
-		}
+        private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            End.Visibility = Visibility.Visible;
+        }
         private void DicePlaceOnBoard(int turn)
         {
             switch (turn)
@@ -335,99 +336,95 @@ namespace FMK_1
             DicePlaceOnBoard(playerTurn);
         }
 
-		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-		{
-			Rectangle clickedRectangle = sender as Rectangle;
+        private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Rectangle clickedRectangle = sender as Rectangle;
 
-			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
 
-			PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
+            PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
 
-			colorIndex++;
+            colorIndex++;
 
-			if (colorIndex >= colors.Length)
-			{
-				colorIndex = 0;
-			}
+            if (colorIndex >= colors.Length)
+            {
+                colorIndex = 0;
+            }
 
-		}
+        }
 
-		private void ChooseClrSqr2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-		{
-			Rectangle clickedRectangle = sender as Rectangle;
+        private void ChooseClrSqr2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Rectangle clickedRectangle = sender as Rectangle;
 
-			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
 
-			PlayerTwoColor = new SolidColorBrush(colors[colorIndex]);
+            PlayerTwoColor = new SolidColorBrush(colors[colorIndex]);
 
-			colorIndex++;
+            colorIndex++;
 
-			if (colorIndex >= colors.Length)
-			{
-				colorIndex = 0;
-			}
-		}
+            if (colorIndex >= colors.Length)
+            {
+                colorIndex = 0;
+            }
+        }
 
-		private void ChooseClrSqr3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-		{
-			Rectangle clickedRectangle = sender as Rectangle;
+        private void ChooseClrSqr3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Rectangle clickedRectangle = sender as Rectangle;
 
-			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
 
-			PlayerThreeColor = new SolidColorBrush(colors[colorIndex]);
+            PlayerThreeColor = new SolidColorBrush(colors[colorIndex]);
 
-			colorIndex++;
+            colorIndex++;
 
-			if (colorIndex >= colors.Length)
-			{
-				colorIndex = 0;
-			}
+            if (colorIndex >= colors.Length)
+            {
+                colorIndex = 0;
+            }
 
-		}
+        }
 
-		private void ChooseClrSqr4_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-		{
-			Rectangle clickedRectangle = sender as Rectangle;
+        private void ChooseClrSqr4_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Rectangle clickedRectangle = sender as Rectangle;
 
-			clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
+            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
 
-			PlayerFourColor = new SolidColorBrush(colors[colorIndex]);
+            PlayerFourColor = new SolidColorBrush(colors[colorIndex]);
 
-			colorIndex++;
+            colorIndex++;
 
-			if (colorIndex >= colors.Length)
-			{
-				colorIndex = 0;
-			}
+            if (colorIndex >= colors.Length)
+            {
+                colorIndex = 0;
+            }
 
-		}
+        }
 
-		private void ColorPieces()
-		{
-			RedPiece1.Fill = PlayerOneColor;
-			RedPiece2.Fill = PlayerOneColor;
-			RedPiece3.Fill = PlayerOneColor;
-			RedPiece4.Fill = PlayerOneColor;
+        private void ColorPieces()
+        {
+            RedPiece1.Fill = PlayerOneColor;
+            RedPiece2.Fill = PlayerOneColor;
+            RedPiece3.Fill = PlayerOneColor;
+            RedPiece4.Fill = PlayerOneColor;
 
-			GreenPiece1.Fill = PlayerTwoColor;
-			GreenPiece2.Fill = PlayerTwoColor;
-			GreenPiece3.Fill = PlayerTwoColor;
-			GreenPiece4.Fill = PlayerTwoColor;
+            GreenPiece1.Fill = PlayerTwoColor;
+            GreenPiece2.Fill = PlayerTwoColor;
+            GreenPiece3.Fill = PlayerTwoColor;
+            GreenPiece4.Fill = PlayerTwoColor;
 
-			BluePiece1.Fill = PlayerThreeColor;
-			BluePiece2.Fill = PlayerThreeColor;
-			BluePiece3.Fill = PlayerThreeColor;
-			BluePiece4.Fill = PlayerThreeColor;
+            BluePiece1.Fill = PlayerThreeColor;
+            BluePiece2.Fill = PlayerThreeColor;
+            BluePiece3.Fill = PlayerThreeColor;
+            BluePiece4.Fill = PlayerThreeColor;
 
-			YellowPiece1.Fill = PlayerFourColor;
-			YellowPiece2.Fill = PlayerFourColor;
-			YellowPiece3.Fill = PlayerFourColor;
-			YellowPiece4.Fill = PlayerFourColor;
-		}
-
-
-        //TODO: Byt så när man lyfter så ändras lyft iconen till något passande
-        
+            YellowPiece1.Fill = PlayerFourColor;
+            YellowPiece2.Fill = PlayerFourColor;
+            YellowPiece3.Fill = PlayerFourColor;
+            YellowPiece4.Fill = PlayerFourColor;
+        }
 
         private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
         {
@@ -454,6 +451,7 @@ namespace FMK_1
 
         private async void Test_Drop(object sender, DragEventArgs e)
         {
+            if (e.DataView.Properties.ContainsKey("Name"))
             {
                 var name = e.DataView.Properties["Name"] as string;
 
@@ -461,23 +459,9 @@ namespace FMK_1
 
                 if (draggedElement != null)
                 {
-                    var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
-
-                    if (parent != null)
-                    {
-                        parent.Children.Remove(draggedElement);
-                    }
-                    if (draggedElement is FrameworkElement fe)
-                    {
-                        //fe.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        //fe.VerticalAlignment = VerticalAlignment.Stretch;
-                    }
-
-                    Test.Children.Add(draggedElement);
+                    draggedElement.Visibility = Visibility.Collapsed;
                     player++;
                 }
-
-                /*
                 if (player == 2)
                 {
                     End.Visibility = Visibility.Visible;
@@ -487,15 +471,32 @@ namespace FMK_1
                     SoundPlayer.SetSource(stream, soundFile.ContentType);
                     SoundPlayer.Play();
                 }
-                else
+            }
+        }
+        private async void Drop2(object sender, DragEventArgs e)
+        {
+            var name = e.DataView.Properties["Name"] as string;
+
+            var draggedElement = (UIElement)this.FindName(name);
+
+            if (draggedElement != null)
+            {
+                var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
+
+                if (parent != null)
                 {
+                    parent.Children.Remove(draggedElement);
+                }
+
+                if (sender is Panel dropZone)
+                {
+                    dropZone.Children.Add(draggedElement);
                     MediaElement SoundPlayer = new MediaElement();
                     var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
                     var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
                     SoundPlayer.SetSource(stream, soundFile.ContentType);
                     SoundPlayer.Play();
                 }
-                */
             }
         }
     }
