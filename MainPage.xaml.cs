@@ -5,35 +5,36 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
+using System.Threading.Tasks;
 
 
 namespace FMK_1
 {
-    public sealed partial class MainPage : Page
-    {
-        public int player;
-        //Color List
-        private Color[] colors = new Color[]
+	public sealed partial class MainPage : Page
+	{
+		public int player;
+		//Color List
+		private Color[] colors = new Color[]
 		{
-			Colors.Red,    
-            Colors.Green, 
-            Colors.Blue,   
-            Colors.Yellow 
-        };
+			Colors.Red,
+			Colors.Green,
+			Colors.Blue,
+			Colors.Yellow
+		};
 
 		private SolidColorBrush PlayerOneColor;
 		private SolidColorBrush PlayerTwoColor;
 		private SolidColorBrush PlayerThreeColor;
 		private SolidColorBrush PlayerFourColor;
 		private int colorIndex = 0;  //Used to go through Color List.
-        private Random random = new Random();
-        private int PlayersNum = 0;
-        private int playerTurn = 1;
-        private int maxPlayers = 4;
+		private Random random = new Random();
+		private int PlayersNum = 0;
+		private int playerTurn = 1;
+		private int maxPlayers = 4;
 
-        public MainPage()
-        {
-            this.InitializeComponent();
+		public MainPage()
+		{
+			this.InitializeComponent();
 			colorIndex = 0;
 			PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
 			PlayerTwoColor = new SolidColorBrush(colors[colorIndex + 1]);
@@ -41,45 +42,45 @@ namespace FMK_1
 			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
 		}
 
-        private Grid CreateGrid(string gridName, Thickness margin)
-        {
-            Grid grid = new Grid
-            {
-                Name = gridName,
-                Background = new SolidColorBrush(Colors.Red),
-                Height = 50,
-                Width = 50,
-                Visibility = Visibility.Visible,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                Margin = margin,
-                CanDrag = true 
-            };
+		private Grid CreateGrid(string gridName, Thickness margin)
+		{
+			Grid grid = new Grid
+			{
+				Name = gridName,
+				Background = new SolidColorBrush(Colors.Red),
+				Height = 50,
+				Width = 50,
+				Visibility = Visibility.Visible,
+				HorizontalAlignment = HorizontalAlignment.Left,
+				Margin = margin,
+				CanDrag = true
+			};
 
-            TextBlock textBlock = new TextBlock
-            {
-                Name = "Textblock_" + gridName,
-                Text = "TEST",
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-            grid.Children.Add(textBlock);
+			TextBlock textBlock = new TextBlock
+			{
+				Name = "Textblock_" + gridName,
+				Text = "TEST",
+				HorizontalAlignment = HorizontalAlignment.Center,
+				VerticalAlignment = VerticalAlignment.Center
+			};
+			grid.Children.Add(textBlock);
 
-            grid.DragStarting += Test1_DragStarting;
+			grid.DragStarting += Test1_DragStarting;
 
-            return grid;
-        }
+			return grid;
+		}
 
-        private void StartGameBtn_Click(object sender, RoutedEventArgs e)
-        {
-            player = 0;
-            Start.Visibility = Visibility.Collapsed;
-           
-           Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
-            Test.Children.Add(P1);
+		private void StartGameBtn_Click(object sender, RoutedEventArgs e)
+		{
+			player = 0;
+			Start.Visibility = Visibility.Collapsed;
 
-            // Create and add the second Grid (P2)
-            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
-            Test.Children.Add(P2);
+			Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
+			Test.Children.Add(P1);
+
+			// Create and add the second Grid (P2)
+			Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
+			Test.Children.Add(P2);
 
 			ColorPieces();
 
@@ -136,10 +137,10 @@ namespace FMK_1
 			}
 		}
 
-        private void Bts_click(object sender, RoutedEventArgs e)
-        {
-            Start.Visibility = Visibility.Visible;
-            End.Visibility = Visibility.Collapsed;
+		private void Bts_click(object sender, RoutedEventArgs e)
+		{
+			Start.Visibility = Visibility.Visible;
+			End.Visibility = Visibility.Collapsed;
 
 			RedPiece1.Visibility = Visibility.Collapsed;
 			RedPiece2.Visibility = Visibility.Collapsed;
@@ -164,87 +165,87 @@ namespace FMK_1
 			colorIndex = 0;
 		}
 
-        private void DiceButton_Click(object sender, RoutedEventArgs e)
-        {
-            int DiceValue = random.Next(1, 7);
-            HideDots();
+		private void DiceButton_Click(object sender, RoutedEventArgs e)
+		{
+			int DiceValue = random.Next(1, 7);
+			HideDots();
 
-            switch (DiceValue)
-            {
-                case 1:
-                    Dot2.Visibility = Visibility.Visible;
-                    Dot21.Visibility = Visibility.Visible;
-                    break;
-                case 2:
-                    Dot1.Visibility = Visibility.Visible;
-                    Dot6.Visibility = Visibility.Visible;
-                    Dot11.Visibility = Visibility.Visible;
-                    Dot61.Visibility = Visibility.Visible;
-                    break;
-                case 3:
-                    Dot1.Visibility = Visibility.Visible;
-                    Dot3.Visibility = Visibility.Visible;
-                    Dot5.Visibility = Visibility.Visible;
-                    Dot11.Visibility = Visibility.Visible;
-                    Dot31.Visibility = Visibility.Visible;
-                    Dot51.Visibility = Visibility.Visible;
-                    break;
-                case 4:
-                    Dot1.Visibility = Visibility.Visible;
-                    Dot3.Visibility = Visibility.Visible;
-                    Dot4.Visibility = Visibility.Visible;
-                    Dot6.Visibility = Visibility.Visible;
-                    Dot11.Visibility = Visibility.Visible;
-                    Dot31.Visibility = Visibility.Visible;
-                    Dot41.Visibility = Visibility.Visible;
-                    Dot61.Visibility = Visibility.Visible;
-                    break;
-                case 5:
-                    Dot1.Visibility = Visibility.Visible;
-                    Dot2.Visibility = Visibility.Visible;
-                    Dot3.Visibility = Visibility.Visible;
-                    Dot4.Visibility = Visibility.Visible;
-                    Dot6.Visibility = Visibility.Visible;
-                    Dot11.Visibility = Visibility.Visible;
-                    Dot21.Visibility = Visibility.Visible;
-                    Dot31.Visibility = Visibility.Visible;
-                    Dot41.Visibility = Visibility.Visible;
-                    Dot61.Visibility = Visibility.Visible;
-                    break;
-                case 6:
-                    Dot1.Visibility = Visibility.Visible;
-                    Dot2.Visibility = Visibility.Visible;
-                    Dot3.Visibility = Visibility.Visible;
-                    Dot4.Visibility = Visibility.Visible;
-                    Dot5.Visibility = Visibility.Visible;
-                    Dot6.Visibility = Visibility.Visible;
-                    Dot11.Visibility = Visibility.Visible;
-                    Dot21.Visibility = Visibility.Visible;
-                    Dot31.Visibility = Visibility.Visible;
-                    Dot41.Visibility = Visibility.Visible;
-                    Dot51.Visibility = Visibility.Visible;
-                    Dot61.Visibility = Visibility.Visible;
-                    break;
-            }
+			switch (DiceValue)
+			{
+				case 1:
+					Dot2.Visibility = Visibility.Visible;
+					Dot21.Visibility = Visibility.Visible;
+					break;
+				case 2:
+					Dot1.Visibility = Visibility.Visible;
+					Dot6.Visibility = Visibility.Visible;
+					Dot11.Visibility = Visibility.Visible;
+					Dot61.Visibility = Visibility.Visible;
+					break;
+				case 3:
+					Dot1.Visibility = Visibility.Visible;
+					Dot3.Visibility = Visibility.Visible;
+					Dot5.Visibility = Visibility.Visible;
+					Dot11.Visibility = Visibility.Visible;
+					Dot31.Visibility = Visibility.Visible;
+					Dot51.Visibility = Visibility.Visible;
+					break;
+				case 4:
+					Dot1.Visibility = Visibility.Visible;
+					Dot3.Visibility = Visibility.Visible;
+					Dot4.Visibility = Visibility.Visible;
+					Dot6.Visibility = Visibility.Visible;
+					Dot11.Visibility = Visibility.Visible;
+					Dot31.Visibility = Visibility.Visible;
+					Dot41.Visibility = Visibility.Visible;
+					Dot61.Visibility = Visibility.Visible;
+					break;
+				case 5:
+					Dot1.Visibility = Visibility.Visible;
+					Dot2.Visibility = Visibility.Visible;
+					Dot3.Visibility = Visibility.Visible;
+					Dot4.Visibility = Visibility.Visible;
+					Dot6.Visibility = Visibility.Visible;
+					Dot11.Visibility = Visibility.Visible;
+					Dot21.Visibility = Visibility.Visible;
+					Dot31.Visibility = Visibility.Visible;
+					Dot41.Visibility = Visibility.Visible;
+					Dot61.Visibility = Visibility.Visible;
+					break;
+				case 6:
+					Dot1.Visibility = Visibility.Visible;
+					Dot2.Visibility = Visibility.Visible;
+					Dot3.Visibility = Visibility.Visible;
+					Dot4.Visibility = Visibility.Visible;
+					Dot5.Visibility = Visibility.Visible;
+					Dot6.Visibility = Visibility.Visible;
+					Dot11.Visibility = Visibility.Visible;
+					Dot21.Visibility = Visibility.Visible;
+					Dot31.Visibility = Visibility.Visible;
+					Dot41.Visibility = Visibility.Visible;
+					Dot51.Visibility = Visibility.Visible;
+					Dot61.Visibility = Visibility.Visible;
+					break;
+			}
 
-            DiceResult.Text = $"Du slog {DiceValue}!";
-        }
+			DiceResult.Text = $"Du slog {DiceValue}!";
+		}
 
-        private void HideDots()
-        {
-            Dot1.Visibility = Visibility.Collapsed;
-            Dot2.Visibility = Visibility.Collapsed;
-            Dot3.Visibility = Visibility.Collapsed;
-            Dot4.Visibility = Visibility.Collapsed;
-            Dot5.Visibility = Visibility.Collapsed;
-            Dot6.Visibility = Visibility.Collapsed;
-            Dot11.Visibility = Visibility.Collapsed;
-            Dot21.Visibility = Visibility.Collapsed;
-            Dot31.Visibility = Visibility.Collapsed;
-            Dot41.Visibility = Visibility.Collapsed;
-            Dot51.Visibility = Visibility.Collapsed;
-            Dot61.Visibility = Visibility.Collapsed;
-        }
+		private void HideDots()
+		{
+			Dot1.Visibility = Visibility.Collapsed;
+			Dot2.Visibility = Visibility.Collapsed;
+			Dot3.Visibility = Visibility.Collapsed;
+			Dot4.Visibility = Visibility.Collapsed;
+			Dot5.Visibility = Visibility.Collapsed;
+			Dot6.Visibility = Visibility.Collapsed;
+			Dot11.Visibility = Visibility.Collapsed;
+			Dot21.Visibility = Visibility.Collapsed;
+			Dot31.Visibility = Visibility.Collapsed;
+			Dot41.Visibility = Visibility.Collapsed;
+			Dot51.Visibility = Visibility.Collapsed;
+			Dot61.Visibility = Visibility.Collapsed;
+		}
 
 		private void PlayerSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
 		{
@@ -278,62 +279,62 @@ namespace FMK_1
 		{
 			End.Visibility = Visibility.Visible;
 		}
-        private void DicePlaceOnBoard(int turn)
-        {
-            switch (turn)
-            {
-                case 1:
-                    // Position for turn 1
-                    Dice2.SetValue(Grid.ColumnProperty, 0); // Column 0
-                    Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
-                    Dice2.VerticalAlignment = VerticalAlignment.Top;
-                    Dice2.Margin = new Thickness(20, 20, 0, 0);
-                    break;
+		private void DicePlaceOnBoard(int turn)
+		{
+			switch (turn)
+			{
+				case 1:
+					// Position for turn 1
+					Dice2.SetValue(Grid.ColumnProperty, 0); // Column 0
+					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
+					Dice2.VerticalAlignment = VerticalAlignment.Top;
+					Dice2.Margin = new Thickness(20, 20, 0, 0);
+					break;
 
-                case 2:
-                    // Position for turn 2
-                    Dice2.SetValue(Grid.ColumnProperty, 3); // Column 3
-                    Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
-                    Dice2.VerticalAlignment = VerticalAlignment.Top;
-                    Dice2.Margin = new Thickness(0, 20, 20, 0);
-                    break;
+				case 2:
+					// Position for turn 2
+					Dice2.SetValue(Grid.ColumnProperty, 3); // Column 3
+					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
+					Dice2.VerticalAlignment = VerticalAlignment.Top;
+					Dice2.Margin = new Thickness(0, 20, 20, 0);
+					break;
 
-                case 3:
-                    // Position for turn 3
-                    Dice2.SetValue(Grid.ColumnProperty, 3); // Column 3
-                    Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
-                    Dice2.VerticalAlignment = VerticalAlignment.Bottom;
-                    Dice2.Margin = new Thickness(0, 0, 20, 20);
-                    break;
+				case 3:
+					// Position for turn 3
+					Dice2.SetValue(Grid.ColumnProperty, 3); // Column 3
+					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
+					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
+					Dice2.Margin = new Thickness(0, 0, 20, 20);
+					break;
 
-                case 4:
-                    // Position for turn 4
-                    Dice2.SetValue(Grid.ColumnProperty, 0); // Column 0
-                    Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
-                    Dice2.VerticalAlignment = VerticalAlignment.Bottom;
-                    Dice2.Margin = new Thickness(20, 0, 0, 20);
-                    break;
+				case 4:
+					// Position for turn 4
+					Dice2.SetValue(Grid.ColumnProperty, 0); // Column 0
+					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
+					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
+					Dice2.Margin = new Thickness(20, 0, 0, 20);
+					break;
 
-                default:
-                    // Reset or do nothing
-                    break;
-            }
-        }
+				default:
+					// Reset or do nothing
+					break;
+			}
+		}
 
-        private void TurnBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Increment the turn
-            playerTurn++;
+		private void TurnBtn_Click(object sender, RoutedEventArgs e)
+		{
+			// Increment the turn
+			playerTurn++;
 
-            // If playerTurn exceeds the maximum number of players, reset to 1
-            if (playerTurn > maxPlayers)
-            {
-                playerTurn = 1;
-            }
+			// If playerTurn exceeds the maximum number of players, reset to 1
+			if (playerTurn > maxPlayers)
+			{
+				playerTurn = 1;
+			}
 
-            // Call the DicePlaceOnBoard function to move the dice based on the player's turn
-            DicePlaceOnBoard(playerTurn);
-        }
+			// Call the DicePlaceOnBoard function to move the dice based on the player's turn
+			DicePlaceOnBoard(playerTurn);
+		}
 
 		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
 		{
@@ -424,61 +425,77 @@ namespace FMK_1
 			YellowPiece3.Fill = PlayerFourColor;
 			YellowPiece4.Fill = PlayerFourColor;
 		}
-	
 
-        //TODO: Byt så när man lyfter så ändras lyft iconen till något passande
-        private void Test_DragOver(object sender, DragEventArgs e)
-        {
-            e.AcceptedOperation = DataPackageOperation.Move;
-            e.DragUIOverride.Caption = "";
-            e.DragUIOverride.IsGlyphVisible = true;
-        }
+		private async void Push_Click(object sender, RoutedEventArgs e)
+		{
+			PushSound.Play();
 
-        private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
-        {
-            if (sender is FrameworkElement element)
-            {
-                string name = element.Name;
+			Push.Begin();
+			await Task.Delay(700);
+			ExplosionImage1.Visibility = Visibility.Visible;
 
-                args.Data.Properties.Add("Name", name);
+			await Task.Delay(500);
+			ExplosionImage1.Visibility = Visibility.Collapsed;
 
-                args.Data.SetText(name);
+			ExplosionImage2.Visibility = Visibility.Visible;
+		}
 
-                args.DragUI.SetContentFromDataPackage();
-            }
-        }
 
-        private async void Test_Drop(object sender, DragEventArgs e)
-        {
-            if (e.DataView.Properties.ContainsKey("Name"))
-            {
-                var name = e.DataView.Properties["Name"] as string;
+		//TODO: Byt så när man lyfter så ändras lyft iconen till något passande
+		private void Test_DragOver(object sender, DragEventArgs e)
+		{
+			e.AcceptedOperation = DataPackageOperation.Move;
+			e.DragUIOverride.Caption = "";
+			e.DragUIOverride.IsGlyphVisible = true;
+		}
 
-                var draggedElement = (UIElement)this.FindName(name);
+		private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
+		{
+			if (sender is FrameworkElement element)
+			{
+				string name = element.Name;
 
-                if (draggedElement != null)
-                {
-                    draggedElement.Visibility = Visibility.Collapsed;
-                    player++;
-                }
-                if (player == 2)
-                {
-                    End.Visibility = Visibility.Visible;
-                    MediaElement SoundPlayer = new MediaElement();
-                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
-                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                    SoundPlayer.SetSource(stream, soundFile.ContentType);
-                    SoundPlayer.Play();
-                }
-                else
-                {
-                    MediaElement SoundPlayer = new MediaElement();
-                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
-                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                    SoundPlayer.SetSource(stream, soundFile.ContentType);
-                    SoundPlayer.Play();
-                }
-            }
-        }
-    }
+				args.Data.Properties.Add("Name", name);
+
+				args.Data.SetText(name);
+
+				args.DragUI.SetContentFromDataPackage();
+			}
+		}
+
+
+
+		private async void Test_Drop(object sender, DragEventArgs e)
+		{
+			if (e.DataView.Properties.ContainsKey("Name"))
+			{
+				var name = e.DataView.Properties["Name"] as string;
+
+				var draggedElement = (UIElement)this.FindName(name);
+
+				if (draggedElement != null)
+				{
+					draggedElement.Visibility = Visibility.Collapsed;
+					player++;
+				}
+				if (player == 2)
+				{
+					End.Visibility = Visibility.Visible;
+					MediaElement SoundPlayer = new MediaElement();
+					var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
+					var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+					SoundPlayer.SetSource(stream, soundFile.ContentType);
+					SoundPlayer.Play();
+				}
+				else
+				{
+					MediaElement SoundPlayer = new MediaElement();
+					var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
+					var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+					SoundPlayer.SetSource(stream, soundFile.ContentType);
+					SoundPlayer.Play();
+				}
+			}
+		}
+	}
 }
