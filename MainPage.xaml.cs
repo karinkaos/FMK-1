@@ -473,6 +473,7 @@ namespace FMK_1
                 }
             }
         }
+
         private async void Drop2(object sender, DragEventArgs e)
         {
             var name = e.DataView.Properties["Name"] as string;
