@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using System.Threading.Tasks;
+using Windows.Devices.SmartCards;
 
 
 namespace FMK_1
@@ -20,6 +21,14 @@ namespace FMK_1
 			Colors.Green,
 			Colors.Blue,
 			Colors.Yellow
+		};
+
+		private string[] players = new string[]
+		{
+			"Player 1",
+			"Player 2",
+			"Player 3",
+			"Player 4"
 		};
 
 		private SolidColorBrush PlayerOneColor;
@@ -228,7 +237,17 @@ namespace FMK_1
 					break;
 			}
 
-			DiceResult.Text = $"Du slog {DiceValue}!";
+			if (DiceValue == 6)
+			{
+				DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
+				//<------Player movement
+			}
+			else
+			{
+				DiceResult.Text = $"Du slog {DiceValue}!";
+				//<------Player movement
+				TurnSwitch();
+			}
 		}
 
 		private void HideDots()
@@ -289,6 +308,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(20, 20, 0, 0);
+					WhosTurn.Text = $"{players[0]}";
 					break;
 
 				case 2:
@@ -297,6 +317,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(0, 20, 20, 0);
+					WhosTurn.Text = $"{players[1]}";
 					break;
 
 				case 3:
@@ -305,6 +326,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(0, 0, 20, 20);
+					WhosTurn.Text = $"{players[2]}";
 					break;
 
 				case 4:
@@ -313,6 +335,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(20, 0, 0, 20);
+					WhosTurn.Text = $"{players[3]}";
 					break;
 
 				default:
@@ -320,8 +343,23 @@ namespace FMK_1
 					break;
 			}
 		}
-
+		/* Clickable Button for switch turns.
 		private void TurnBtn_Click(object sender, RoutedEventArgs e)
+		{
+			// Increment the turn
+			playerTurn++;
+
+			// If playerTurn exceeds the maximum number of players, reset to 1
+			if (playerTurn > maxPlayers)
+			{
+				playerTurn = 1;
+			}
+
+			// Call the DicePlaceOnBoard function to move the dice based on the player's turn
+			DicePlaceOnBoard(playerTurn);
+		}
+		*/
+		private void TurnSwitch()
 		{
 			// Increment the turn
 			playerTurn++;
