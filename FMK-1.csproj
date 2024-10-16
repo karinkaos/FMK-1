@@ -130,7 +130,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Goal.mp3">
+    <Content Include="Assets\Move.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Pieces\BluePiece.png" />

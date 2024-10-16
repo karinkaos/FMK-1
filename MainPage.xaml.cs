@@ -437,9 +437,6 @@ namespace FMK_1
 
                 args.Data.SetText(name);
                 args.Data.SetData("Tag", tag);
-
-                //args.DragUI.SetContentFromDataPackage(); 
-                //HÄR^
             }
         }
 
@@ -453,44 +450,48 @@ namespace FMK_1
 
         private async void PieceDrop(object sender, DragEventArgs e)
         {
-            if (e.DataView.Properties.ContainsKey("Name"))
+            var name = e.DataView.Properties["Name"] as string;
+           
+            var draggedElement = (UIElement)this.FindName(name);
+
+            if (draggedElement != null)
             {
-                var name = e.DataView.Properties["Name"] as string;
-                var draggedElement = (UIElement)this.FindName(name);
+                var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
+                
 
-                if (e.DataView.Properties.ContainsKey("Tag") && e.DataView.Properties["Tag"] is int tag)
+                if (sender is FrameworkElement element && element.Name == "Goal")
                 {
-                    Console.WriteLine(tag);
-                }
-
-                if (draggedElement != null)
-                {
-                    var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
                     parent?.Children.Remove(draggedElement);
+                    Console.WriteLine(element.Tag);
+                    draggedElement.Visibility = Visibility.Collapsed;
+                    player++;
 
-                    if (sender is FrameworkElement element && element.Name == "Goal")
+                    if (player == 4)
                     {
-                        draggedElement.Visibility = Visibility.Collapsed;
-                        player++;
-
-                        if (player == 4)
+                        foreach (Grid grid in createdGrids)
                         {
-                            foreach (Grid grid in createdGrids)
+                            if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
                             {
-                                if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
-                                {
-                                    parentPanel.Children.Remove(grid);
-                                }
+                                parentPanel.Children.Remove(grid);
                             }
-                            End.Visibility = Visibility.Visible;
-                            await PlaySound("ms-appx:///Assets/Win.mp3");
                         }
+                        End.Visibility = Visibility.Visible;
+                        await PlaySound("ms-appx:///Assets/Win.mp3");
                     }
-
-                    else if (sender is Panel dropZone)
+                }
+                else if (sender is Panel dropZone)
+                {
+                    int tagValue;
+                    //Vet inte varför det funkar men gör det
+                    if (Int32.TryParse(dropZone.Tag.ToString(), out tagValue) && tagValue > 3)
                     {
+                        parent?.Children.Remove(draggedElement);
                         dropZone.Children.Add(draggedElement);
-                        await PlaySound("ms-appx:///Assets/Goal.mp3");
+                        await PlaySound("ms-appx:///Assets/Move.mp3");
+                    }
+                    else
+                    {
+
                     }
                 }
             }
