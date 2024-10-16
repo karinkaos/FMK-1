@@ -45,7 +45,7 @@ namespace FMK_1
             PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
         }
 
-        private Grid CreateGrid(string gridName, Thickness margin)
+        private Grid CreateGrid(string gridName)
         {
             Grid grid = new Grid
             {
@@ -54,8 +54,8 @@ namespace FMK_1
                 Height = 50,
                 Width = 50,
                 Visibility = Visibility.Visible,
-                Margin = margin,
-                CanDrag = true
+                CanDrag = true,
+                Tag = -1
             };
 
             TextBlock textBlock = new TextBlock
@@ -67,7 +67,7 @@ namespace FMK_1
             };
             grid.Children.Add(textBlock);
 
-            grid.DragStarting += Test1_DragStarting;
+            grid.DragStarting += PieceDrag;
 
             return grid;
         }
@@ -77,22 +77,19 @@ namespace FMK_1
         {
             foreach (Grid grid in createdGrids)
             {
-                // Find the parent container and remove the grid
                 if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
                 {
-                    parentPanel.Children.Remove(grid); // Remove from parent
+                    parentPanel.Children.Remove(grid);
                 }
             }
 
             player = 0;
             Start.Visibility = Visibility.Collapsed;
 
-
-
             for (int i = 0; i < 4; i++)
             {
                 string name = $"p{i}";
-                Grid P1 = CreateGrid(name, new Thickness(0, 0, 0, 0));
+                Grid P1 = CreateGrid(name);
 
                 if (i == 0) RedSpot1.Children.Add(P1);
                 else if (i == 1) RedSpot2.Children.Add(P1);
@@ -426,22 +423,27 @@ namespace FMK_1
             YellowPiece4.Fill = PlayerFourColor;
         }
 
-        private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
+
+
+        private void PieceDrag(UIElement sender, DragStartingEventArgs args)
         {
             if (sender is FrameworkElement element)
             {
                 string name = element.Name;
+                int tag = int.Parse(element.Tag?.ToString());
 
                 args.Data.Properties.Add("Name", name);
+                args.Data.Properties.Add("Tag", tag);
 
                 args.Data.SetText(name);
+                args.Data.SetData("Tag", tag);
 
                 //args.DragUI.SetContentFromDataPackage(); 
                 //HÄR^
             }
         }
 
-        private void Test_DragOver(object sender, DragEventArgs e)
+        private void PieceDragOver(object sender, DragEventArgs e)
         {
             e.AcceptedOperation = DataPackageOperation.Move;
             e.DragUIOverride.IsGlyphVisible = false;
@@ -456,8 +458,11 @@ namespace FMK_1
                 var name = e.DataView.Properties["Name"] as string;
                 var draggedElement = (UIElement)this.FindName(name);
 
-                //if (draggedElement != null && name == "Goal")
-                //Kanske något för att gå till mitten
+                if (e.DataView.Properties.ContainsKey("Tag") && e.DataView.Properties["Tag"] is int tag)
+                {
+                    Console.WriteLine(tag);
+                }
+
                 if (draggedElement != null)
                 {
                     var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
@@ -490,7 +495,6 @@ namespace FMK_1
                 }
             }
         }
-       
         private static async Task PlaySound(string sound)
         {
             MediaElement SoundPlayer = new MediaElement();
