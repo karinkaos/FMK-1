@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -51,7 +54,6 @@ namespace FMK_1
                 Height = 50,
                 Width = 50,
                 Visibility = Visibility.Visible,
-                //HorizontalAlignment = HorizontalAlignment.Left,
                 Margin = margin,
                 CanDrag = true
             };
@@ -69,27 +71,41 @@ namespace FMK_1
 
             return grid;
         }
+        List<Grid> createdGrids = new List<Grid>();
 
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Grid grid in createdGrids)
+            {
+                // Find the parent container and remove the grid
+                if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
+                {
+                    parentPanel.Children.Remove(grid); // Remove from parent
+                }
+            }
+
             player = 0;
             Start.Visibility = Visibility.Collapsed;
 
-            Grid P1 = CreateGrid("P1", new Thickness(0, 0, 0, 0));
-            home.Children.Add(P1);
 
-            // Create and add the second Grid (P2)
-            Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 0));
-            home.Children.Add(P2);
+
+            for (int i = 0; i < 4; i++)
+            {
+                string name = $"p{i}";
+                Grid P1 = CreateGrid(name, new Thickness(0, 0, 0, 0));
+
+                if (i == 0) RedSpot1.Children.Add(P1);
+                else if (i == 1) RedSpot2.Children.Add(P1);
+                else if (i == 2) RedSpot3.Children.Add(P1);
+                else if (i == 3) RedSpot4.Children.Add(P1);
+
+                createdGrids.Add(P1);
+            }
 
             ColorPieces();
 
             if (PlayersNum == 1 || PlayersNum == 2)
             {
-                RedPiece1.Visibility = Visibility.Visible;
-                RedPiece2.Visibility = Visibility.Visible;
-                RedPiece3.Visibility = Visibility.Visible;
-                RedPiece4.Visibility = Visibility.Visible;
 
                 GreenPiece1.Visibility = Visibility.Visible;
                 GreenPiece2.Visibility = Visibility.Visible;
@@ -98,10 +114,6 @@ namespace FMK_1
             }
             else if (PlayersNum == 3)
             {
-                RedPiece1.Visibility = Visibility.Visible;
-                RedPiece2.Visibility = Visibility.Visible;
-                RedPiece3.Visibility = Visibility.Visible;
-                RedPiece4.Visibility = Visibility.Visible;
 
                 GreenPiece1.Visibility = Visibility.Visible;
                 GreenPiece2.Visibility = Visibility.Visible;
@@ -115,10 +127,6 @@ namespace FMK_1
             }
             else
             {
-                RedPiece1.Visibility = Visibility.Visible;
-                RedPiece2.Visibility = Visibility.Visible;
-                RedPiece3.Visibility = Visibility.Visible;
-                RedPiece4.Visibility = Visibility.Visible;
 
                 GreenPiece1.Visibility = Visibility.Visible;
                 GreenPiece2.Visibility = Visibility.Visible;
@@ -142,10 +150,6 @@ namespace FMK_1
             Start.Visibility = Visibility.Visible;
             End.Visibility = Visibility.Collapsed;
 
-            RedPiece1.Visibility = Visibility.Collapsed;
-            RedPiece2.Visibility = Visibility.Collapsed;
-            RedPiece3.Visibility = Visibility.Collapsed;
-            RedPiece4.Visibility = Visibility.Collapsed;
 
             GreenPiece1.Visibility = Visibility.Collapsed;
             GreenPiece2.Visibility = Visibility.Collapsed;
@@ -405,10 +409,6 @@ namespace FMK_1
 
         private void ColorPieces()
         {
-            RedPiece1.Fill = PlayerOneColor;
-            RedPiece2.Fill = PlayerOneColor;
-            RedPiece3.Fill = PlayerOneColor;
-            RedPiece4.Fill = PlayerOneColor;
 
             GreenPiece1.Fill = PlayerTwoColor;
             GreenPiece2.Fill = PlayerTwoColor;
@@ -449,56 +449,55 @@ namespace FMK_1
             e.DragUIOverride.IsContentVisible = true;
         }
 
-        private async void Test_Drop(object sender, DragEventArgs e)
+        private async void PieceDrop(object sender, DragEventArgs e)
         {
             if (e.DataView.Properties.ContainsKey("Name"))
             {
                 var name = e.DataView.Properties["Name"] as string;
-
                 var draggedElement = (UIElement)this.FindName(name);
 
+                //if (draggedElement != null && name == "Goal")
+                //Kanske något för att gå till mitten
                 if (draggedElement != null)
                 {
-                    draggedElement.Visibility = Visibility.Collapsed;
-                    player++;
-                }
-                if (player == 2)
-                {
-                    End.Visibility = Visibility.Visible;
-                    MediaElement SoundPlayer = new MediaElement();
-                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
-                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                    SoundPlayer.SetSource(stream, soundFile.ContentType);
-                    SoundPlayer.Play();
+                    var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
+                    parent?.Children.Remove(draggedElement);
+
+                    if (sender is FrameworkElement element && element.Name == "Goal")
+                    {
+                        draggedElement.Visibility = Visibility.Collapsed;
+                        player++;
+
+                        if (player == 4)
+                        {
+                            foreach (Grid grid in createdGrids)
+                            {
+                                if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
+                                {
+                                    parentPanel.Children.Remove(grid);
+                                }
+                            }
+                            End.Visibility = Visibility.Visible;
+                            await PlaySound("ms-appx:///Assets/Win.mp3");
+                        }
+                    }
+
+                    else if (sender is Panel dropZone)
+                    {
+                        dropZone.Children.Add(draggedElement);
+                        await PlaySound("ms-appx:///Assets/Goal.mp3");
+                    }
                 }
             }
         }
-
-        private async void Drop2(object sender, DragEventArgs e)
+       
+        private static async Task PlaySound(string sound)
         {
-            var name = e.DataView.Properties["Name"] as string;
-
-            var draggedElement = (UIElement)this.FindName(name);
-
-            if (draggedElement != null)
-            {
-                var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
-
-                if (parent != null)
-                {
-                    parent.Children.Remove(draggedElement);
-                }
-
-                if (sender is Panel dropZone)
-                {
-                    dropZone.Children.Add(draggedElement);
-                    MediaElement SoundPlayer = new MediaElement();
-                    var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
-                    var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                    SoundPlayer.SetSource(stream, soundFile.ContentType);
-                    SoundPlayer.Play();
-                }
-            }
+            MediaElement SoundPlayer = new MediaElement();
+            var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri(sound));
+            var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+            SoundPlayer.SetSource(stream, soundFile.ContentType);
+            SoundPlayer.Play();
         }
     }
 }
