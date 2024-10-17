@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="FMK_1.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,9 +6,589 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Pink">
+
+    <Page.Resources>
+        <Storyboard x:Name="Push">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-28.433"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.899"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="41.093"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-10.274"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-20.556"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-62.612"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-91.342"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-68.493"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-68.493"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-30.822"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-30.822"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="DiceRollStoryboard" Completed="DiceRollStoryboard_Completed">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot1" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot2" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot5" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.8000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.2000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot3" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot4" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.8000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Dot6" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.8000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="00:00:01.2000000" Storyboard.TargetName="Dice" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"/>
+        </Storyboard>
+    </Page.Resources>
+
 
     <Grid Background="Pink">
+        <Grid x:Name="Spelplan" Width="940">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <!-- Grön namn -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Rectangle Stroke="Transparent" Fill="#24FF00"/>
+                <TextBlock Text="Grön" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Grid>
+
+            <!-- Rosa namn -->
+            <Grid Grid.Column="3">
+                <Rectangle Stroke="Transparent" Fill="#FF00D6"/>
+                <TextBlock Text="Rosa" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Blå namn -->
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Rectangle Stroke="Transparent" Fill="#1400FF"/>
+                <TextBlock Text="Blå" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Röd namn -->
+            <Grid Grid.Row="3">
+                <Rectangle Stroke="Transparent" Fill="#FF0000"/>
+                <TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            </Grid>
+
+            <!-- Grön pjäsnäst och pjäser -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <Rectangle Stroke="Transparent" Fill="#538B4A"/>
+
+                <Rectangle x:Name="GreenPiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="GreenPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/GreenPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+
+            <!-- Röd pjäsnäst och pjäser-->
+            <Grid Grid.Column="1" Grid.Row="1" Height="240" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <Rectangle Stroke="Transparent" Fill="#FB7171"/>
+
+                <Rectangle x:Name="RedPiece1" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece2" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece3" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="RedPiece4" Height="50" Width="50" Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/RedPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+
+            <!-- Rosa pjäsnäst och pjäser -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Rectangle Stroke="Transparent" Fill="#8B277B"/>
+
+                <Rectangle x:Name="YellowPiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="YellowPiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/YellowPiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+
+            <!-- Blå pjäsnäst och pjäser -->
+            <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Rectangle Stroke="Transparent" Fill="#665EBC"/>
+
+                <Rectangle x:Name="BluePiece1" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece2" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece3" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BluePiece4" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Pieces/BluePiece.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+
+
+            <!-- ellipse grupp spelplan-->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Grön linje till Höger -->
+                <Ellipse Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Grön linje höger till upp -->
+                <Ellipse Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+                <Ellipse Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60" />
+
+                <!-- Grön linje upp till Rosa -->
+                <Ellipse Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+
+                <!-- Rosa linje till ner -->
+                <Ellipse Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Rosa linje ner till höger -->
+                <Ellipse Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Rosa linje höger till blå -->
+                <Ellipse Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+
+                <!-- blå linje till vänster -->
+                <Ellipse Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- blå linje vänster till ner -->
+                <Ellipse Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- blå linje ner till röd -->
+                <Ellipse Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+
+                <!-- röd linje till upp -->
+                <Ellipse Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- röd linje upp till vänster -->
+                <Ellipse Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+                <Ellipse Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- röd linje vänster till grön -->
+                <Ellipse Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="White" Width="60" Height="60"/>
+
+                <!-- Grön mål-->
+                <Ellipse Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+                <Ellipse Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FF538B4A" Width="60" Height="60"/>
+
+                <!-- Blå mål-->
+                <Ellipse Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="8" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+                <Ellipse Grid.Column="6" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#665EBC" Width="60" Height="60"/>
+
+                <!-- Röd Mål-->
+                <Ellipse Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#FB7171" Width="60" Height="60"/>
+
+                <!-- Rosa mål-->
+                <Ellipse Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+                <Ellipse Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" Fill="#8B277B" Width="60" Height="60"/>
+
+            </Grid>
+
+            <!-- Dice on Board-->
+            <Grid x:Name="Dice2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="20,20,0,0" Width="80" Height="80" Background="#FFFFFF">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Ellipse x:Name="Dot11" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                <Ellipse x:Name="Dot21" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                <Ellipse x:Name="Dot31" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                <Ellipse x:Name="Dot41" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                <Ellipse x:Name="Dot51" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                <Ellipse x:Name="Dot61" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+            </Grid>
+
+            <!--End Turn-->
+            <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
+
+        </Grid>
+
+        <Grid>
+
+            <!--Test Function för DragNDrop-->
+            <Grid Name="Test" Width="250" Height="250" Background="Gray" AllowDrop="True" DragOver="Test_DragOver" Drop="Test_Drop" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Name="xd" Text="GOAL!" FontSize="56"/>
+
+            </Grid>
+
+            <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
+
+            <!--Test Function för DragNDrop-->
+
+
+
+            <!-- Knuffanimation -->
+
+            <Grid>
+
+                <Rectangle x:Name="PushPiece1" HorizontalAlignment="Left" Height="210" Width="135" Margin="533,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform Rotation="0"/>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Rectangle x:Name="PushPiece2" HorizontalAlignment="Left" Height="210" Width="135" Margin="825,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform Rotation="0"/>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Button Content="Knuffa!" Height="75" Margin="900,720,0,0" VerticalAlignment="Top" Width="253" Click="Push_Click"/>
+
+                <MediaElement x:Name="PushSound" AutoPlay="False" Source="Assets/PushSound.mp3" Visibility="Collapsed"/>
+                <Image x:Name="ExplosionImage2" Source="/Assets/Explosion-Craiyon.png" Width="300" Height="300" Visibility="Collapsed" Margin="550,0,500,50"/>
+                <Image x:Name="ExplosionImage1" Source="/Assets/Explosion-Craiyon.png" Width="200" Height="200" Visibility="Collapsed" Margin="550,0,500,50"/>
+
+            </Grid>
+
+            <!--Dice-->
+            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
+                <Grid >
+                    <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
+                    <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <CompositeTransform/>
+                        </Grid.RenderTransform>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                        <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                        <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                        <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                    </Grid>
+                    <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
+                    <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
+                </Grid>
+            </Grid>
+
+            <!--StartView-->
+            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped"></Rectangle>
+                    <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped"></Rectangle>
+
+                    <TextBlock FontSize="60" Visibility="Collapsed">
+                Started
+                    </TextBlock>
+
+                </StackPanel>
+
+                <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
+                <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
+
+                <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
+                    Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
+
+
+                <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                    <Slider x:Name="PlayerSlider"
+                        Height="40"
+                        Width="350"
+                        Minimum="1"
+                        Maximum="4"
+                        TickFrequency="1"
+                        Value="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="White"
+                        Foreground="White"
+                        TickPlacement="Outside"
+                        IsThumbToolTipEnabled="False"
+                        ValueChanged="PlayerSlider_ValueChanged">
+                    </Slider>
+                </Grid>
+            </Grid>
+
+            <!--EndView-->
+            <Grid Name="End" Width="450" Height="600" Background="Blue" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock FontSize="60">
+                Ended
+                </TextBlock>
+
+                <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+            Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
