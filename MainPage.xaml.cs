@@ -6,6 +6,10 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using System.Threading.Tasks;
+using Windows.Media.Playback;
+using Windows.Storage;
+using Windows.ApplicationModel.Activation;
+using Windows.Media.Core;
 
 
 namespace FMK_1
@@ -42,7 +46,7 @@ namespace FMK_1
 			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
 		}
 
-		private Grid CreateGrid(string gridName, Thickness margin)
+            private Grid CreateGrid(string gridName, Thickness margin)
 		{
 			Grid grid = new Grid
 			{
