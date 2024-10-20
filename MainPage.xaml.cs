@@ -55,7 +55,7 @@ namespace FMK_1
                 Width = 50,
                 Visibility = Visibility.Visible,
                 CanDrag = true,
-                Tag = -1
+                Tag = "1, -1"
             };
 
             TextBlock textBlock = new TextBlock
@@ -430,13 +430,14 @@ namespace FMK_1
             if (sender is FrameworkElement element)
             {
                 string name = element.Name;
-                int tag = int.Parse(element.Tag?.ToString());
+
+                string tag = element.Tag?.ToString();
 
                 args.Data.Properties.Add("Name", name);
                 args.Data.Properties.Add("Tag", tag);
 
-                args.Data.SetText(name);
-                args.Data.SetData("Tag", tag);
+                args.Data.SetText(name); // Default text format
+                args.Data.SetData("CustomTagFormat", tag); // Custom format for the tag
             }
         }
 
@@ -448,21 +449,21 @@ namespace FMK_1
             e.DragUIOverride.IsContentVisible = true;
         }
 
+        public int PieceNumber;
         private async void PieceDrop(object sender, DragEventArgs e)
         {
-            var name = e.DataView.Properties["Name"] as string;
-           
-            var draggedElement = (UIElement)this.FindName(name);
+            var PieceName = e.DataView.Properties["Name"] as string;
+            var PieceTag = e.DataView.Properties["Tag"] as string;
+
+            var draggedElement = (Grid)this.FindName(PieceName);
 
             if (draggedElement != null)
             {
                 var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
                 
-
                 if (sender is FrameworkElement element && element.Name == "Goal")
                 {
                     parent?.Children.Remove(draggedElement);
-                    Console.WriteLine(element.Tag);
                     draggedElement.Visibility = Visibility.Collapsed;
                     player++;
 
@@ -479,19 +480,31 @@ namespace FMK_1
                         await PlaySound("ms-appx:///Assets/Win.mp3");
                     }
                 }
+
                 else if (sender is Panel dropZone)
                 {
-                    int tagValue;
+                    
+                    string[] PieceTags = PieceTag.Split(',');                //Det ska vara Typ "Path 1, Steg 2"
+                    int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
+                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
+
+                    int SpotNumber;
+
                     //Vet inte varför det funkar men gör det
-                    if (Int32.TryParse(dropZone.Tag.ToString(), out tagValue) && tagValue > 3)
+                    if (Int32.TryParse(dropZone.Tag.ToString(), out SpotNumber))
                     {
+                        //draggedElement.Tag = SpotNumber;
+
+
+
+
                         parent?.Children.Remove(draggedElement);
                         dropZone.Children.Add(draggedElement);
                         await PlaySound("ms-appx:///Assets/Move.mp3");
                     }
                     else
                     {
-
+                        //Flytta till ett steg utan tag crashar
                     }
                 }
             }

@@ -10,10 +10,10 @@
 
 
     <Grid Background="Pink">
-        
-        <Grid Name="Goal" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="1"/>
+
+        <Grid Name="Goal" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
         <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
-        
+
         <Grid x:Name="Spelplan" Width="940">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -87,7 +87,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Grid Grid.Column="0" Grid.Row="0" Name="RedSpot1"/>
                     <Grid Grid.Column="0" Grid.Row="1" Name="RedSpot2"/>
                     <Grid Grid.Column="1" Grid.Row="0" Name="RedSpot3"/>
@@ -180,187 +180,191 @@
                 <!-- Grön linje till Höger -->
                 <Grid Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="1"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="2"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="3"/>
                 </Grid>
                 <Grid Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="4"/>
                 </Grid>
 
                 <Grid Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="5"/>
                 </Grid>
 
                 <!-- Grön linje höger till upp -->
                 <Grid Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="6"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="7"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="8"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="9"/>
                 </Grid>
 
                 <!-- Grön linje upp till Rosa -->
                 <Grid Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="10"/>
                 </Grid>
 
                 <Grid Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="11"/>
                 </Grid>
 
                 <!-- Rosa linje till ner -->
                 <Grid Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="12"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="13"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="14"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="15"/>
                 </Grid>
 
                 <!-- Rosa linje ner till höger -->
                 <Grid Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="16"/>
                 </Grid>
                 <Grid Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="17"/>
                 </Grid>
                 <Grid Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="18"/>
                 </Grid>
                 <Grid Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="19"/>
                 </Grid>
 
                 <!-- Rosa linje höger till blå -->
                 <Grid Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="20"/>
                 </Grid>
                 <Grid Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="21"/>
                 </Grid>
 
                 <!-- blå linje till vänster -->
                 <Grid Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="22"/>
                 </Grid>
                 <Grid Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="23"/>
                 </Grid>
                 <Grid Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="24"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="25, 23"/>
                 </Grid>
 
                 <!-- blå linje vänster till ner -->
                 <Grid Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="26"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="27"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="28"/>
                 </Grid>
                 <Grid Grid.Column="6" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="29"/>
                 </Grid>
 
                 <!-- blå linje ner till röd -->
                 <Grid Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
-                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="11*"/>
+                        <RowDefinition Height="19*"/>
+                    </Grid.RowDefinitions>
+                    <Ellipse Fill="White" Stroke="White" Width="60" Height="60" Grid.RowSpan="2"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="30" Grid.RowSpan="2"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="1"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="1, 22, 33"/>
                 </Grid>
 
                 <!-- röd linje till upp -->
                 <Grid Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="2"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="32"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="3"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="33"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="4"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="34"/>
                 </Grid>
                 <Grid Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="5"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="35"/>
                 </Grid>
 
                 <!-- röd linje upp till vänster -->
                 <Grid Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="36"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="37"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="38"/>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="39"/>
                 </Grid>
 
                 <!-- röd linje vänster till grön -->
                 <Grid Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
-                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
+                    <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="40"/>
                 </Grid>
 
                 <!-- Grön mål-->
@@ -416,7 +420,7 @@
                     <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
                 </Grid>
-                
+
                 <!-- Rosa mål-->
                 <Grid Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
@@ -456,11 +460,11 @@
                 <Ellipse x:Name="Dot51" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
                 <Ellipse x:Name="Dot61" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
             </Grid>
-            
+
             <!--End Turn-->
             <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
         </Grid>
-        
+
         <Grid>
             <!--Dice-->
             <Grid x:Name="DiceBox" Width="300" Height="300" Opacity="1" Background="#000000" Visibility="Visible" HorizontalAlignment="Left">
