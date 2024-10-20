@@ -354,7 +354,7 @@
 
             <!-- Knuffanimation -->
 
-            <Grid>
+            <Grid Visibility="Collapsed">
 
                 <Rectangle x:Name="PushPiece1" HorizontalAlignment="Left" Height="210" Width="135" Margin="533,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                     <Rectangle.RenderTransform>
@@ -383,7 +383,7 @@
             </Grid>
 
             <!--Dice-->
-            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
+            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Collapsed">
                 <Grid >
                     <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
                     <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
@@ -475,6 +475,52 @@
 
                 <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
             Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+            </Grid>
+
+            <!-- Save and load View -->
+            <Grid Name="Save" Width="450" Height="600" Background="#D3D3D3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Title Text -->
+                <TextBlock Text="Saved" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="28" FontWeight="Bold"/>
+
+                <!-- Save Slots -->
+                <Button Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
+                <Button Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
+                <Button Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
+                <Button Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
+                <Button Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
+
+                <!-- Save Panel for save buttons-->
+                <StackPanel x:Name="Savepanel" Grid.Row="6" Visibility="Collapsed">
+                    <!-- Back Button -->
+                    <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Center" CornerRadius="15" Width="150"/>
+                </StackPanel>
+
+                <!-- Load Panel for load buttons-->
+                <StackPanel x:Name="Loadpanel" Grid.Row="6" Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Back Button -->
+                        <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0"/>
+
+                        <!-- Load Button -->
+                        <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                    </Grid>
+                </StackPanel>
+
             </Grid>
         </Grid>
     </Grid>
