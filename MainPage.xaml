@@ -336,6 +336,8 @@
             <!--End Turn-->
             <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
 
+            <!-- Menu Btn -->
+            <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505" Foreground="White" FontSize="24" Click="Menubtn_Click"/>
         </Grid>
 
         <Grid>
@@ -411,7 +413,7 @@
             </Grid>
 
             <!--StartView-->
-            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed">
+            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -435,8 +437,10 @@
                 <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
                 <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
 
-                <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
-                    Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
+                <Button Name="StartGameBtn" Grid.Row="3" Width="150" Height="100" HorizontalAlignment="Center" 
+                    Background="Red" Click="StartGameBtn_Click" Content="Start" FontSize="30"/>
+                <Button Name="LoadGameBtn" Grid.Row="3" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,0,20,0"
+                    Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30"/>
 
 
                 <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
@@ -478,14 +482,10 @@
             </Grid>
 
             <!-- Save and load View -->
-            <Grid Name="Save" Width="450" Height="600" Background="#D3D3D3">
+            <Grid Name="Save" Width="450" Height="600" Background="#D3D3D3" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="6*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -493,20 +493,16 @@
                 <TextBlock Text="Saved" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="28" FontWeight="Bold"/>
 
                 <!-- Save Slots -->
-                <Button Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
-                <Button Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
-                <Button Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
-                <Button Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
-                <Button Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" />
-
-                <!-- Save Panel for save buttons-->
-                <StackPanel x:Name="Savepanel" Grid.Row="6" Visibility="Collapsed">
-                    <!-- Back Button -->
-                    <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Center" CornerRadius="15" Width="150"/>
+                <StackPanel Grid.Row="1">
+                    <ToggleButton Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot1"/>
+                    <ToggleButton Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot2"/>
+                    <ToggleButton Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot3"/>
+                    <ToggleButton Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot4"/>
+                    <ToggleButton Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot5"/>
                 </StackPanel>
-
-                <!-- Load Panel for load buttons-->
-                <StackPanel x:Name="Loadpanel" Grid.Row="6" Visibility="Visible">
+                
+                <!-- Save Panel for save buttons-->
+                <StackPanel x:Name="Savepanel" Grid.Row="6" Visibility="Visible">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -514,13 +510,49 @@
                         </Grid.ColumnDefinitions>
 
                         <!-- Back Button -->
-                        <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0"/>
+                        <Button x:Name="BackToMenu" Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="BackToMenu_Click"/>
+ 
+                        <!-- Save Button -->
+                        <Button Content="Save" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Load Panel for load buttons-->
+                <StackPanel x:Name="Loadpanel" Grid.Row="6" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Back Button -->
+                        <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="LBackbtn_Click"/>
 
                         <!-- Load Button -->
                         <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
                     </Grid>
                 </StackPanel>
 
+            </Grid>
+            
+            <!-- Menu -->
+            <Grid x:Name="Menu" Width="600" Height="500" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Semi-transparent background rectangle -->
+                <Rectangle Fill="#000000" Opacity="0.5" Grid.RowSpan="5"/>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <!-- Menu Buttons-->
+                    <Button x:Name="Resumebtn" Content="Resume" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00897B" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="Resumebtn_Click"/>
+                    <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click"/>
+                    <Button x:Name="LoadBtnM" Content="Laod" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
+                    <Button x:Name="BackBtnM" Content="Main Menu" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>
