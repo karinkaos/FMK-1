@@ -682,7 +682,7 @@
                         <!-- Menu Buttons-->
                         <Button x:Name="Resumebtn" Content="Resume" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00897B" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="Resumebtn_Click"/>
                         <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click"/>
-                        <Button x:Name="LoadBtnM" Content="Laod" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
+                        <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
                         <Button x:Name="BackBtnM" Content="Main Menu" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
                     </StackPanel>
                 </Grid>
