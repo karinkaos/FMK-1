@@ -391,7 +391,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="2" x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False" Foreground="White"/>
+                    <TextBox Grid.Row="2" x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" Foreground="White"/>
                     <Grid Grid.Row="1" x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
 
                         <Grid.RowDefinitions>
@@ -411,7 +411,7 @@
                         <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
                         <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
                     </Grid>
-                    <TextBox Grid.Row="0" x:Name="WhosTurn" Width="350" Height="250" Text="Player 1" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False" Foreground="White"/>
+                    <TextBox Grid.Row="0" x:Name="WhosTurn" Width="350" Height="250" Text="Player 1" FontSize="30" IsReadOnly="True" TextAlignment="Center" Foreground="White"/>
                     <Button Grid.Row="2" x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
                     <Button Grid.Row="2" Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
                 </Grid>

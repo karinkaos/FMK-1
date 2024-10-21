@@ -308,6 +308,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(20, 20, 0, 0);
+					WhosTurn.Foreground = PlayerTwoColor;
 					WhosTurn.Text = $"{players[0]}";
 					break;
 
@@ -317,6 +318,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(0, 20, 20, 0);
+					WhosTurn.Foreground = PlayerThreeColor;
 					WhosTurn.Text = $"{players[1]}";
 					break;
 
@@ -326,6 +328,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(0, 0, 20, 20);
+					WhosTurn.Foreground = PlayerFourColor;
 					WhosTurn.Text = $"{players[2]}";
 					break;
 
@@ -335,6 +338,7 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(20, 0, 0, 20);
+					WhosTurn.Foreground = PlayerOneColor;
 					WhosTurn.Text = $"{players[3]}";
 					break;
 
