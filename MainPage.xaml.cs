@@ -10,6 +10,8 @@ using Windows.Media.Playback;
 using Windows.Storage;
 using Windows.ApplicationModel.Activation;
 using Windows.Media.Core;
+using Windows.UI.Xaml.Controls.Primitives;
+using System.Xml.Linq;
 
 
 namespace FMK_1
@@ -35,6 +37,7 @@ namespace FMK_1
 		private int PlayersNum = 0;
 		private int playerTurn = 1;
 		private int maxPlayers = 4;
+		private bool isLoadMainMenu = false;
 
 		public MainPage()
 		{
@@ -501,5 +504,109 @@ namespace FMK_1
 				}
 			}
 		}
-	}
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Get the currently selected ToggleButton
+            var selectedButton = sender as ToggleButton;
+
+            // Ensure that the parent is a Panel (e.g., StackPanel)
+            if (selectedButton?.Parent is Panel parentPanel)
+            {
+                // Loop through all children of the parent panel
+                foreach (var child in parentPanel.Children)
+                {
+                    // Check if the child is a ToggleButton
+                    if (child is ToggleButton toggleButton && toggleButton != selectedButton)
+                    {
+                        // Uncheck other ToggleButtons
+                        toggleButton.IsChecked = false;
+                        // Reset background color of unselected buttons
+                        toggleButton.Background = new SolidColorBrush(Colors.White);
+                    }
+                }
+            }
+
+            // Change the background color of the selected button
+            selectedButton.Background = new SolidColorBrush(Colors.LightGray);
+        }
+
+        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            var toggleButton = sender as ToggleButton;
+
+            // Reset background color when unchecked
+            toggleButton.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void LoadGameMBtn_Click(object sender, RoutedEventArgs e)
+        {
+			if (Start.Visibility == Visibility.Visible)
+			{
+				Start.Visibility = Visibility.Collapsed;
+			}
+			isLoadMainMenu = true;
+			Save.Visibility = Visibility.Visible;
+			Savepanel.Visibility = Visibility.Collapsed;
+			Loadpanel.Visibility = Visibility.Visible;
+        }
+
+        private void Menubtn_Click(object sender, RoutedEventArgs e)
+        {
+			Menu.Visibility = Visibility.Visible;
+        }
+
+        private void SaveBtnM_Click(object sender, RoutedEventArgs e)
+        {
+			Menu.Visibility = Visibility.Collapsed;
+            Save.Visibility = Visibility.Visible;
+            Savepanel.Visibility = Visibility.Visible;
+            Loadpanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void BackBtnM_Click(object sender, RoutedEventArgs e)
+        {
+			Start.Visibility = Visibility.Visible;
+			Menu.Visibility = Visibility.Collapsed;
+        }
+
+        private void LoadGameBtn_Click(object sender, RoutedEventArgs e)
+        {
+            isLoadMainMenu = false;
+            Save.Visibility = Visibility.Visible;
+			Menu.Visibility = Visibility.Collapsed;
+            Savepanel.Visibility = Visibility.Collapsed;
+            Loadpanel.Visibility = Visibility.Visible;
+        }
+
+        private void LBackbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (isLoadMainMenu)
+            {
+                Save.Visibility = Visibility.Collapsed;
+                Start.Visibility = Visibility.Visible;
+                isLoadMainMenu = false;
+                // if saved the game isloadmainmenu will be always true so need to fix it
+            }
+            else
+            {
+                Save.Visibility = Visibility.Collapsed;
+                Menu.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void BackToMenu_Click(object sender, RoutedEventArgs e)
+        {
+			Save.Visibility = Visibility.Collapsed;
+			if (Menu.Visibility == Visibility.Collapsed)
+			{
+				Menu.Visibility = Visibility.Visible;
+			}
+        }
+
+        private void Resumebtn_Click(object sender, RoutedEventArgs e)
+        {
+			Menu.Visibility = Visibility.Collapsed;
+        }
+    }
 }
