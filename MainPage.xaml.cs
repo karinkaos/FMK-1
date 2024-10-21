@@ -6,13 +6,13 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.Media.Playback;
 using Windows.Storage;
 using Windows.ApplicationModel.Activation;
 using Windows.Media.Core;
 using Windows.UI.Xaml.Controls.Primitives;
 using System.Xml.Linq;
-
 
 namespace FMK_1
 {
@@ -504,6 +504,39 @@ namespace FMK_1
 				}
 			}
 		}
+		// --- Rules And About ---
+		private void RulesBtn_Click(object sender, RoutedEventArgs e)
+		{
+			Storyboard RulesAnimationKey = (Storyboard)this.Resources["RulesAnimationKey"];
+			RulesAnimationKey.Begin();
+
+			AboutAndRules.Visibility = Visibility.Visible;
+			RulesGrid.Visibility = Visibility.Visible;
+			AboutBtn.Visibility = Visibility.Visible;
+		}
+		private void AboutBtn_Click(object sender, RoutedEventArgs e)
+		{
+			RulesGrid.Visibility = Visibility.Collapsed;
+			AboutGrid.Visibility = Visibility.Visible;
+			AboutBtn.Visibility = Visibility.Collapsed;
+		}
+		private void BackToRulesBtn_Click(object sender, RoutedEventArgs e)
+		{
+			RulesGrid.Visibility = Visibility.Visible;
+			AboutGrid.Visibility= Visibility.Collapsed;
+			AboutBtn.Visibility = Visibility.Visible;
+		}
+		private void CloseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			AboutAndRules.Visibility = Visibility.Collapsed;
+			AboutText.Visibility= Visibility.Collapsed;
+			AboutGrid.Visibility = Visibility.Collapsed;
+			RulesGrid.Visibility= Visibility.Collapsed;
+		}
+		// ------
+
+
+	}
 
         private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {

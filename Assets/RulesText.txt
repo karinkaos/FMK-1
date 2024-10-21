@@ -1,0 +1,26 @@
+2–4 players move their pieces clockwise along the board according to the number rolled on the dice.
+
+Be the first player to move your pieces from the starting area, around the board and into the center.
+ 
+Each player has four pieces of a unique color, starting in their respective nests.
+
+The board is a square with a cross-shaped path.
+
+Players take turns rolling a six-sided dice. To move a piece out of the nest and onto the starting spot, a player must roll a 1 or a 6.
+If a 6 is rolled, the player can either:
+Move a piece out of the nest. Or move a piece that is already on the board.
+Rolling a 6 also grants the player an extra roll.
+
+Knocking Out:
+If a player's piece lands on a spot occupied by an opponent's piece, the opponent's piece is knocked back to its starting nest. The knocked player must roll a 1 or 6 again to bring the piece back onto the board.
+
+Safe Zones on the board are marked by colored spots of each color, where pieces cannot be knocked out.
+Each player has safe zones in their starting spot and home column.
+
+Home Column: Once a piece has made a full round on the board, it enters the home column and can start their way into the center where it must land by an exact roll on the dice.
+
+Once it reaches the center it disappears from the board.
+ 
+The first player to move all of their pieces into the center
+
+ wins the game 🏆

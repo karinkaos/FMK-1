@@ -132,6 +132,7 @@
   <ItemGroup>
     <Content Include="Assets\startup.wav" />
     <Content Include="Assets\Explosion-Craiyon.png" />
+    <Content Include="Assets\FMK-RulesImage.png" />
     <Content Include="Assets\Goal.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -140,6 +141,7 @@
     <Content Include="Assets\Pieces\RedPiece.png" />
     <Content Include="Assets\Pieces\YellowPiece.png" />
     <Content Include="Assets\PushSound.mp3" />
+    <Content Include="Assets\RulesText.txt" />
     <Content Include="Assets\WhitePiece.png" />
     <Content Include="Assets\Win.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
