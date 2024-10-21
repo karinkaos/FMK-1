@@ -533,10 +533,7 @@ namespace FMK_1
 			AboutGrid.Visibility = Visibility.Collapsed;
 			RulesGrid.Visibility= Visibility.Collapsed;
 		}
-		// ------
-
-
-	}
+        // ------
 
         private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -574,24 +571,24 @@ namespace FMK_1
 
         private void LoadGameMBtn_Click(object sender, RoutedEventArgs e)
         {
-			if (Start.Visibility == Visibility.Visible)
-			{
-				Start.Visibility = Visibility.Collapsed;
-			}
-			isLoadMainMenu = true;
-			Save.Visibility = Visibility.Visible;
-			Savepanel.Visibility = Visibility.Collapsed;
-			Loadpanel.Visibility = Visibility.Visible;
+            if (Start.Visibility == Visibility.Visible)
+            {
+                Start.Visibility = Visibility.Collapsed;
+            }
+            isLoadMainMenu = true;
+            Save.Visibility = Visibility.Visible;
+            Savepanel.Visibility = Visibility.Collapsed;
+            Loadpanel.Visibility = Visibility.Visible;
         }
 
         private void Menubtn_Click(object sender, RoutedEventArgs e)
         {
-			Menu.Visibility = Visibility.Visible;
+            Menu.Visibility = Visibility.Visible;
         }
 
         private void SaveBtnM_Click(object sender, RoutedEventArgs e)
         {
-			Menu.Visibility = Visibility.Collapsed;
+            Menu.Visibility = Visibility.Collapsed;
             Save.Visibility = Visibility.Visible;
             Savepanel.Visibility = Visibility.Visible;
             Loadpanel.Visibility = Visibility.Collapsed;
@@ -599,15 +596,15 @@ namespace FMK_1
 
         private void BackBtnM_Click(object sender, RoutedEventArgs e)
         {
-			Start.Visibility = Visibility.Visible;
-			Menu.Visibility = Visibility.Collapsed;
+            Start.Visibility = Visibility.Visible;
+            Menu.Visibility = Visibility.Collapsed;
         }
 
         private void LoadGameBtn_Click(object sender, RoutedEventArgs e)
         {
             isLoadMainMenu = false;
             Save.Visibility = Visibility.Visible;
-			Menu.Visibility = Visibility.Collapsed;
+            Menu.Visibility = Visibility.Collapsed;
             Savepanel.Visibility = Visibility.Collapsed;
             Loadpanel.Visibility = Visibility.Visible;
         }
@@ -630,16 +627,17 @@ namespace FMK_1
 
         private void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
-			Save.Visibility = Visibility.Collapsed;
-			if (Menu.Visibility == Visibility.Collapsed)
-			{
-				Menu.Visibility = Visibility.Visible;
-			}
+            Save.Visibility = Visibility.Collapsed;
+            if (Menu.Visibility == Visibility.Collapsed)
+            {
+                Menu.Visibility = Visibility.Visible;
+            }
         }
 
         private void Resumebtn_Click(object sender, RoutedEventArgs e)
         {
-			Menu.Visibility = Visibility.Collapsed;
+            Menu.Visibility = Visibility.Collapsed;
         }
+
     }
 }
