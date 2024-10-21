@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
@@ -44,7 +45,7 @@ namespace FMK_1
             PlayerThreeColor = new SolidColorBrush(colors[colorIndex + 2]);
             PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
         }
-
+        
         private Grid CreateGrid(string gridName)
         {
             Grid grid = new Grid
@@ -55,7 +56,7 @@ namespace FMK_1
                 Width = 50,
                 Visibility = Visibility.Visible,
                 CanDrag = true,
-                Tag = "1, -1"
+                Tag = "0, -5"   //Path och steg
             };
 
             TextBlock textBlock = new TextBlock
@@ -166,9 +167,10 @@ namespace FMK_1
             colorIndex = 0;
         }
 
+        public int DiceValue;
         private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
-            int DiceValue = random.Next(1, 7);
+            DiceValue = random.Next(1, 7);
             HideDots();
 
             switch (DiceValue)
@@ -483,28 +485,38 @@ namespace FMK_1
 
                 else if (sender is Panel dropZone)
                 {
-                    
+                    //
                     string[] PieceTags = PieceTag.Split(',');                //Det ska vara Typ "Path 1, Steg 2"
                     int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
                     int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
+                    //
 
-                    int SpotNumber;
 
-                    //Vet inte varför det funkar men gör det
-                    if (Int32.TryParse(dropZone.Tag.ToString(), out SpotNumber))
+                    //
+                    var SpotTags = (string)dropZone.Tag;
+                    string[] SpotTag = SpotTags.Split(",");
+                    int SpotPath = int.Parse(SpotTag[Path].Trim());
+                    //
+                    DiceValue = 6;
+                    
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
                     {
-                        //draggedElement.Tag = SpotNumber;
+                        await PlaySound("ms-appx:///Assets/Win.mp3");
+                    }
 
+                    //if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+                    //{
+                    //    Push Function
+                    //    Checka så om Path [0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt
+                    //}
 
-
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)       //CurrentPieceSpot + DiceRoll = SpotPath
+                    {
+                        draggedElement.Tag = $"{Path},{SpotPath}";
 
                         parent?.Children.Remove(draggedElement);
                         dropZone.Children.Add(draggedElement);
                         await PlaySound("ms-appx:///Assets/Move.mp3");
-                    }
-                    else
-                    {
-                        //Flytta till ett steg utan tag crashar
                     }
                 }
             }
