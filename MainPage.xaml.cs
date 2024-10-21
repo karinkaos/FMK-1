@@ -13,6 +13,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Media.Core;
 using Windows.UI.Xaml.Controls.Primitives;
 using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace FMK_1
 {
@@ -49,54 +50,64 @@ namespace FMK_1
 			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
 		}
 
-            private Grid CreateGrid(string gridName, Thickness margin)
+        private Grid CreateGrid(string gridName)
+        {
+            Grid grid = new Grid
+            {
+                Name = gridName,
+                Background = new SolidColorBrush(Colors.Red),
+                Height = 50,
+                Width = 50,
+                Visibility = Visibility.Visible,
+                CanDrag = true,
+                Tag = "0, -5"   //Path och steg
+            };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Name = "Textblock_" + gridName,
+                Text = "TEST",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            grid.Children.Add(textBlock);
+
+            grid.DragStarting += PieceDrag;
+
+            return grid;
+        }
+        List<Grid> createdGrids = new List<Grid>();
+
+        private void StartGameBtn_Click(object sender, RoutedEventArgs e)
 		{
-			Grid grid = new Grid
-			{
-				Name = gridName,
-				Background = new SolidColorBrush(Colors.Red),
-				Height = 50,
-				Width = 50,
-				Visibility = Visibility.Visible,
-				HorizontalAlignment = HorizontalAlignment.Left,
-				Margin = margin,
-				CanDrag = true
-			};
-
-			TextBlock textBlock = new TextBlock
-			{
-				Name = "Textblock_" + gridName,
-				Text = "TEST",
-				HorizontalAlignment = HorizontalAlignment.Center,
-				VerticalAlignment = VerticalAlignment.Center
-			};
-			grid.Children.Add(textBlock);
-
-			grid.DragStarting += Test1_DragStarting;
-
-			return grid;
-		}
-
-		private void StartGameBtn_Click(object sender, RoutedEventArgs e)
-		{
-			player = 0;
+            foreach (Grid grid in createdGrids)
+            {
+                if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
+                {
+                    parentPanel.Children.Remove(grid);
+                }
+            }
+            player = 0;
 			Start.Visibility = Visibility.Collapsed;
 
-			Grid P1 = CreateGrid("P1", new Thickness(0, 150, 0, 0));
-			Test.Children.Add(P1);
+            for (int i = 0; i < 4; i++)
+            {
+                string name = $"p{i}";
+                Grid P1 = CreateGrid(name);
 
-			// Create and add the second Grid (P2)
-			Grid P2 = CreateGrid("P2", new Thickness(0, 0, 0, 150));
-			Test.Children.Add(P2);
+                if (i == 0) RedSpot1.Children.Add(P1);
+                else if (i == 1) RedSpot2.Children.Add(P1);
+                else if (i == 2) RedSpot3.Children.Add(P1);
+                else if (i == 3) RedSpot4.Children.Add(P1);
 
-			ColorPieces();
+                createdGrids.Add(P1);
+            }
+
+            ColorPieces();
 
 			if (PlayersNum == 1 || PlayersNum == 2)
 			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+				
 
 				GreenPiece1.Visibility = Visibility.Visible;
 				GreenPiece2.Visibility = Visibility.Visible;
@@ -105,10 +116,7 @@ namespace FMK_1
 			}
 			else if (PlayersNum == 3)
 			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+				
 
 				GreenPiece1.Visibility = Visibility.Visible;
 				GreenPiece2.Visibility = Visibility.Visible;
@@ -122,10 +130,7 @@ namespace FMK_1
 			}
 			else
 			{
-				RedPiece1.Visibility = Visibility.Visible;
-				RedPiece2.Visibility = Visibility.Visible;
-				RedPiece3.Visibility = Visibility.Visible;
-				RedPiece4.Visibility = Visibility.Visible;
+				
 
 				GreenPiece1.Visibility = Visibility.Visible;
 				GreenPiece2.Visibility = Visibility.Visible;
@@ -149,10 +154,7 @@ namespace FMK_1
 			Start.Visibility = Visibility.Visible;
 			End.Visibility = Visibility.Collapsed;
 
-			RedPiece1.Visibility = Visibility.Collapsed;
-			RedPiece2.Visibility = Visibility.Collapsed;
-			RedPiece3.Visibility = Visibility.Collapsed;
-			RedPiece4.Visibility = Visibility.Collapsed;
+			
 
 			GreenPiece1.Visibility = Visibility.Collapsed;
 			GreenPiece2.Visibility = Visibility.Collapsed;
@@ -172,9 +174,10 @@ namespace FMK_1
 			colorIndex = 0;
 		}
 
-		private void DiceButton_Click(object sender, RoutedEventArgs e)
+        public int DiceValue;
+        private void DiceButton_Click(object sender, RoutedEventArgs e)
 		{
-			int DiceValue = random.Next(1, 7);
+			DiceValue = random.Next(1, 7);
 			HideDots();
 
 			switch (DiceValue)
@@ -412,10 +415,7 @@ namespace FMK_1
 
 		private void ColorPieces()
 		{
-			RedPiece1.Fill = PlayerOneColor;
-			RedPiece2.Fill = PlayerOneColor;
-			RedPiece3.Fill = PlayerOneColor;
-			RedPiece4.Fill = PlayerOneColor;
+			
 
 			GreenPiece1.Fill = PlayerTwoColor;
 			GreenPiece2.Fill = PlayerTwoColor;
@@ -448,64 +448,113 @@ namespace FMK_1
 		}
 
 
-		//TODO: Byt så när man lyfter så ändras lyft iconen till något passande
-		private void Test_DragOver(object sender, DragEventArgs e)
-		{
-			e.AcceptedOperation = DataPackageOperation.Move;
-			e.DragUIOverride.Caption = "";
-			e.DragUIOverride.IsGlyphVisible = true;
-		}
+        private void PieceDragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+            e.DragUIOverride.IsGlyphVisible = false;
+            e.DragUIOverride.IsCaptionVisible = false;
+            e.DragUIOverride.IsContentVisible = true;
+        }
 
-		private void Test1_DragStarting(UIElement sender, DragStartingEventArgs args)
-		{
-			if (sender is FrameworkElement element)
-			{
-				string name = element.Name;
+        private void PieceDrag(UIElement sender, DragStartingEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                string name = element.Name;
 
-				args.Data.Properties.Add("Name", name);
+                string tag = element.Tag?.ToString();
 
-				args.Data.SetText(name);
+                args.Data.Properties.Add("Name", name);
+                args.Data.Properties.Add("Tag", tag);
 
-				args.DragUI.SetContentFromDataPackage();
-			}
-		}
+                args.Data.SetText(name); // Default text format
+                args.Data.SetData("CustomTagFormat", tag); // Custom format for the tag
+            }
+        }
 
 
 
-		private async void Test_Drop(object sender, DragEventArgs e)
-		{
-			if (e.DataView.Properties.ContainsKey("Name"))
-			{
-				var name = e.DataView.Properties["Name"] as string;
+        public int PieceNumber;
+        private async void PieceDrop(object sender, DragEventArgs e)
+        {
+            var PieceName = e.DataView.Properties["Name"] as string;
+            var PieceTag = e.DataView.Properties["Tag"] as string;
 
-				var draggedElement = (UIElement)this.FindName(name);
+            var draggedElement = (Grid)this.FindName(PieceName);
 
-				if (draggedElement != null)
-				{
-					draggedElement.Visibility = Visibility.Collapsed;
-					player++;
-				}
-				if (player == 2)
-				{
-					End.Visibility = Visibility.Visible;
-					MediaElement SoundPlayer = new MediaElement();
-					var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Win.mp3"));
-					var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-					SoundPlayer.SetSource(stream, soundFile.ContentType);
-					SoundPlayer.Play();
-				}
-				else
-				{
-					MediaElement SoundPlayer = new MediaElement();
-					var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Goal.mp3"));
-					var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-					SoundPlayer.SetSource(stream, soundFile.ContentType);
-					SoundPlayer.Play();
-				}
-			}
-		}
-		// --- Rules And About ---
-		private void RulesBtn_Click(object sender, RoutedEventArgs e)
+            if (draggedElement != null)
+            {
+                var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
+
+                if (sender is FrameworkElement element && element.Name == "Goal")
+                {
+                    parent?.Children.Remove(draggedElement);
+                    draggedElement.Visibility = Visibility.Collapsed;
+                    player++;
+
+                    if (player == 4)
+                    {
+                        foreach (Grid grid in createdGrids)
+                        {
+                            if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
+                            {
+                                parentPanel.Children.Remove(grid);
+                            }
+                        }
+                        End.Visibility = Visibility.Visible;
+                        await PlaySound("ms-appx:///Assets/Win.mp3");
+                    }
+                }
+
+                else if (sender is Panel dropZone)
+                {
+                    //
+                    string[] PieceTags = PieceTag.Split(',');                //Det ska vara Typ "Path 1, Steg 2"
+                    int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
+                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
+                    //
+
+
+                    //
+                    var SpotTags = (string)dropZone.Tag;
+                    string[] SpotTag = SpotTags.Split(",");
+                    int SpotPath = int.Parse(SpotTag[Path].Trim());
+                    //
+                    DiceValue = 6;
+
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+                    {
+                        await PlaySound("ms-appx:///Assets/Win.mp3");	//Upptagen Plats
+                    }
+
+                    //if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+                    //{
+                    //    Push Function
+                    //    Checka så om Path [0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt
+                    //}
+
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)       //CurrentPieceSpot + DiceRoll = SpotPath
+                    {
+                        draggedElement.Tag = $"{Path},{SpotPath}";
+
+                        parent?.Children.Remove(draggedElement);
+                        dropZone.Children.Add(draggedElement);
+                        await PlaySound("ms-appx:///Assets/Goal.mp3");
+                    }
+                }
+            }
+        }
+
+        private static async Task PlaySound(string sound)
+        {
+            MediaElement SoundPlayer = new MediaElement();
+            var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri(sound));
+            var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+            SoundPlayer.SetSource(stream, soundFile.ContentType);
+            SoundPlayer.Play();
+        }
+        // --- Rules And About ---
+        private void RulesBtn_Click(object sender, RoutedEventArgs e)
 		{
 			Storyboard RulesAnimationKey = (Storyboard)this.Resources["RulesAnimationKey"];
 			RulesAnimationKey.Begin();
