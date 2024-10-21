@@ -130,6 +130,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\startup.wav" />
     <Content Include="Assets\Explosion-Craiyon.png" />
     <Content Include="Assets\FMK-RulesImage.png" />
     <Content Include="Assets\Goal.mp3">
