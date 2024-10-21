@@ -447,21 +447,25 @@ namespace FMK_1
 
 		private void ColorPieces()
 		{
+			PlayerBox1.Fill = PlayerOneColor;
 			RedPiece1.Fill = PlayerOneColor;
 			RedPiece2.Fill = PlayerOneColor;
 			RedPiece3.Fill = PlayerOneColor;
 			RedPiece4.Fill = PlayerOneColor;
 
+			PlayerBox2.Fill = PlayerTwoColor;
 			GreenPiece1.Fill = PlayerTwoColor;
 			GreenPiece2.Fill = PlayerTwoColor;
 			GreenPiece3.Fill = PlayerTwoColor;
 			GreenPiece4.Fill = PlayerTwoColor;
 
+			PlayerBox3.Fill = PlayerThreeColor;
 			BluePiece1.Fill = PlayerThreeColor;
 			BluePiece2.Fill = PlayerThreeColor;
 			BluePiece3.Fill = PlayerThreeColor;
 			BluePiece4.Fill = PlayerThreeColor;
 
+			PlayerBox4.Fill = PlayerFourColor;
 			YellowPiece1.Fill = PlayerFourColor;
 			YellowPiece2.Fill = PlayerFourColor;
 			YellowPiece3.Fill = PlayerFourColor;

@@ -66,26 +66,26 @@
 
             <!-- Grön namn -->
             <Grid Grid.Row="0" Grid.Column="0">
-                <Rectangle Stroke="Transparent" Fill="#24FF00"/>
-                <TextBlock Text="Grön" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <Rectangle x:Name="PlayerBox2" Stroke="Transparent" Fill="#24FF00"/>
+                <!--TextBlock Text="Grön" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock-->
             </Grid>
 
             <!-- Rosa namn -->
             <Grid Grid.Column="3">
-                <Rectangle Stroke="Transparent" Fill="#FF00D6"/>
-                <TextBlock Text="Rosa" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+                <Rectangle x:Name="PlayerBox4" Stroke="Transparent" Fill="#FF00D6"/>
+                <!--TextBlock Text="Rosa" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock-->
             </Grid>
 
             <!-- Blå namn -->
             <Grid Grid.Row="3" Grid.Column="3">
-                <Rectangle Stroke="Transparent" Fill="#1400FF"/>
-                <TextBlock Text="Blå" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+                <Rectangle x:Name="PlayerBox3" Stroke="Transparent" Fill="#1400FF"/>
+                <!--TextBlock Text="Blå" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock-->
             </Grid>
 
             <!-- Röd namn -->
             <Grid Grid.Row="3">
-                <Rectangle Stroke="Transparent" Fill="#FF0000"/>
-                <TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+                <Rectangle x:Name="PlayerBox1" Stroke="Transparent" Fill="#FF0000"/>
+                <!--TextBlock Text="Röd" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock-->
             </Grid>
 
             <!-- Grön pjäsnäst och pjäser -->
@@ -384,7 +384,7 @@
             </Grid>
 
             <!--Dice-->
-            <Grid x:Name="DiceBox" Width="600" Height="500" Background="#000000" Visibility="Visible">
+            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
