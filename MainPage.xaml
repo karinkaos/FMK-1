@@ -8,6 +8,90 @@
     mc:Ignorable="d"
     Background="Pink">
 
+    <Page.Resources>
+        <!-- Push Animation -->
+        <Storyboard x:Name="Push">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-28.433"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-28.433"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.899"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="71.918"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="41.093"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-10.274"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-10.274"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3330000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6670000" Value="-20.556"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-62.612"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="-91.342"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-68.493"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-68.493"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PushPiece2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-30.822"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-30.822"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!-- Rules Animation -->
+        <Storyboard x:Name="RulesAnimationKey">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                    RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-15.745"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-10.766"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.7000000" Value="-10.766"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="12.247"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.1000000" Value="12.247"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="3.42"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                    RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="14.368"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="4.388"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-3.191"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="1.678"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                    RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-7.756"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-2.068"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="9.669"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="0.064"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                    RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="11.755"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="8.206"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-8.595"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.1000000" Value="-8.595"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="2.942"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Page.Resources>
+
 
     <Grid Background="Pink">
 
@@ -441,7 +525,7 @@
             </Grid>
 
             <!-- Dice on Board-->
-            <Grid x:Name="Dice2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="20,20,0,0" Width="80" Height="80" Background="#FFFFFF">
+            <Grid x:Name="Dice2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="20,20,0,0" Width="80" Height="80" Background="#FFFFFF" Visibility="Visible">
 
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -462,7 +546,8 @@
             </Grid>
 
             <!--End Turn-->
-            <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click"></Button>
+
+            <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505" Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click" Visibility="Collapsed"></Button>
         </Grid>
 
         <Grid>
@@ -487,21 +572,172 @@
                         <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
                         <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
                         <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
-                    </Grid>
-                    <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
-                    <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
-                </Grid>
+
+            <!-- Menu Btn -->
+            <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505" Foreground="White" FontSize="24" Click="Menubtn_Click"/>
+        </Grid>
+
+        <Grid>
+
+            <!--Test Function för DragNDrop-->
+            <Grid Name="Test" Width="250" Height="250" Background="Gray" AllowDrop="True" DragOver="Test_DragOver" Drop="Test_Drop" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Name="xd" Text="GOAL!" FontSize="56"/>
+
             </Grid>
 
-            <!--StartView-->
-            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
 
+            <!--Test Function för DragNDrop-->
+
+
+
+            <!-- Knuffanimation -->
+
+
+            <Grid x:Name="PushAnimation" Visibility="Visible">
+
+                <Grid Visibility="Collapsed">
+
+
+                    <Rectangle x:Name="PushPiece1" HorizontalAlignment="Left" Height="210" Width="135" Margin="533,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform Rotation="0"/>
+                        </Rectangle.RenderTransform>
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <Rectangle x:Name="PushPiece2" HorizontalAlignment="Left" Height="210" Width="135" Margin="825,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform Rotation="0"/>
+                        </Rectangle.RenderTransform>
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Assets/WhitePiece.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <Button Content="Knuffa!" Height="75" Margin="900,720,0,0" VerticalAlignment="Top" Width="253" Click="Push_Click"/>
+
+                    <MediaElement x:Name="PushSound" AutoPlay="False" Source="Assets/PushSound.mp3" Visibility="Collapsed"/>
+                    <Image x:Name="ExplosionImage2" Source="/Assets/Explosion-Craiyon.png" Width="300" Height="300" Visibility="Collapsed" Margin="550,0,500,50"/>
+                    <Image x:Name="ExplosionImage1" Source="/Assets/Explosion-Craiyon.png" Width="200" Height="200" Visibility="Collapsed" Margin="550,0,500,50"/>
+
+                </Grid>
+
+                <!-- Regler och AboutPage -->
+                <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="50" Width="90" Margin="50" CornerRadius="8" Background="Gray" Click="RulesBtn_Click"/>
+
+                <Grid x:Name="AboutAndRules" Width="650" Height="850" Background="#EED1D1" CornerRadius="8" Visibility="Collapsed" BorderBrush="Black" BorderThickness="2">
+
+                    <StackPanel x:Name="PiecesPanel" Width="560" Height="180" VerticalAlignment="Top" Orientation="Horizontal" Margin="30">
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/GreenPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Margin="25" Opacity="0.5">
+                            <Rectangle x:Name="rectangle1" Margin="10" RenderTransformOrigin="0.5,0.5" Canvas.ZIndex="1">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/RedPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle2" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/BluePiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle3" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/YellowPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Regler -->
+                    <Grid x:Name="RulesGrid" Height="450" Width="450" Margin="0,100,0,80" Background="LightCoral" Visibility="Collapsed" BorderBrush="DarkGray">
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/Assets/FMK-RulesImage.png" Stretch="Fill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                    </Grid>
+
+                    <!-- About -->
+                    <Grid x:Name="AboutGrid" Visibility="Collapsed">
+                        <TextBlock x:Name="AboutText" Text="About" Height="60" Width="450" Margin="0,0,0,350" FontSize="40" Foreground="Black" TextAlignment="Center"/>
+                        <TextBlock Height="300" Width="400" Foreground="Black" TextWrapping="Wrap">
+                    
+                    Creators:<LineBreak/>
+                    <LineBreak/>
+                            Christoffer Lundberg<LineBreak/>
+                            Karin Oskarsson<LineBreak/>
+                            Dennis Wiklund<LineBreak/>
+                            Mohammed Rezki<LineBreak/>
+                    <LineBreak/>
+                    October 2024<LineBreak/>
+                    <LineBreak/>
+                    This project was created for the purpose of a school assignment.
+
+                        </TextBlock>
+                        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="Rules" CornerRadius="8" Background="green" Foreground="Black"
+                        Click="BackToRulesBtn_Click"/>
+                    </Grid>
+
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50" Height="75" Width="170" Content="Close" CornerRadius="8" Background="Green" Foreground="Black"
+                        Click="CloseBtn_Click"/>
+                    <Button x:Name="AboutBtn" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="About" CornerRadius="8" Background="Green" Foreground="Black"
+                        Click="AboutBtn_Click"/>
+
+                </Grid>
+
+                <!--Dice-->
+                <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Collapsed">
+                    <Grid >
+                        <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"/>
+                        <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                            <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                            <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                            <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                            <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                            <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                        </Grid>
+                        <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click"/>
+                        <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1"/>
+                    </Grid>
+                </Grid>
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
                     <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped"></Rectangle>
@@ -510,20 +746,43 @@
 
                     <TextBlock FontSize="60" Visibility="Collapsed" Text="Started"/>
                 </StackPanel>
+                <!--StartView-->
+                <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Visible">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
-                <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
 
-                <Button Name="StartGameBtn" Grid.Row="3" Width="200" Height="100" HorizontalAlignment="Center" 
-                    Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped"></Rectangle>
+                        <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped"></Rectangle>
+                        <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped"></Rectangle>
+                        <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped"></Rectangle>
+
+                        <TextBlock FontSize="60" Visibility="Collapsed">
+                Started
+                        </TextBlock>
+
+                    </StackPanel>
+
+                    <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
+                    <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
+
+                    <Button Name="StartGameBtn" Grid.Row="3" Width="150" Height="100" HorizontalAlignment="Center" 
+                    Background="Red" Click="StartGameBtn_Click" Content="Start" FontSize="30"/>
+                    <Button Name="LoadGameBtn" Grid.Row="3" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,0,20,0"
+                    Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30"/>
 
 
-                <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Slider x:Name="PlayerSlider"
+                    <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Slider x:Name="PlayerSlider"
                         Height="40"
                         Width="350"
                         Minimum="1"
@@ -537,9 +796,9 @@
                         TickPlacement="Outside"
                         IsThumbToolTipEnabled="False"
                         ValueChanged="PlayerSlider_ValueChanged">
-                    </Slider>
+                        </Slider>
+                    </Grid>
                 </Grid>
-            </Grid>
 
             <!--EndView-->
             <Grid Name="End" Width="450" Height="600" Background="Blue" Visibility="Collapsed">
@@ -549,6 +808,95 @@
                 </Grid.RowDefinitions>
                 <TextBlock FontSize="60" Text="Ended"/>
                 <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+
+                <!--EndView-->
+                <Grid Name="End" Width="450" Height="600" Background="Blue" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="60">
+                Ended
+                    </TextBlock>
+
+                    <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+            Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30"/>
+                </Grid>
+
+                <!-- Save and load View -->
+                <Grid Name="Save" Width="450" Height="600" Background="#D3D3D3" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Title Text -->
+                    <TextBlock Text="Saved" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontSize="28" FontWeight="Bold"/>
+
+                    <!-- Save Slots -->
+                    <StackPanel Grid.Row="1">
+                        <ToggleButton Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot1"/>
+                        <ToggleButton Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot2"/>
+                        <ToggleButton Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot3"/>
+                        <ToggleButton Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot4"/>
+                        <ToggleButton Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot5"/>
+                    </StackPanel>
+
+                    <!-- Save Panel for save buttons-->
+                    <StackPanel x:Name="Savepanel" Grid.Row="6" Visibility="Visible">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Back Button -->
+                            <Button x:Name="BackToMenu" Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="BackToMenu_Click"/>
+
+                            <!-- Save Button -->
+                            <Button Content="Save" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Load Panel for load buttons-->
+                    <StackPanel x:Name="Loadpanel" Grid.Row="6" Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Back Button -->
+                            <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="LBackbtn_Click"/>
+
+                            <!-- Load Button -->
+                            <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+
+                </Grid>
+
+                <!-- Menu -->
+                <Grid x:Name="Menu" Width="600" Height="500" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Semi-transparent background rectangle -->
+                    <Rectangle Fill="#000000" Opacity="0.5" Grid.RowSpan="5"/>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <!-- Menu Buttons-->
+                        <Button x:Name="Resumebtn" Content="Resume" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00897B" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="Resumebtn_Click"/>
+                        <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click"/>
+                        <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
+                        <Button x:Name="BackBtnM" Content="Main Menu" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
