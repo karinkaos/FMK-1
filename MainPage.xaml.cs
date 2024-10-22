@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+
 namespace FMK_1
 {
 	public sealed partial class MainPage : Page
@@ -27,6 +28,14 @@ namespace FMK_1
 			Colors.Green,
 			Colors.Blue,
 			Colors.Yellow
+		};
+
+		private string[] players = new string[]
+		{
+			"Player 1",
+			"Player 2",
+			"Player 3",
+			"Player 4"
 		};
 
 		private SolidColorBrush PlayerOneColor;
@@ -238,7 +247,17 @@ namespace FMK_1
 					break;
 			}
 
-			DiceResult.Text = $"Du slog {DiceValue}!";
+			if (DiceValue == 6)
+			{
+				DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
+				//<------Player movement
+			}
+			else
+			{
+				DiceResult.Text = $"Du slog {DiceValue}!";
+				//<------Player movement
+				TurnSwitch();
+			}
 		}
 
 		private void HideDots()
@@ -299,6 +318,8 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(20, 20, 0, 0);
+					WhosTurn.Foreground = PlayerTwoColor;
+					WhosTurn.Text = $"{players[0]}";
 					break;
 
 				case 2:
@@ -307,6 +328,8 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Top;
 					Dice2.Margin = new Thickness(0, 20, 20, 0);
+					WhosTurn.Foreground = PlayerThreeColor;
+					WhosTurn.Text = $"{players[1]}";
 					break;
 
 				case 3:
@@ -315,6 +338,8 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(0, 0, 20, 20);
+					WhosTurn.Foreground = PlayerFourColor;
+					WhosTurn.Text = $"{players[2]}";
 					break;
 
 				case 4:
@@ -323,6 +348,8 @@ namespace FMK_1
 					Dice2.SetValue(Grid.RowProperty, 1);    // Row 1
 					Dice2.VerticalAlignment = VerticalAlignment.Bottom;
 					Dice2.Margin = new Thickness(20, 0, 0, 20);
+					WhosTurn.Foreground = PlayerOneColor;
+					WhosTurn.Text = $"{players[3]}";
 					break;
 
 				default:
@@ -330,8 +357,23 @@ namespace FMK_1
 					break;
 			}
 		}
-
+		/* Clickable Button for switch turns.
 		private void TurnBtn_Click(object sender, RoutedEventArgs e)
+		{
+			// Increment the turn
+			playerTurn++;
+
+			// If playerTurn exceeds the maximum number of players, reset to 1
+			if (playerTurn > maxPlayers)
+			{
+				playerTurn = 1;
+			}
+
+			// Call the DicePlaceOnBoard function to move the dice based on the player's turn
+			DicePlaceOnBoard(playerTurn);
+		}
+		*/
+		private void TurnSwitch()
 		{
 			// Increment the turn
 			playerTurn++;
@@ -416,17 +458,26 @@ namespace FMK_1
 		private void ColorPieces()
 		{
 			
+			PlayerBox1.Fill = PlayerOneColor;
+			RedPiece1.Fill = PlayerOneColor;
+			RedPiece2.Fill = PlayerOneColor;
+			RedPiece3.Fill = PlayerOneColor;
+			RedPiece4.Fill = PlayerOneColor;
 
+
+			PlayerBox2.Fill = PlayerTwoColor;
 			GreenPiece1.Fill = PlayerTwoColor;
 			GreenPiece2.Fill = PlayerTwoColor;
 			GreenPiece3.Fill = PlayerTwoColor;
 			GreenPiece4.Fill = PlayerTwoColor;
 
+			PlayerBox3.Fill = PlayerThreeColor;
 			BluePiece1.Fill = PlayerThreeColor;
 			BluePiece2.Fill = PlayerThreeColor;
 			BluePiece3.Fill = PlayerThreeColor;
 			BluePiece4.Fill = PlayerThreeColor;
 
+			PlayerBox4.Fill = PlayerFourColor;
 			YellowPiece1.Fill = PlayerFourColor;
 			YellowPiece2.Fill = PlayerFourColor;
 			YellowPiece3.Fill = PlayerFourColor;
