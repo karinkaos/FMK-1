@@ -120,6 +120,11 @@ namespace FMK_1
 
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
+            gameStart();
+        }
+
+        private void gameStart()
+        {
             foreach (Grid grid in createdGrids)
             {
                 if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
@@ -893,12 +898,63 @@ namespace FMK_1
 
         private void LoadGameState(GameState gameState)
         {
-            // Implement logic to load player data into your game
-            foreach (var player in gameState.Players)
+            // Check if gameState is null to avoid NullReferenceException
+            if (gameState == null)
             {
-                // Logic to place player pieces based on loadedGame data
-                // e.g., Update player color and positions in the UI
+                Debug.WriteLine("No game state to load.");
+                return;
             }
+
+            // Output the number of players
+            Debug.WriteLine($"Number of Players: {gameState.NumberOfPlayers}");
+            PlayersNum = gameState.NumberOfPlayers;
+
+            // Output each player's data
+            for (int i = 0; i < gameState.Players.Count; i++)
+            {
+                var player = gameState.Players[i];
+
+                // Output player color
+                Debug.WriteLine($"Player {i + 1}: Color = {player.Color}");
+
+                // Manually parse the ARGB hex string
+                string hexColor = player.Color.TrimStart('#'); // Remove the '#' at the beginning
+
+                // Convert hex string to ARGB values
+                byte a = Convert.ToByte(hexColor.Substring(0, 2), 16); // Alpha
+                byte r = Convert.ToByte(hexColor.Substring(2, 2), 16); // Red
+                byte g = Convert.ToByte(hexColor.Substring(4, 2), 16); // Green
+                byte b = Convert.ToByte(hexColor.Substring(6, 2), 16); // Blue
+
+                // Create a Color object
+                Color color = Color.FromArgb(a, r, g, b);
+                SolidColorBrush playerColorBrush = new SolidColorBrush(color);
+
+                if (i + 1 == 1)
+                {
+                    PlayerOneColor = playerColorBrush;
+                }
+                else if (i + 1 == 2)
+                {
+                    PlayerTwoColor = playerColorBrush; // Ensure PlayerTwoColor is defined
+                }
+                else if (i + 1 == 3)
+                {
+                    PlayerThreeColor = playerColorBrush; // Ensure PlayerThreeColor is defined
+                }
+                else if (i + 1 == 4)
+                {
+                    PlayerFourColor = playerColorBrush; // Ensure PlayerFourColor is defined
+                }
+
+                // Output each piece's position (only up to 4 pieces)
+                for (int j = 0; j < player.PiecePositions.Count && j < 4; j++)
+                {
+                    Debug.WriteLine($"  Piece {j + 1} Position: {player.PiecePositions[j]}");
+                }
+            }
+
+            gameStart();
         }
 
         private void InitializePlayers(List<Player> players)
