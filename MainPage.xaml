@@ -556,10 +556,6 @@
             </Grid>
 
 
-            <!--End Turn-->
-            <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505"
-                    Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click" Visibility="Visible" CornerRadius="18"/>
-
             <!-- Menu Btn -->
             <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505" Foreground="White" FontSize="24" Click="Menubtn_Click"/>
 
