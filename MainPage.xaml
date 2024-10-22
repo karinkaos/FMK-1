@@ -209,7 +209,7 @@
 
         <Grid Name="Goal" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop"/>
         <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
-        
+
         <Grid x:Name="Spelplan" Width="940">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -224,18 +224,18 @@
 
             <!-- Grön namn -->
             <Grid Grid.Row="0" Grid.Column="0">
-              
+
                 <Rectangle  x:Name="PlayerBox2" Stroke="Transparent" Fill="#24FF00" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-   
+
             </Grid>
 
             <!-- Rosa namn -->
             <Grid Grid.Column="3">
-              
+
                 <Rectangle x:Name="PlayerBox4" Stroke="Transparent" Fill="#FF00D6" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-              
+
             </Grid>
 
             <!-- Blå namn -->
@@ -243,7 +243,7 @@
 
                 <Rectangle x:Name="PlayerBox3" Stroke="Transparent" Fill="#1400FF" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
-                
+
             </Grid>
 
             <!-- Röd namn -->
@@ -669,7 +669,8 @@
 
 
             <!-- Menu Btn -->
-            <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505" Foreground="White" FontSize="24" Click="Menubtn_Click"/>
+            <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505"
+                    Foreground="White" FontSize="24" Click="Menubtn_Click" CornerRadius="18"/>
 
         </Grid>
 
@@ -707,7 +708,8 @@
                 </Grid>
 
                 <!-- Regler och AboutPage -->
-                <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="50" Width="90" Margin="50" CornerRadius="8" Background="Gray" Click="RulesBtn_Click"/>
+                <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="100" Width="100" Margin="50,5" CornerRadius="18" Background="DarkRed"
+                        Click="RulesBtn_Click"/>
 
                 <Grid x:Name="AboutAndRules" Width="650" Height="850" Background="#EED1D1" CornerRadius="8" Visibility="Collapsed" BorderBrush="Black" BorderThickness="2">
 
@@ -722,7 +724,7 @@
                                 </Rectangle.Fill>
                             </Rectangle>
                         </Grid>
-                        <Grid Width="90" Height="120" Margin="25" Opacity="0.5">
+                        <Grid Width="90" Height="120" Margin="25">
                             <Rectangle x:Name="rectangle1" Margin="10" RenderTransformOrigin="0.5,0.5" Canvas.ZIndex="1">
                                 <Rectangle.RenderTransform>
                                     <CompositeTransform/>
@@ -792,16 +794,16 @@
 
                 </Grid>
 
-            <!--Dice-->
-            <Grid x:Name="DiceBox" Width="600" Height="500" Opacity="0.5" Background="#000000" Visibility="Visible" CornerRadius="28">
-                <Grid >
-                    <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"
+                <!--Dice-->
+                <Grid x:Name="DiceBox" Width="600" Height="500" Background="DarkGray" Visibility="Visible" CornerRadius="28" BorderBrush="Black" BorderThickness="1">
+                    <Grid >
+                        <TextBox x:Name="DiceResult" Width="350" Height="250" Text="Dags att slå tärningen" FontSize="30" IsReadOnly="True" TextAlignment="Center" IsEnabled="False"
                               CornerRadius="18"/>
-                        <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF" RenderTransformOrigin="0.5,0.5" CornerRadius="15">
+                        <Grid x:Name="Dice" Width="80" Height="80" Background="#FFFFFF" RenderTransformOrigin="0.5,0.5" CornerRadius="15" Tapped="DiceButton_Click">
                             <Grid.RenderTransform>
                                 <CompositeTransform/>
                             </Grid.RenderTransform>
-                            
+
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -812,35 +814,35 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                        <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
-                        <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
-                        <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
-                        <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
-                        <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
-                        <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                            <Ellipse x:Name="Dot1" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="0"/>
+                            <Ellipse x:Name="Dot2" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="1"/>
+                            <Ellipse x:Name="Dot3" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="0" Grid.Column="2"/>
+                            <Ellipse x:Name="Dot4" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="0"/>
+                            <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
+                            <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
+                        </Grid>
+
+                        <!-- <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Top" HorizontalAlignment="Right" Click="DiceButton_Click" CornerRadius="8"
+                                Margin="0,448,18,0" Foreground="Black"/>
+                        -->
                     </Grid>
-
-                    <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click" CornerRadius="8" Margin="18"/>
-                    <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1" CornerRadius="8" Margin="18"/>
-
                 </Grid>
-            </Grid>
 
-            <!--StartView-->
-            <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed" CornerRadius="28">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                <!--StartView-->
+                <Grid Name="Start" Width="450" Height="600" Background="Gray" Visibility="Collapsed" CornerRadius="28">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
 
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped" RadiusX="28" RadiusY="28"/>
-                    <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped" RadiusX="28" RadiusY="28"/>
-                    <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped" RadiusX="28" RadiusY="28"/>
-                    <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped" RadiusX="28" RadiusY="28"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped" RadiusX="28" RadiusY="28"/>
 
                         <TextBlock FontSize="60" Visibility="Collapsed">
                 Started
@@ -851,18 +853,18 @@
                     <Rectangle x:Name="BlockClrSqr3" Fill="#BF808080" Height="100" Margin="229,5,120,5" Visibility="Visible"/>
                     <Rectangle x:Name="BlockClrSqr4" Fill="#BF808080" Height="100" Margin="340,5,10,5" Visibility="Visible"/>
 
-                <Button Name="StartGameBtn" Grid.Row="3" Width="150" Height="100" HorizontalAlignment="Center" 
-                    Background="Red" Click="StartGameBtn_Click" Content="Start Button" FontSize="30" CornerRadius="28"/>
-                <Button Name="LoadGameBtn" Grid.Row="3" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,0,20,0"
+                    <Button Name="StartGameBtn" Grid.Row="3" Width="150" Height="100" HorizontalAlignment="Center" 
+                    Background="Red" Click="StartGameBtn_Click" Content="Start" FontSize="30" CornerRadius="28"/>
+                    <Button Name="LoadGameBtn" Grid.Row="3" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,0,20,0"
 Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" CornerRadius="28"/>
 
 
-                <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
-                    <Slider x:Name="PlayerSlider"
+                    <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="27,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="141,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="255,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="22" Margin="369,10,0,0" Stroke="White" Fill="White" VerticalAlignment="Top" Width="5"/>
+                        <Slider x:Name="PlayerSlider"
                         Height="40"
                         Width="350"
                         Minimum="1"
@@ -880,19 +882,17 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                     </Grid>
                 </Grid>
 
-            <!--EndView-->
-            <Grid Name="End" Width="450" Height="600" Background="Blue" Visibility="Collapsed" CornerRadius="28">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                <!--EndView-->
+                <Grid Name="End" Width="450" Height="600" Background="DarkGray" Visibility="Collapsed" CornerRadius="28" BorderBrush="Black" BorderThickness="1   ">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                <TextBlock FontSize="60">
-                Ended
-                    </TextBlock>
+                    <TextBlock FontSize="60" Text="End" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
 
-                <Button Name="Extra" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
-            Background="Red" Click="Bts_click" Content="Back To Start" FontSize="30" CornerRadius="28"/>
+                    <Button Name="Bts" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        Background="darkRed" Click="Bts_click" Content="New Game" FontSize="30" CornerRadius="28"/>
                 </Grid>
 
                 <!-- Save and load View -->
@@ -944,13 +944,15 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
 
                             <!-- Load Button -->
                             <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+
+
                         </Grid>
                     </StackPanel>
 
                 </Grid>
 
                 <!-- Menu -->
-                <Grid x:Name="Menu" Width="600" Height="500" Visibility="Collapsed">
+                <Grid x:Name="Menu" Width="600" Height="600" Visibility="Collapsed">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="5*"/>
@@ -958,7 +960,7 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                     </Grid.RowDefinitions>
 
                     <!-- Semi-transparent background rectangle -->
-                    <Rectangle Fill="#000000" Opacity="0.5" Grid.RowSpan="5"/>
+                    <Rectangle Fill="#000000" Opacity="0.5" Grid.RowSpan="5" RadiusX="28" RadiusY="28   "/>
 
                     <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <!-- Menu Buttons-->
@@ -966,6 +968,8 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                         <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click"/>
                         <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
                         <Button x:Name="BackBtnM" Content="Main Menu" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
+                        <Button x:Name="ExitProgram" Content="Exit" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DarkRed" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="ExitBtn_Click"/>
+
                     </StackPanel>
                 </Grid>
             </Grid>
