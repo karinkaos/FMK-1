@@ -112,26 +112,34 @@
 
             <!-- Grön namn -->
             <Grid Grid.Row="0" Grid.Column="0">
-                <Rectangle Stroke="Transparent" Fill="#24FF00" RadiusX="28" RadiusY="28"/>
+              
+                <Rectangle  x:Name="PlayerBox2" Stroke="Transparent" Fill="#24FF00" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+   
             </Grid>
 
             <!-- Rosa namn -->
             <Grid Grid.Column="3">
-                <Rectangle Stroke="Transparent" Fill="#FF00D6" RadiusX="28" RadiusY="28"/>
+              
+                <Rectangle x:Name="PlayerBox4" Stroke="Transparent" Fill="#FF00D6" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+              
             </Grid>
 
             <!-- Blå namn -->
             <Grid Grid.Row="3" Grid.Column="3">
-                <Rectangle Stroke="Transparent" Fill="#1400FF" RadiusX="28" RadiusY="28"/>
+
+                <Rectangle x:Name="PlayerBox3" Stroke="Transparent" Fill="#1400FF" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+                
             </Grid>
 
             <!-- Röd namn -->
             <Grid Grid.Row="3">
-                <Rectangle Stroke="Transparent" Fill="#FF0000" RadiusX="28" RadiusY="28"/>
+
+                <Rectangle x:Name="PlayerBox1" Stroke="Transparent" Fill="#FF0000" RadiusX="28" RadiusY="28"/>
                 <TextBlock FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+
             </Grid>
 
             <!-- Grön pjäsnäst och pjäser -->
@@ -547,12 +555,14 @@
                 <Ellipse x:Name="Dot61" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
             </Grid>
 
+
             <!--End Turn-->
             <Button x:Name="TurnBtn" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" Width="80" Height="80" Background="#960505"
                     Content="Nästa" FontSize="24" Foreground="White" Click="TurnBtn_Click" Visibility="Visible" CornerRadius="18"/>
 
             <!-- Menu Btn -->
             <Button x:Name="Menubtn" Content="Menu" Grid.Column="1" Grid.Row="0" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#960505" Foreground="White" FontSize="24" Click="Menubtn_Click"/>
+
         </Grid>
 
         <Grid>
@@ -698,8 +708,10 @@
                         <Ellipse x:Name="Dot5" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="1"/>
                         <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
                     </Grid>
+
                     <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="DiceButton_Click" CornerRadius="8" Margin="18"/>
                     <Button Content="End" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="DiceButton_Click_1" CornerRadius="8" Margin="18"/>
+
                 </Grid>
             </Grid>
 
