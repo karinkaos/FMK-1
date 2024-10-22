@@ -14,6 +14,7 @@ using Windows.Media.Core;
 using Windows.UI.Xaml.Controls.Primitives;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using Windows.ApplicationModel.Core;
 
 
 namespace FMK_1
@@ -185,7 +186,7 @@ namespace FMK_1
 
         public int DiceValue;
 
-        private void DiceButton_Click(object sender, RoutedEventArgs e)
+        private async void DiceButton_Click(object sender, RoutedEventArgs e)
         {
             // Hide the dots before starting the animation
             HideDots();
@@ -195,7 +196,10 @@ namespace FMK_1
 
             // Start the animation
             DiceRollStoryboard.Begin();
-        }
+
+			await Task.Delay(2150);
+            DiceBox.Visibility = Visibility.Collapsed;
+		}
 
         private void DiceRollStoryboard_Completed(object sender, object e)
         {
@@ -329,10 +333,10 @@ namespace FMK_1
 			}
 		}
 
-		private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-		{
-			End.Visibility = Visibility.Visible;
-		}
+		///private void DiceButton_Click_1(object sender, RoutedEventArgs e)
+		    ///{
+			/// End.Visibility = Visibility.Visible;
+		    ///}
 		private void DicePlaceOnBoard(int turn)
 		{
 			switch (turn)
@@ -752,5 +756,12 @@ namespace FMK_1
             Menu.Visibility = Visibility.Collapsed;
         }
 
-    }
+        private void ExitBtn_Click(Object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
+        }
+
+
+
+	}
 }
