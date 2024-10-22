@@ -14,6 +14,7 @@ using Windows.Media.Core;
 using Windows.UI.Xaml.Controls.Primitives;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace FMK_1
 {
@@ -50,36 +51,10 @@ namespace FMK_1
 			PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
 		}
 
-        private Grid CreateGrid(string gridName)
-        {
-            Grid grid = new Grid
-            {
-                Name = gridName,
-                Background = new SolidColorBrush(Colors.Red),
-                Height = 50,
-                Width = 50,
-                Visibility = Visibility.Visible,
-                CanDrag = true,
-                Tag = "0, -5"   //Path och steg
-            };
-
-            TextBlock textBlock = new TextBlock
-            {
-                Name = "Textblock_" + gridName,
-                Text = "TEST",
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-            grid.Children.Add(textBlock);
-
-            grid.DragStarting += PieceDrag;
-
-            return grid;
-        }
-        List<Grid> createdGrids = new List<Grid>();
+        
 
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
-		{
+        {
             foreach (Grid grid in createdGrids)
             {
                 if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
@@ -88,66 +63,109 @@ namespace FMK_1
                 }
             }
             player = 0;
-			Start.Visibility = Visibility.Collapsed;
-
-            for (int i = 0; i < 4; i++)
-            {
-                string name = $"p{i}";
-                Grid P1 = CreateGrid(name);
-
-                if (i == 0) RedSpot1.Children.Add(P1);
-                else if (i == 1) RedSpot2.Children.Add(P1);
-                else if (i == 2) RedSpot3.Children.Add(P1);
-                else if (i == 3) RedSpot4.Children.Add(P1);
-
-                createdGrids.Add(P1);
-            }
+            Start.Visibility = Visibility.Collapsed;
+            CreatePieces("Red", new SolidColorBrush(Colors.Red),	"0,0");
+            CreatePieces("Green", new SolidColorBrush(Colors.Green), "1,0");
+            CreatePieces("Pink", new SolidColorBrush(Colors.Pink), "2,0");
+            CreatePieces("Blue", new SolidColorBrush(Colors.Blue), "3,0");
 
             ColorPieces();
 
-			if (PlayersNum == 1 || PlayersNum == 2)
-			{
-				
+            //if (PlayersNum == 1 || PlayersNum == 2)
+            //{
+            //	GreenPiece1.Visibility = Visibility.Visible;
+            //	GreenPiece2.Visibility = Visibility.Visible;
+            //	GreenPiece3.Visibility = Visibility.Visible;
+            //	GreenPiece4.Visibility = Visibility.Visible;
+            //}
+            //else if (PlayersNum == 3)
+            //{
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
-			}
-			else if (PlayersNum == 3)
-			{
-				
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
+            //	GreenPiece1.Visibility = Visibility.Visible;
+            //	GreenPiece2.Visibility = Visibility.Visible;
+            //	GreenPiece3.Visibility = Visibility.Visible;
+            //	GreenPiece4.Visibility = Visibility.Visible;
 
-				BluePiece1.Visibility = Visibility.Visible;
-				BluePiece2.Visibility = Visibility.Visible;
-				BluePiece3.Visibility = Visibility.Visible;
-				BluePiece4.Visibility = Visibility.Visible;
-			}
-			else
-			{
-				
+            //	BluePiece1.Visibility = Visibility.Visible;
+            //	BluePiece2.Visibility = Visibility.Visible;
+            //	BluePiece3.Visibility = Visibility.Visible;
+            //	BluePiece4.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //	GreenPiece1.Visibility = Visibility.Visible;
+            //	GreenPiece2.Visibility = Visibility.Visible;
+            //	GreenPiece3.Visibility = Visibility.Visible;
+            //	GreenPiece4.Visibility = Visibility.Visible;
 
-				GreenPiece1.Visibility = Visibility.Visible;
-				GreenPiece2.Visibility = Visibility.Visible;
-				GreenPiece3.Visibility = Visibility.Visible;
-				GreenPiece4.Visibility = Visibility.Visible;
+            //	BluePiece1.Visibility = Visibility.Visible;
+            //	BluePiece2.Visibility = Visibility.Visible;
+            //	BluePiece3.Visibility = Visibility.Visible;
+            //	BluePiece4.Visibility = Visibility.Visible;
 
-				BluePiece1.Visibility = Visibility.Visible;
-				BluePiece2.Visibility = Visibility.Visible;
-				BluePiece3.Visibility = Visibility.Visible;
-				BluePiece4.Visibility = Visibility.Visible;
+            //	YellowPiece1.Visibility = Visibility.Visible;
+            //	YellowPiece2.Visibility = Visibility.Visible;
+            //	YellowPiece3.Visibility = Visibility.Visible;
+            //	YellowPiece4.Visibility = Visibility.Visible;
+            //}
+        }
+        private string GetColorName(SolidColorBrush brush)
+        {
+            if (brush.Color == Colors.Red)
+                return "Red";
+            if (brush.Color == Colors.Green)
+                return "Green";
+            if (brush.Color == Colors.Pink)
+                return "Pink";
+            if (brush.Color == Colors.Blue)
+                return "Blue";
 
-				YellowPiece1.Visibility = Visibility.Visible;
-				YellowPiece2.Visibility = Visibility.Visible;
-				YellowPiece3.Visibility = Visibility.Visible;
-				YellowPiece4.Visibility = Visibility.Visible;
-			}
-		}
+            // Add more color comparisons as needed
+            return "UnknownColor";
+        }
+        private void CreatePieces(string Name, SolidColorBrush color, string Tag)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                string name = $"{Name}{i}";
+                Grid P1 = CreateGrid(name, color, Tag);
+
+                string colorName = GetColorName(color);
+                string spotName = $"{colorName}Spot{i}";
+                var spotGrid = FindName(spotName) as Grid;
+
+                spotGrid.Children.Add(P1);
+                createdGrids.Add(P1);
+            }
+        }
+
+        private Grid CreateGrid(string Name, SolidColorBrush color, string Tag)
+        {
+            Grid grid = new Grid
+            {
+                Name = Name,
+                Background = color,
+                Height = 50,
+                Width = 50,
+                Visibility = Visibility.Visible,
+                CanDrag = true,
+                Tag = Tag   //Path och steg
+            };
+
+            TextBlock textBlock = new TextBlock
+            {
+                Name = "Textblock_" + Name,
+                Text = "TEST",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            grid.Children.Add(textBlock);
+
+            grid.DragStarting += PieceDrag;
+			return (grid);
+        }
+        List<Grid> createdGrids = new List<Grid>();
 
 		private void Bts_click(object sender, RoutedEventArgs e)
 		{
@@ -156,20 +174,20 @@ namespace FMK_1
 
 			
 
-			GreenPiece1.Visibility = Visibility.Collapsed;
-			GreenPiece2.Visibility = Visibility.Collapsed;
-			GreenPiece3.Visibility = Visibility.Collapsed;
-			GreenPiece4.Visibility = Visibility.Collapsed;
+			//GreenPiece1.Visibility = Visibility.Collapsed;
+			//GreenPiece2.Visibility = Visibility.Collapsed;
+			//GreenPiece3.Visibility = Visibility.Collapsed;
+			//GreenPiece4.Visibility = Visibility.Collapsed;
 
-			BluePiece1.Visibility = Visibility.Collapsed;
-			BluePiece2.Visibility = Visibility.Collapsed;
-			BluePiece3.Visibility = Visibility.Collapsed;
-			BluePiece4.Visibility = Visibility.Collapsed;
+			//BluePiece1.Visibility = Visibility.Collapsed;
+			//BluePiece2.Visibility = Visibility.Collapsed;
+			//BluePiece3.Visibility = Visibility.Collapsed;
+			//BluePiece4.Visibility = Visibility.Collapsed;
 
-			YellowPiece1.Visibility = Visibility.Collapsed;
-			YellowPiece2.Visibility = Visibility.Collapsed;
-			YellowPiece3.Visibility = Visibility.Collapsed;
-			YellowPiece4.Visibility = Visibility.Collapsed;
+			//YellowPiece1.Visibility = Visibility.Collapsed;
+			//YellowPiece2.Visibility = Visibility.Collapsed;
+			//YellowPiece3.Visibility = Visibility.Collapsed;
+			//YellowPiece4.Visibility = Visibility.Collapsed;
 
 			colorIndex = 0;
 		}
@@ -360,7 +378,6 @@ namespace FMK_1
 			{
 				colorIndex = 0;
 			}
-
 		}
 
 		private void ChooseClrSqr2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
@@ -415,23 +432,22 @@ namespace FMK_1
 
 		private void ColorPieces()
 		{
-			
+			//GreenPiece1.Fill = PlayerTwoColor;
+			//GreenPiece2.Fill = PlayerTwoColor;
+			//GreenPiece3.Fill = PlayerTwoColor;
+			//GreenPiece4.Fill = PlayerTwoColor;
 
-			GreenPiece1.Fill = PlayerTwoColor;
-			GreenPiece2.Fill = PlayerTwoColor;
-			GreenPiece3.Fill = PlayerTwoColor;
-			GreenPiece4.Fill = PlayerTwoColor;
+			//BluePiece1.Fill = PlayerThreeColor;
+			//BluePiece2.Fill = PlayerThreeColor;
+			//BluePiece3.Fill = PlayerThreeColor;
+			//BluePiece4.Fill = PlayerThreeColor;
 
-			BluePiece1.Fill = PlayerThreeColor;
-			BluePiece2.Fill = PlayerThreeColor;
-			BluePiece3.Fill = PlayerThreeColor;
-			BluePiece4.Fill = PlayerThreeColor;
-
-			YellowPiece1.Fill = PlayerFourColor;
-			YellowPiece2.Fill = PlayerFourColor;
-			YellowPiece3.Fill = PlayerFourColor;
-			YellowPiece4.Fill = PlayerFourColor;
+			//YellowPiece1.Fill = PlayerFourColor;
+			//YellowPiece2.Fill = PlayerFourColor;
+			//YellowPiece3.Fill = PlayerFourColor;
+			//YellowPiece4.Fill = PlayerFourColor;
 		}
+
 
 		private async void Push_Click(object sender, RoutedEventArgs e)
 		{
@@ -520,14 +536,14 @@ namespace FMK_1
                     string[] SpotTag = SpotTags.Split(",");
                     int SpotPath = int.Parse(SpotTag[Path].Trim());
                     //
-                    DiceValue = 6;
+                    DiceValue = 1;		//Test Value TaBort
 
                     if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
                     {
                         await PlaySound("ms-appx:///Assets/Win.mp3");	//Upptagen Plats
                     }
 
-                    //if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+                    //if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1 && Olika Paths)
                     //{
                     //    Push Function
                     //    Checka så om Path [0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt
@@ -687,6 +703,5 @@ namespace FMK_1
         {
             Menu.Visibility = Visibility.Collapsed;
         }
-
     }
 }
