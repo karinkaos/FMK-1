@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Pink">
+    Background="Pink"
+    Loaded="Page_Loaded">
 
     <Page.Resources>
         <!-- Push Animation -->
@@ -908,11 +909,11 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
 
                     <!-- Save Slots -->
                     <StackPanel Grid.Row="1">
-                        <ToggleButton Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot1"/>
-                        <ToggleButton Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot2"/>
-                        <ToggleButton Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot3"/>
-                        <ToggleButton Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot4"/>
-                        <ToggleButton Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot5"/>
+                        <ToggleButton Tag="1" Content="Empty" Grid.Row="1" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot1"/>
+                        <ToggleButton Tag="2" Content="Empty" Grid.Row="2" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot2"/>
+                        <ToggleButton Tag="3" Content="Empty" Grid.Row="3" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot3"/>
+                        <ToggleButton Tag="4" Content="Empty" Grid.Row="4" Margin="20,10" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot4"/>
+                        <ToggleButton Tag="5" Content="Empty" Grid.Row="5" Margin="20,10" VerticalAlignment="Top" Background="White" Foreground="Gray" FontSize="24" Width="400" CornerRadius="15" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" x:Name="SaveSlot5"/>
                     </StackPanel>
 
                     <!-- Save Panel for save buttons-->
@@ -927,7 +928,7 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                             <Button x:Name="BackToMenu" Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="BackToMenu_Click"/>
 
                             <!-- Save Button -->
-                            <Button Content="Save" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                            <Button x:Name="SaveBtns" Content="Save" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1" Click="SaveBtnS_Click"/>
                         </Grid>
                     </StackPanel>
 
@@ -943,7 +944,7 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                             <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="LBackbtn_Click"/>
 
                             <!-- Load Button -->
-                            <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
+                            <Button x:Name="LoadBtnS" Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1" Click="LoadBtnS_Click"/>
 
 
                         </Grid>
