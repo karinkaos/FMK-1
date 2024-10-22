@@ -34,7 +34,7 @@ namespace FMK_1
 		private SolidColorBrush PlayerTwoColor;
 		private SolidColorBrush PlayerThreeColor;
 		private SolidColorBrush PlayerFourColor;
-		private int colorIndex = 0;  //Used to go through Color List.
+		private int colorIndex = 0;  //Used to go through Color List
 		private Random random = new Random();
 		private int PlayersNum = 0;
 		private int playerTurn = 1;
