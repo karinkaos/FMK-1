@@ -184,81 +184,106 @@ namespace FMK_1
 		}
 
         public int DiceValue;
+
         private void DiceButton_Click(object sender, RoutedEventArgs e)
-		{
-			DiceValue = random.Next(1, 7);
-			HideDots();
+        {
+            // Hide the dots before starting the animation
+            HideDots();
 
-			switch (DiceValue)
-			{
-				case 1:
-					Dot2.Visibility = Visibility.Visible;
-					Dot21.Visibility = Visibility.Visible;
-					break;
-				case 2:
-					Dot1.Visibility = Visibility.Visible;
-					Dot6.Visibility = Visibility.Visible;
-					Dot11.Visibility = Visibility.Visible;
-					Dot61.Visibility = Visibility.Visible;
-					break;
-				case 3:
-					Dot1.Visibility = Visibility.Visible;
-					Dot3.Visibility = Visibility.Visible;
-					Dot5.Visibility = Visibility.Visible;
-					Dot11.Visibility = Visibility.Visible;
-					Dot31.Visibility = Visibility.Visible;
-					Dot51.Visibility = Visibility.Visible;
-					break;
-				case 4:
-					Dot1.Visibility = Visibility.Visible;
-					Dot3.Visibility = Visibility.Visible;
-					Dot4.Visibility = Visibility.Visible;
-					Dot6.Visibility = Visibility.Visible;
-					Dot11.Visibility = Visibility.Visible;
-					Dot31.Visibility = Visibility.Visible;
-					Dot41.Visibility = Visibility.Visible;
-					Dot61.Visibility = Visibility.Visible;
-					break;
-				case 5:
-					Dot1.Visibility = Visibility.Visible;
-					Dot2.Visibility = Visibility.Visible;
-					Dot3.Visibility = Visibility.Visible;
-					Dot4.Visibility = Visibility.Visible;
-					Dot6.Visibility = Visibility.Visible;
-					Dot11.Visibility = Visibility.Visible;
-					Dot21.Visibility = Visibility.Visible;
-					Dot31.Visibility = Visibility.Visible;
-					Dot41.Visibility = Visibility.Visible;
-					Dot61.Visibility = Visibility.Visible;
-					break;
-				case 6:
-					Dot1.Visibility = Visibility.Visible;
-					Dot2.Visibility = Visibility.Visible;
-					Dot3.Visibility = Visibility.Visible;
-					Dot4.Visibility = Visibility.Visible;
-					Dot5.Visibility = Visibility.Visible;
-					Dot6.Visibility = Visibility.Visible;
-					Dot11.Visibility = Visibility.Visible;
-					Dot21.Visibility = Visibility.Visible;
-					Dot31.Visibility = Visibility.Visible;
-					Dot41.Visibility = Visibility.Visible;
-					Dot51.Visibility = Visibility.Visible;
-					Dot61.Visibility = Visibility.Visible;
-					break;
-			}
+            // Stop the animation to reset it
+            DiceRollStoryboard.Stop();
 
-			if (DiceValue == 6)
-			{
-				DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
-				//<------Player movement
-			}
-			else
-			{
-				DiceResult.Text = $"Du slog {DiceValue}!";
-				//<------Player movement
-				TurnSwitch();
-			}
-		}
+            // Start the animation
+            DiceRollStoryboard.Begin();
+        }
+
+        private void DiceRollStoryboard_Completed(object sender, object e)
+        {
+            // Roll the dice after the animation completes
+            int DiceValue = random.Next(1, 7);
+
+            // Show the dots based on the rolled value
+            ShowDots(DiceValue);
+
+            // Display the result in the TextBox
+            DiceResult.Text = $"Du slog {DiceValue}!";
+        }
+
+        private void ShowDots(int DiceValue)
+        {
+            // Reset visibility of all dots before showing the current ones
+            HideDots();
+
+            switch (DiceValue)
+            {
+                case 1:
+                    Dot2.Visibility = Visibility.Visible;
+                    Dot21.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    Dot1.Visibility = Visibility.Visible;
+                    Dot6.Visibility = Visibility.Visible;
+                    Dot11.Visibility = Visibility.Visible;
+                    Dot61.Visibility = Visibility.Visible;
+                    break;
+                case 3:
+                    Dot1.Visibility = Visibility.Visible;
+                    Dot3.Visibility = Visibility.Visible;
+                    Dot5.Visibility = Visibility.Visible;
+                    Dot11.Visibility = Visibility.Visible;
+                    Dot31.Visibility = Visibility.Visible;
+                    Dot51.Visibility = Visibility.Visible;
+                    break;
+                case 4:
+                    Dot1.Visibility = Visibility.Visible;
+                    Dot3.Visibility = Visibility.Visible;
+                    Dot4.Visibility = Visibility.Visible;
+                    Dot6.Visibility = Visibility.Visible;
+                    Dot11.Visibility = Visibility.Visible;
+                    Dot31.Visibility = Visibility.Visible;
+                    Dot41.Visibility = Visibility.Visible;
+                    Dot61.Visibility = Visibility.Visible;
+                    break;
+                case 5:
+                    Dot1.Visibility = Visibility.Visible;
+                    Dot2.Visibility = Visibility.Visible;
+                    Dot3.Visibility = Visibility.Visible;
+                    Dot4.Visibility = Visibility.Visible;
+                    Dot6.Visibility = Visibility.Visible;
+                    Dot11.Visibility = Visibility.Visible;
+                    Dot21.Visibility = Visibility.Visible;
+                    Dot31.Visibility = Visibility.Visible;
+                    Dot41.Visibility = Visibility.Visible;
+                    Dot61.Visibility = Visibility.Visible;
+                    break;
+                case 6:
+                    Dot1.Visibility = Visibility.Visible;
+                    Dot2.Visibility = Visibility.Visible;
+                    Dot3.Visibility = Visibility.Visible;
+                    Dot4.Visibility = Visibility.Visible;
+                    Dot5.Visibility = Visibility.Visible;
+                    Dot6.Visibility = Visibility.Visible;
+                    Dot11.Visibility = Visibility.Visible;
+                    Dot21.Visibility = Visibility.Visible;
+                    Dot31.Visibility = Visibility.Visible;
+                    Dot41.Visibility = Visibility.Visible;
+                    Dot51.Visibility = Visibility.Visible;
+                    Dot61.Visibility = Visibility.Visible;
+                    break;
+            }
+
+            if (DiceValue == 6)
+            {
+                DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
+                //<------Player movement
+            }
+            else
+            {
+                DiceResult.Text = $"Du slog {DiceValue}!";
+                //<------Player movement
+                TurnSwitch();
+            }
+        }
 
 		private void HideDots()
 		{
