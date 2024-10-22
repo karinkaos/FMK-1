@@ -7,6 +7,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,8 +40,19 @@ namespace FMK_1
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+
+            // Load the sound file from the app package
+            var soundFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/startup.wav"));
+
+            // Set the source of the mediaPlayer
+            mediaPlayer.Source = MediaSource.CreateFromStorageFile(soundFile);
+
+            // Play the sound
+            mediaPlayer.Play();
+        
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
