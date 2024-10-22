@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using System.Threading.Tasks;
 using Windows.Devices.SmartCards;
+using Windows.UI.Xaml.Media.Imaging;
 
 
 namespace FMK_1
