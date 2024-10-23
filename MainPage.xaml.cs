@@ -81,6 +81,8 @@ namespace FMK_1
 		private int playerTurn = 1;
 		private int maxPlayers = 4;
 		private bool isLoadMainMenu = false;
+        private bool Load = false;
+        private List<String[]> LoadedPlayers;
 
         public MainPage()
         {
@@ -578,6 +580,16 @@ namespace FMK_1
         public int PieceNumber;
         private async void PieceDrop(object sender, DragEventArgs e)
         {
+            await Drag(sender, e);
+        }
+
+        private async Task LoadP(object sender)
+        {
+            
+        }
+
+        private async Task Drag(object sender, DragEventArgs e)
+        {
             var PieceName = e.DataView.Properties["Name"] as string;
             var PieceTag = e.DataView.Properties["Tag"] as string;
 
@@ -606,41 +618,37 @@ namespace FMK_1
                         await PlaySound("ms-appx:///Assets/Win.mp3");
                     }
                 }
-
                 else if (sender is Panel dropZone)
                 {
-                    //
-                    string[] PieceTags = PieceTag.Split(',');                //Det ska vara Typ "Path 1, Steg 2"
-                    int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
-                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
-                    //
-                    //
+                    string[] PieceTags = PieceTag.Split(',');                // Expected format: "Path 1, Step 2"
+                    int Path = int.Parse(PieceTags[0].Trim());               // Indicates which path (first, second, etc.)
+                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   // Indicates the current step from start to finish
+
                     var SpotTags = (string)dropZone.Tag;
                     string[] SpotTag = SpotTags.Split(",");
                     int SpotPath = int.Parse(SpotTag[Path].Trim());
-                    //
-                    DiceValue = 1;		//Test Value TaBort
-					if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
-                    {
-						Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
 
-						var ChildTags = (string)child.Tag;
+                    DiceValue = 1;  // Test Value, remove this for actual logic
+
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+                    {
+                        Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
+
+                        var ChildTags = (string)child.Tag;
                         string[] ChildTag = ChildTags.Split(',');
                         int ChildPath = int.Parse(ChildTag[0].Trim());
 
-						if(Path != ChildPath)
-						{
+                        if (Path != ChildPath)
+                        {
                             if (child.Parent is Panel parentPanel)
                             {
                                 parentPanel.Children.Remove(child);
-								//Lägg tillbacka den i hemmet
+                                // Add logic to return the child to its home
                             }
                         }
                     }
-                    //Checka så om Path[0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt^
 
-
-                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)       //CurrentPieceSpot + DiceRoll = SpotPath
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)
                     {
                         draggedElement.Tag = $"{Path},{SpotPath}";
 
@@ -983,6 +991,8 @@ namespace FMK_1
             Debug.WriteLine($"Number of Players: {gameState.NumberOfPlayers}");
             PlayersNum = gameState.NumberOfPlayers;
 
+            InitializePlayers(gameState.Players);
+
             // Output each player's data
             for (int i = 0; i < gameState.Players.Count; i++)
             {
@@ -1007,6 +1017,13 @@ namespace FMK_1
                 if (i + 1 == 1)
                 {
                     PlayerOneColor = playerColorBrush;
+                    int playerLoadnum = i + 1;
+                    string[] playerPos = new string[]
+                    {
+                        playerLoadnum.ToString(),
+                        string.Join(",", player.PiecePositions)
+                    };
+                    LoadedPlayers.Add(playerPos);
                 }
                 else if (i + 1 == 2)
                 {
@@ -1033,6 +1050,8 @@ namespace FMK_1
 
         private void InitializePlayers(List<Player> players)
         {
+            List<string> PPostions = new List<string>();
+
             foreach (var player in players)
             {
                 // Logic to initialize each player based on the loaded data
@@ -1042,7 +1061,9 @@ namespace FMK_1
                     // Logic to place player pieces on the board
                     // Assuming each piece corresponds to its index in PiecePositions
                     int position = player.PiecePositions[i];
-                    PlacePiece(player.Color, position); // Update this method to handle positioning
+
+                    string PieceInfo = $"{player} , {position}";
+                    PPostions.Add(PieceInfo);
                 }
             }
         }
@@ -1068,11 +1089,6 @@ namespace FMK_1
 
             // Change the background color of the selected button
             selectedButton.Background = new SolidColorBrush(Colors.LightGray);
-        }
-
-        private void PlacePiece(string color, int position)
-        {
-            // Logic to visually place the piece on the game board based on color and position
         }
 
         private async Task ShowMessage(string message)
