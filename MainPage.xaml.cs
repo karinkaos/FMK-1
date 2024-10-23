@@ -480,10 +480,10 @@ namespace FMK_1
             //BluePiece3.Fill = PlayerThreeColor;
             //BluePiece4.Fill = PlayerThreeColor;
 
-            YellowPiece1.Fill = PlayerFourColor;
-			YellowPiece2.Fill = PlayerFourColor;
-			YellowPiece3.Fill = PlayerFourColor;
-			YellowPiece4.Fill = PlayerFourColor;
+			//YellowPiece1.Fill = PlayerFourColor;
+			//YellowPiece2.Fill = PlayerFourColor;
+			//YellowPiece3.Fill = PlayerFourColor;
+			//YellowPiece4.Fill = PlayerFourColor;
 		}
 
 		private async void Push_Click(object sender, RoutedEventArgs e)
