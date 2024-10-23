@@ -448,7 +448,6 @@ namespace FMK_1
 			//YellowPiece4.Fill = PlayerFourColor;
 		}
 
-
 		private async void Push_Click(object sender, RoutedEventArgs e)
 		{
 			PushSound.Play();
@@ -462,7 +461,6 @@ namespace FMK_1
 
 			ExplosionImage2.Visibility = Visibility.Visible;
 		}
-
 
         private void PieceDragOver(object sender, DragEventArgs e)
         {
@@ -487,8 +485,6 @@ namespace FMK_1
                 args.Data.SetData("CustomTagFormat", tag); // Custom format for the tag
             }
         }
-
-
 
         public int PieceNumber;
         private async void PieceDrop(object sender, DragEventArgs e)
@@ -529,25 +525,31 @@ namespace FMK_1
                     int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
                     int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
                     //
-
-
                     //
                     var SpotTags = (string)dropZone.Tag;
                     string[] SpotTag = SpotTags.Split(",");
                     int SpotPath = int.Parse(SpotTag[Path].Trim());
                     //
                     DiceValue = 1;		//Test Value TaBort
-
-                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
+					if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
                     {
-                        await PlaySound("ms-appx:///Assets/Win.mp3");	//Upptagen Plats
-                    }
+						Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
 
-                    //if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1 && Olika Paths)
-                    //{
-                    //    Push Function
-                    //    Checka så om Path [0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt
-                    //}
+						var ChildTags = (string)child.Tag;
+                        string[] ChildTag = ChildTags.Split(',');
+                        int ChildPath = int.Parse(ChildTag[0].Trim());
+
+						if(Path != ChildPath)
+						{
+                            if (child.Parent is Panel parentPanel)
+                            {
+                                parentPanel.Children.Remove(child);
+								//Lägg tillbacka den i hemmet
+                            }
+                        }
+                    }
+                    //Checka så om Path[0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt^
+
 
                     if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)       //CurrentPieceSpot + DiceRoll = SpotPath
                     {
