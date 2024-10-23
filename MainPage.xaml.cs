@@ -91,7 +91,8 @@ namespace FMK_1
             PlayerTwoColor = new SolidColorBrush(colors[colorIndex + 1]);
             PlayerThreeColor = new SolidColorBrush(colors[colorIndex + 2]);
             PlayerFourColor = new SolidColorBrush(colors[colorIndex + 3]);
-        }
+			PlaySound("ms-appx:///Assets/startup.wav");
+		}
 
         
 
@@ -227,7 +228,7 @@ namespace FMK_1
 
         public int DiceValue;
 
-        private async void DiceButton_Click(object sender, RoutedEventArgs e)
+        private void DiceButton_Click(object sender, RoutedEventArgs e)
         {
             // Hide the dots before starting the animation
             HideDots();
@@ -251,21 +252,21 @@ namespace FMK_1
 			{
 				DiceResult.Text = $"You rolled a {DiceValue}! Roll again!";
 				allowTurnSwitch = false;  // Disable turn switch when 6 is rolled
-										  // Player movement logic for 6
+				// <--- Player movement
 			}
 			else
 			{
 				DiceResult.Text = $"You rolled a {DiceValue}!";
+				// <--- Player movement
 
 				// Only allow turnswitch if player didn't roll a 6 before
 				if (!allowTurnSwitch)
 				{
 					allowTurnSwitch = true;  // Enable turn switch again
 				}
-				else
-				{
-					// Rolled 1-5:
-					TurnSwitch();
+				else // Rolled 1-5:
+				{					
+					TurnSwitch();					
 				}
 			}
 		}
@@ -670,6 +671,7 @@ namespace FMK_1
             AboutAndRules.Visibility = Visibility.Visible;
             RulesGrid.Visibility = Visibility.Visible;
             AboutBtn.Visibility = Visibility.Visible;
+            Menu.Visibility = Visibility.Collapsed;
         }
         private void AboutBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -958,7 +960,6 @@ namespace FMK_1
                     Debug.WriteLine($"  Piece {j + 1} Position: {player.PiecePositions[j]}");
                 }
             }
-
             gameStart();
         }
 

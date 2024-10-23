@@ -202,12 +202,10 @@
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimation Duration="00:00:01.2000000" Storyboard.TargetName="Dice" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"/>
         </Storyboard>
-
     </Page.Resources>
 
 
     <Grid Background="Pink">
-
         <Grid Name="Goal" Width="50" Height="50" Background="Gray" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="45,45,45,45"/>
         <MediaElement x:Name="SoundPlayer" AutoPlay="False" Volume="1.0" />
 
@@ -223,7 +221,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <!-- Grön namn -->
+            <!-- Green corner -->
             <Grid Grid.Row="0" Grid.Column="0">
 
                 <Rectangle  x:Name="PlayerBox2" Stroke="Transparent" Fill="#24FF00" RadiusX="28" RadiusY="28"/>
@@ -231,7 +229,7 @@
 
             </Grid>
 
-            <!-- Rosa namn -->
+            <!-- Pink corner -->
             <Grid Grid.Column="3">
 
                 <Rectangle x:Name="PlayerBox4" Stroke="Transparent" Fill="#FF00D6" RadiusX="28" RadiusY="28"/>
@@ -239,7 +237,7 @@
 
             </Grid>
 
-            <!-- Blå namn -->
+            <!-- Blue corner -->
             <Grid Grid.Row="3" Grid.Column="3">
 
                 <Rectangle x:Name="PlayerBox3" Stroke="Transparent" Fill="#1400FF" RadiusX="28" RadiusY="28"/>
@@ -247,7 +245,7 @@
 
             </Grid>
 
-            <!-- Röd namn -->
+            <!-- Red corner -->
             <Grid Grid.Row="3">
 
                 <Rectangle x:Name="PlayerBox1" Stroke="Transparent" Fill="#FF0000" RadiusX="28" RadiusY="28"/>
@@ -255,7 +253,7 @@
 
             </Grid>
 
-            <!-- Grön pjäsnäst och pjäser -->
+            <!-- Green nest and pieces -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <Rectangle Stroke="Transparent" Fill="#538B4A" RadiusX="28" RadiusY="28"/>
                 <Grid>
@@ -276,7 +274,7 @@
 
             </Grid>
 
-            <!-- Röd pjäsnäst och pjäser-->
+            <!-- Red nest and pieces -->
             <Grid Grid.Column="1" Grid.Row="1" Height="240" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <Rectangle Stroke="Transparent" Fill="#FB7171" RadiusX="28" RadiusY="28"/>
 
@@ -297,7 +295,7 @@
                 </Grid>
             </Grid>
 
-            <!-- Rosa pjäsnäst och pjäser -->
+            <!-- Pink nest and pieces -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Rectangle Stroke="Transparent" Fill="#8B277B" RadiusX="28" RadiusY="28"/>
                 <Grid>
@@ -317,7 +315,7 @@
                 </Grid>
             </Grid>
 
-            <!-- Blå pjäsnäst och pjäser -->
+            <!-- Blue nest and pieces -->
             <Grid Grid.Column="1" Grid.Row="1" Width="240" Height="240" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Rectangle Stroke="Transparent" Fill="#665EBC" RadiusX="28" RadiusY="28"/>
 
@@ -339,7 +337,7 @@
             </Grid>
 
 
-            <!-- ellipse grupp spelplan-->
+            <!-- ellipse group board-->
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -368,7 +366,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <!-- Grön linje till Höger -->
+                <!-- Green line right -->
                 <Grid Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="11,1,31,21"/>
@@ -391,7 +389,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="15,5,35,25"/>
                 </Grid>
 
-                <!-- Grön linje höger till upp -->
+                <!-- Green line to up -->
                 <Grid Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="16,6,36,26"/>
@@ -409,7 +407,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="19,9,39,29"/>
                 </Grid>
 
-                <!-- Grön linje upp till Rosa -->
+                <!-- Green line up, to pink -->
                 <Grid Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="20,10,40,30"/>
@@ -420,7 +418,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="21,11,1,31"/>
                 </Grid>
 
-                <!-- Rosa linje till ner -->
+                <!-- Pink line down -->
                 <Grid Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="22,12,2,32"/>
@@ -438,7 +436,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="25,15,5,35"/>
                 </Grid>
 
-                <!-- Rosa linje ner till höger -->
+                <!-- Pink line down right -->
                 <Grid Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="26,16,6,36"/>
@@ -456,7 +454,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="29,19,9,39"/>
                 </Grid>
 
-                <!-- Rosa linje höger till blå -->
+                <!-- Pink line, to blue -->
                 <Grid Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="30,20,10,40"/>
@@ -466,7 +464,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="31,21,11,1"/>
                 </Grid>
 
-                <!-- blå linje till vänster -->
+                <!-- Blue line to left -->
                 <Grid Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="32,22,12,2"/>
@@ -484,7 +482,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="35,25,15,5"/>
                 </Grid>
 
-                <!-- blå linje vänster till ner -->
+                <!-- Blue line left down -->
                 <Grid Grid.Column="6" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="36,26,16,6"/>
@@ -502,7 +500,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="39,29,19,9"/>
                 </Grid>
 
-                <!-- blå linje ner till röd -->
+                <!-- Blue line down, to red -->
                 <Grid Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="11*"/>
@@ -516,7 +514,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="1,31,21,11"/>
                 </Grid>
 
-                <!-- röd linje till upp -->
+                <!-- Red line up -->
                 <Grid Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="2,32,22,12"/>
@@ -534,7 +532,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="5,35,25,15"/>
                 </Grid>
 
-                <!-- röd linje upp till vänster -->
+                <!-- Red line up, to left -->
                 <Grid Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="6,36,26,16"/>
@@ -552,13 +550,13 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="9,39,29,19"/>
                 </Grid>
 
-                <!-- röd linje vänster till grön -->
+                <!-- Red line left, to green -->
                 <Grid Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="White" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="10,40,30,20"/>
                 </Grid>
 
-                <!-- Grön mål-->
+                <!-- Green goal -->
                 <Grid Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#FF538B4A" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="-10,41,-10,-10"/>
@@ -576,7 +574,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="-10,44,-10,-10"/>
                 </Grid>
 
-                <!-- Blå mål-->
+                <!-- Blue goal -->
                 <Grid Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#665EBC" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="-10,-10,-10,41"/>
@@ -594,7 +592,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="-10,-10,-10,44"/>
                 </Grid>
 
-                <!-- Röd Mål-->
+                <!-- Red goal -->
                 <Grid Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#FB7171" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="41,-10,-10,-10"/>
@@ -612,7 +610,7 @@
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="44,-10,-10,-10"/>
                 </Grid>
 
-                <!-- Rosa mål-->
+                <!-- Pink goal -->
                 <Grid Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
                     <Ellipse Fill="#8B277B" Stroke="White" Width="60" Height="60"/>
                     <Grid Background="Transparent" AllowDrop="True" DragOver="PieceDragOver" Drop="PieceDrop" Tag="-10,-10,41,-10"/>
@@ -661,7 +659,7 @@
         </Grid>
 
         <Grid>
-            <!-- Knuffanimation -->
+            <!-- PushAnimation -->
             <Grid x:Name="PushAnimation" Visibility="Visible">
 
                 <Grid Visibility="Collapsed">
@@ -693,7 +691,7 @@
 
                 </Grid>
 
-                <!-- Regler och AboutPage -->
+                <!-- Rules and AboutPage -->
                 <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="100" Width="100" Margin="50,5" CornerRadius="18"
                         Background="DarkRed" Click="RulesBtn_Click" FontSize="24"/>
 
@@ -742,14 +740,13 @@
                         </Grid>
                     </StackPanel>
 
-                    <!-- Regler -->
+                    <!-- Rules -->
                     <Grid x:Name="RulesGrid" Height="450" Width="450" Margin="0,100,0,80" Background="LightCoral" Visibility="Collapsed" BorderBrush="DarkGray">
                         <Rectangle>
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="/Assets/FMK-RulesImage.png" Stretch="Fill"/>
                             </Rectangle.Fill>
                         </Rectangle>
-
                     </Grid>
 
                     <!-- About -->
@@ -757,7 +754,7 @@
                         <TextBlock x:Name="AboutText" Text="About" Height="60" Width="450" Margin="0,0,0,350" FontSize="40" Foreground="Black" TextAlignment="Center"/>
                         <TextBlock Height="300" Width="400" Foreground="Black" TextWrapping="Wrap">
                     
-                    Creators:<LineBreak/>
+                    <LineBreak/><LineBreak/>Creators:<LineBreak/>
                     <LineBreak/>
                             Christoffer Lundberg<LineBreak/>
                             Karin Oskarsson<LineBreak/>
@@ -871,7 +868,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontSize="60" Text="End" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
+                    <TextBlock FontSize="60" Text="Win! 🏆" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
 
                     <Button Name="Bts" Grid.Row="1" Width="200" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" 
                         Background="darkRed" Click="Bts_click" Content="New Game" FontSize="30" CornerRadius="28"/>
@@ -922,15 +919,14 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Back Button -->
-                            <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150" Grid.Column="0" Click="LBackbtn_Click"/>
+                            <Button Content="Back" Background="Red" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="40,0,0,0" CornerRadius="15" Width="150"
+                                    Grid.Column="0" Click="LBackbtn_Click"/>
 
                             <!-- Load Button -->
-                            <Button x:Name="LoadBtnS" Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1" Click="LoadBtnS_Click"/>
-
-
+                            <Button x:Name="LoadBtnS" Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0"
+                                    CornerRadius="15" Width="150" Grid.Column="1" Click="LoadBtnS_Click"/>
                         </Grid>
                     </StackPanel>
-
                 </Grid>
 
                 <!-- Menu -->
