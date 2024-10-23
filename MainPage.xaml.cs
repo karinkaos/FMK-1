@@ -779,7 +779,6 @@ namespace FMK_1
         //Save Load Function
         private async void SaveBtnS_Click(object sender, RoutedEventArgs e)
         {
-
             if (selectedSlotIndex != -1) // Ensure a slot is selected
             {
                 GameState gameState = new GameState
@@ -794,14 +793,85 @@ namespace FMK_1
                     var player = new Player
                     {
                         Color = GetPlayerColor(i), // Method to get player color
-                        PiecePositions = GetPlayerPiecePositions(i) // Method to get piece positions
+                        PiecePositions = new List<int>() // Initialize a list for piece positions
                     };
-                    gameState.Players.Add(player);
+
+                    // Iterate over each piece index (0 to 3 for 4 pieces)
+                    for (int pieceIndex = 0; pieceIndex < 4; pieceIndex++)
+                    {
+                        int position = GetPiecePosition(i, pieceIndex); // Get position for each piece
+                        player.PiecePositions.Add(position); // Add the position to the player's list
+                    }
+
+                    gameState.Players.Add(player); // Add the player to the game state
                 }
 
                 // Save the game state
                 await SaveGameAsync(gameState, selectedSlotIndex);
             }
+        }
+
+        private int GetPiecePosition(int playerIndex, int pieceIndex)
+        {
+            // Ensure the playerIndex and pieceIndex are valid
+            if (playerIndex < 0 || playerIndex >= 4) // Assuming 4 players
+            {
+                Debug.WriteLine($"Invalid playerIndex: {playerIndex}");
+                return -1; // Or handle the error as needed
+            }
+
+            // Ensure pieceIndex is valid for the player's pieces
+            int playerPieceCount = 4; // Assuming each player has 4 pieces
+            if (pieceIndex < 0 || pieceIndex >= playerPieceCount)
+            {
+                Debug.WriteLine($"Invalid pieceIndex: {pieceIndex} for Player {playerIndex}");
+                return -1; // Or handle the error as needed
+            }
+
+            // Calculate the index of the piece in the createdGrids list
+            int pieceGridIndex = playerIndex * playerPieceCount + pieceIndex;
+
+            // Retrieve the piece based on the calculated index
+            if (pieceGridIndex < createdGrids.Count)
+            {
+                Grid piece = createdGrids[pieceGridIndex];
+
+                // Log the Tag for debugging purposes
+                Debug.WriteLine($"Piece {pieceGridIndex} Tag: {piece.Tag}");
+
+                // Assuming Tag represents the position in the format "Path,Spot"
+                if (piece.Tag is string tag)
+                {
+                    string[] tags = tag.Split(',');
+
+                    // Ensure there are exactly 2 tags for Path and Spot
+                    if (tags.Length == 2)
+                    {
+                        // Use the Spot as the position you want to return
+                        if (int.TryParse(tags[1].Trim(), out int position)) // Parse the second element as the position
+                        {
+                            Debug.WriteLine($"Player {playerIndex} Piece {pieceIndex} Position: {position}");
+                            return position; // Return the integer position
+                        }
+                        else
+                        {
+                            Debug.WriteLine($"Failed to parse position from Tag for Piece {pieceGridIndex}. Tag: {tag}");
+                        }
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Invalid tag format for Piece {pieceGridIndex}. Expected 2 tags, got {tags.Length}.");
+                    }
+                }
+
+                Debug.WriteLine($"Player {playerIndex} Piece {pieceIndex} Position could not be determined.");
+            }
+            else
+            {
+                Debug.WriteLine($"Piece index {pieceGridIndex} is out of bounds for createdGrids.");
+            }
+
+            return -1; // Return -1 if the position cannot be determined
         }
 
         private async Task SaveGameAsync(GameState gameState, int slotIndex)
@@ -1035,75 +1105,6 @@ namespace FMK_1
             }
             // Return the color as a hex string (ARGB format)
             return $"#{brush.Color.A:X2}{brush.Color.R:X2}{brush.Color.G:X2}{brush.Color.B:X2}";
-        }
-
-        private List<int> GetPlayerPiecePositions(int playerIndex)
-        {
-            // Assuming you have a way to track each player's piece positions.
-            // This is a placeholder; you need to replace this with your actual logic.
-            switch (playerIndex)
-            {
-                case 0:
-                    return new List<int>
-            {
-                // Replace these with the actual positions of Player One's pieces
-                GetPiecePositionForPlayerOne(0),
-                GetPiecePositionForPlayerOne(1),
-                GetPiecePositionForPlayerOne(2),
-                GetPiecePositionForPlayerOne(3)
-            };
-                case 1:
-                    return new List<int>
-            {
-                GetPiecePositionForPlayerTwo(0),
-                GetPiecePositionForPlayerTwo(1),
-                GetPiecePositionForPlayerTwo(2),
-                GetPiecePositionForPlayerTwo(3)
-            };
-                case 2:
-                    return new List<int>
-            {
-                GetPiecePositionForPlayerThree(0),
-                GetPiecePositionForPlayerThree(1),
-                GetPiecePositionForPlayerThree(2),
-                GetPiecePositionForPlayerThree(3)
-            };
-                case 3:
-                    return new List<int>
-            {
-                GetPiecePositionForPlayerFour(0),
-                GetPiecePositionForPlayerFour(1),
-                GetPiecePositionForPlayerFour(2),
-                GetPiecePositionForPlayerFour(3)
-            };
-                default:
-                    return new List<int> { 0, 0, 0, 0 }; // Fallback positions
-            }
-        }
-
-        // Placeholder methods for getting piece positions
-        private int GetPiecePositionForPlayerOne(int pieceIndex)
-        {
-            // Replace with actual logic to get the position of Player One's piece
-            return 0; // Example placeholder
-        }
-
-        private int GetPiecePositionForPlayerTwo(int pieceIndex)
-        {
-            // Replace with actual logic to get the position of Player Two's piece
-            return 0; // Example placeholder
-        }
-
-        private int GetPiecePositionForPlayerThree(int pieceIndex)
-        {
-            // Replace with actual logic to get the position of Player Three's piece
-            return 0; // Example placeholder
-        }
-
-        private int GetPiecePositionForPlayerFour(int pieceIndex)
-        {
-            // Replace with actual logic to get the position of Player Four's piece
-            return 0; // Example placeholder
         }
 
         private async Task CheckSavedGamesAsync()
