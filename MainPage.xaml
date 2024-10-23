@@ -806,7 +806,7 @@
                             <Ellipse x:Name="Dot6" Width="20" Height="20" Visibility="Collapsed" Fill="#000000" Grid.Row="1" Grid.Column="2"/>
                         </Grid>
 
-                        <!-- <Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Top" HorizontalAlignment="Right" Click="DiceButton_Click" CornerRadius="8"
+                        <!--<Button x:Name="DiceButton" Content="Slå tärning" VerticalAlignment="Top" HorizontalAlignment="Right" Click="DiceButton_Click" CornerRadius="8"
                                 Margin="0,448,18,0" Foreground="Black"/>
                         -->
                     </Grid>
@@ -829,7 +829,7 @@
                         <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped" RadiusX="28" RadiusY="28"/>
 
                         <TextBlock FontSize="60" Visibility="Collapsed">
-                Started
+                            Started
                         </TextBlock>
 
                     </StackPanel>
@@ -840,7 +840,7 @@
                     <Button Name="StartGameBtn" Grid.Row="3" Width="150" Height="100" HorizontalAlignment="Center" 
                     Background="Red" Click="StartGameBtn_Click" Content="Start" FontSize="30" CornerRadius="28"/>
                     <Button Name="LoadGameBtn" Grid.Row="3" Width="100" Height="100" HorizontalAlignment="Right" Margin="0,0,20,0"
-Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" CornerRadius="28"/>
+                    Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" CornerRadius="28"/>
 
 
                     <Grid x:Name="Players" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="50" Width="400" Background="#791010">
@@ -928,8 +928,6 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
 
                             <!-- Load Button -->
                             <Button Content="Load" Background="Green" Foreground="White" FontSize="24" HorizontalAlignment="Right" Margin="0,0,40,0" CornerRadius="15" Width="150" Grid.Column="1"/>
-
-
                         </Grid>
                     </StackPanel>
 
@@ -953,7 +951,6 @@ Background="Green" Click="LoadGameMBtn_Click" Content="Load" FontSize="30" Corne
                         <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
                         <Button x:Name="BackBtnM" Content="New Game" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
                         <Button x:Name="ExitProgram" Content="Exit" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DarkRed" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="ExitBtn_Click"/>
-
                     </StackPanel>
                 </Grid>
             </Grid>
