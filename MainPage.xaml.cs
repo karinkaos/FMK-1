@@ -592,12 +592,10 @@ namespace FMK_1
                     int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
                     int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
                     //
-                    //
                     var SpotTags = (string)dropZone.Tag;
                     string[] SpotTag = SpotTags.Split(",");
                     int SpotPath = int.Parse(SpotTag[Path].Trim());
                     //
-                    DiceValue = 1;		//Test Value TaBort
 					if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
                     {
 						Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
@@ -777,8 +775,5 @@ namespace FMK_1
         {
             CoreApplication.Exit();
         }
-
-
-
 	}
 }
