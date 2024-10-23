@@ -51,6 +51,8 @@ namespace FMK_1
 
     public sealed partial class MainPage : Page
     {
+        List<Grid> createdGrids = new List<Grid>();
+
         public int player;
         //Color List
         private Color[] colors = new Color[]
@@ -108,7 +110,7 @@ namespace FMK_1
             }
             player = 0;
             Start.Visibility = Visibility.Collapsed;
-            CreatePieces("Red", new SolidColorBrush(Colors.Red),	"0,0");
+            CreatePieces("Red", new SolidColorBrush(Colors.Red), "0,0");
             CreatePieces("Green", new SolidColorBrush(Colors.Green), "1,0");
             CreatePieces("Pink", new SolidColorBrush(Colors.Pink), "2,0");
             CreatePieces("Blue", new SolidColorBrush(Colors.Blue), "3,0");
@@ -135,11 +137,12 @@ namespace FMK_1
             {
 
 
-            //	YellowPiece1.Visibility = Visibility.Visible;
-            //	YellowPiece2.Visibility = Visibility.Visible;
-            //	YellowPiece3.Visibility = Visibility.Visible;
-            //	YellowPiece4.Visibility = Visibility.Visible;
-            //}
+                //	YellowPiece1.Visibility = Visibility.Visible;
+                //	YellowPiece2.Visibility = Visibility.Visible;
+                //	YellowPiece3.Visibility = Visibility.Visible;
+                //	YellowPiece4.Visibility = Visibility.Visible;
+                //}
+            }
         }
         private string GetColorName(SolidColorBrush brush)
         {
@@ -155,6 +158,7 @@ namespace FMK_1
             // Add more color comparisons as needed
             return "UnknownColor";
         }
+
         private void CreatePieces(string Name, SolidColorBrush color, string Tag)
         {
             for (int i = 0; i < 4; i++)
@@ -196,14 +200,11 @@ namespace FMK_1
             grid.DragStarting += PieceDrag;
 			return (grid);
         }
-        List<Grid> createdGrids = new List<Grid>();
 
         private void Bts_click(object sender, RoutedEventArgs e)
         {
             Start.Visibility = Visibility.Visible;
             End.Visibility = Visibility.Collapsed;
-
-
 
 			//GreenPiece1.Visibility = Visibility.Collapsed;
 			//GreenPiece2.Visibility = Visibility.Collapsed;
