@@ -51,7 +51,7 @@ namespace FMK_1
             mediaPlayer.Source = MediaSource.CreateFromStorageFile(soundFile);
 
             // Play the sound
-            mediaPlayer.Play();
+            //mediaPlayer.Play();
         
             Frame rootFrame = Window.Current.Content as Frame;
 
