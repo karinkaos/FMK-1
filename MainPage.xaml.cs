@@ -251,7 +251,7 @@ namespace FMK_1
 			{
 				DiceResult.Text = $"You rolled a {DiceValue}! Roll again!";
 				allowTurnSwitch = false;  // Disable turn switch when 6 is rolled
-                // Player movement logic for 6
+										  // Player movement logic for 6
 			}
 			else
 			{
@@ -264,7 +264,7 @@ namespace FMK_1
 				}
 				else
 				{
-					// Other values
+					// Rolled 1-5:
 					TurnSwitch();
 				}
 			}
@@ -419,7 +419,7 @@ namespace FMK_1
                     break;
             }
         }
-        /* Clickable Button for switch turns.
+		/* Clickable Button for switch turns.
 		private void TurnBtn_Click(object sender, RoutedEventArgs e)
 		{
 			// Increment the turn
@@ -435,26 +435,22 @@ namespace FMK_1
 			DicePlaceOnBoard(playerTurn);
 		}
 		*/
-        private void TurnSwitch()
-        {
-			if (allowTurnSwitch)
-            {
-				// Increment the turn
-				playerTurn++;
+		private void TurnSwitch()
+		{
+			// Increment the turn
+			playerTurn++;
 
-                // If playerTurn exceeds the maximum number of players, reset to 1
-                if (playerTurn > maxPlayers)
-                {
-                    playerTurn = 1;
-                }
+			// If playerTurn exceeds the maximum number of players, reset to 1
+			if (playerTurn > maxPlayers)
+			{
+				playerTurn = 1;
+			}
 
-                // Call the DicePlaceOnBoard function to move the dice based on the player's turn
-                DicePlaceOnBoard(playerTurn);
-            }
-            else allowTurnSwitch = false;
-        }
+			// Call the DicePlaceOnBoard function to move the dice based on the player's turn
+			DicePlaceOnBoard(playerTurn);
+		}
 
-        private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Rectangle clickedRectangle = sender as Rectangle;
 
