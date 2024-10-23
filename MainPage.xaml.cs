@@ -334,8 +334,6 @@ namespace FMK_1
                     Dot61.Visibility = Visibility.Visible;
                     break;
             }
-
-
         }
 
         private void HideDots()
@@ -382,10 +380,6 @@ namespace FMK_1
             }
         }
 
-        ///private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-        ///{
-        /// End.Visibility = Visibility.Visible;
-        ///}
         private void DicePlaceOnBoard(int turn)
         {
             switch (turn)
@@ -459,6 +453,7 @@ namespace FMK_1
                 // Call the DicePlaceOnBoard function to move the dice based on the player's turn
                 DicePlaceOnBoard(playerTurn);
             }
+            else allowTurnSwitch = false;
         }
 
         private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
