@@ -81,8 +81,9 @@ namespace FMK_1
 		private int playerTurn = 1;
 		private int maxPlayers = 4;
 		private bool isLoadMainMenu = false;
+		private bool allowTurnSwitch = true;
 
-        public MainPage()
+		public MainPage()
         {
             this.InitializeComponent();
             colorIndex = 0;
@@ -238,41 +239,38 @@ namespace FMK_1
             DiceRollStoryboard.Begin();
         }
 
-        private bool allowTurnSwitch = true;
-
 		private void DiceRollStoryboard_Completed(object sender, object e)
-        {
-            // Roll the dice after the animation completes
-            int DiceValue = random.Next(1, 7);
+		{
+			// Roll the dice after the animation completes
+			DiceValue = random.Next(1, 7);
 
-            // Show the dots based on the rolled value
-            ShowDots(DiceValue);
+			// Show dots based on rolled value
+			ShowDots(DiceValue);
 
 			if (DiceValue == 6)
 			{
-				allowTurnSwitch = false;
-				DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
-				
-				//<------Player movement
-
+				DiceResult.Text = $"You rolled a {DiceValue}! Roll again!";
+				allowTurnSwitch = false;  // Disable turn switch when 6 is rolled
+                // Player movement logic for 6
 			}
 			else
 			{
-				DiceResult.Text = $"Du slog {DiceValue}!";
-                allowTurnSwitch = true;
-				//<------Player movement
-				
-                if (allowTurnSwitch)
-                {
+				DiceResult.Text = $"You rolled a {DiceValue}!";
+
+				// Only allow turnswitch if player didn't roll a 6 before
+				if (!allowTurnSwitch)
+				{
+					allowTurnSwitch = true;  // Enable turn switch again
+				}
+				else
+				{
+					// Other values
 					TurnSwitch();
-                }
+				}
 			}
+		}
 
-			// Display the result in the TextBox
-			//DiceResult.Text = $"Du slog {DiceValue}!";
-        }
-
-        private void ShowDots(int DiceValue)
+		private void ShowDots(int DiceValue)
         {
             // Reset visibility of all dots before showing the current ones
             HideDots();
