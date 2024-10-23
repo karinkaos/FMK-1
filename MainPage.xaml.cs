@@ -236,12 +236,11 @@ namespace FMK_1
 
             // Start the animation
             DiceRollStoryboard.Begin();
-
-            await Task.Delay(2150);
-            DiceBox.Visibility = Visibility.Collapsed;
         }
 
-        private void DiceRollStoryboard_Completed(object sender, object e)
+        private bool allowTurnSwitch = true;
+
+		private void DiceRollStoryboard_Completed(object sender, object e)
         {
             // Roll the dice after the animation completes
             int DiceValue = random.Next(1, 7);
@@ -249,8 +248,28 @@ namespace FMK_1
             // Show the dots based on the rolled value
             ShowDots(DiceValue);
 
-            // Display the result in the TextBox
-            DiceResult.Text = $"Du slog {DiceValue}!";
+			if (DiceValue == 6)
+			{
+				allowTurnSwitch = false;
+				DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
+				
+				//<------Player movement
+
+			}
+			else
+			{
+				DiceResult.Text = $"Du slog {DiceValue}!";
+                allowTurnSwitch = true;
+				//<------Player movement
+				
+                if (allowTurnSwitch)
+                {
+					TurnSwitch();
+                }
+			}
+
+			// Display the result in the TextBox
+			//DiceResult.Text = $"Du slog {DiceValue}!";
         }
 
         private void ShowDots(int DiceValue)
@@ -315,18 +334,6 @@ namespace FMK_1
                     Dot61.Visibility = Visibility.Visible;
                     break;
             }
-
-            if (DiceValue == 6)
-            {
-                DiceResult.Text = $"Du slog {DiceValue}! Slå igen!";
-                //<------Player movement
-            }
-            else
-            {
-                DiceResult.Text = $"Du slog {DiceValue}!";
-                //<------Player movement
-                TurnSwitch();
-            }
         }
 
         private void HideDots()
@@ -373,10 +380,6 @@ namespace FMK_1
             }
         }
 
-        ///private void DiceButton_Click_1(object sender, RoutedEventArgs e)
-        ///{
-        /// End.Visibility = Visibility.Visible;
-        ///}
         private void DicePlaceOnBoard(int turn)
         {
             switch (turn)
@@ -436,17 +439,21 @@ namespace FMK_1
 		*/
         private void TurnSwitch()
         {
-            // Increment the turn
-            playerTurn++;
-
-            // If playerTurn exceeds the maximum number of players, reset to 1
-            if (playerTurn > maxPlayers)
+			if (allowTurnSwitch)
             {
-                playerTurn = 1;
-            }
+				// Increment the turn
+				playerTurn++;
 
-            // Call the DicePlaceOnBoard function to move the dice based on the player's turn
-            DicePlaceOnBoard(playerTurn);
+                // If playerTurn exceeds the maximum number of players, reset to 1
+                if (playerTurn > maxPlayers)
+                {
+                    playerTurn = 1;
+                }
+
+                // Call the DicePlaceOnBoard function to move the dice based on the player's turn
+                DicePlaceOnBoard(playerTurn);
+            }
+            else allowTurnSwitch = false;
         }
 
         private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
