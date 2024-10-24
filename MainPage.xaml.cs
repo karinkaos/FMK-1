@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
 using Windows.UI.Popups;
+using Windows.Foundation;
 
 namespace FMK_1
 {
@@ -53,7 +54,7 @@ namespace FMK_1
     {
         List<Grid> createdGrids = new List<Grid>();
 
-        public int player;
+        public int Win_Points;
         //Color List
         private Color[] colors = new Color[]
         {
@@ -94,8 +95,6 @@ namespace FMK_1
 			PlaySound("ms-appx:///Assets/startup.wav");
 		}
 
-        
-
         private void StartGameBtn_Click(object sender, RoutedEventArgs e)
         {
             gameStart();
@@ -103,6 +102,7 @@ namespace FMK_1
 
         private void gameStart()
         {
+            //Går genom alla skapade grids i "createdGrids" och tar bort dom, Det är om man startar ett nytt spel så försvinner dom.
             foreach (Grid grid in createdGrids)
             {
                 if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
@@ -110,7 +110,10 @@ namespace FMK_1
                     parentPanel.Children.Remove(grid);
                 }
             }
-            player = 0;
+            //Win_points checka så fort när 4 pjäser hamnar i mål avslutas spelet, Man borde göra så den checkar om EN spelare har targit bort sina
+            //Skapar pjäser för varje spelar, Borde vara en function som gör det bara änligt hur många spelare det är
+            //TODO:Skapa function för spelare + bättre namn på grupperna typ första spelare, andra spelare och inte färger
+            Win_Points = 0;
             Start.Visibility = Visibility.Collapsed;
             CreatePieces("Red", new SolidColorBrush(Colors.Red), "0,0");
             CreatePieces("Green", new SolidColorBrush(Colors.Green), "1,0");
@@ -118,36 +121,11 @@ namespace FMK_1
             CreatePieces("Blue", new SolidColorBrush(Colors.Blue), "3,0");
 
             ColorPieces();
-
-            //if (PlayersNum == 1 || PlayersNum == 2)
-            //{
-            //	GreenPiece1.Visibility = Visibility.Visible;
-            //	GreenPiece2.Visibility = Visibility.Visible;
-            //	GreenPiece3.Visibility = Visibility.Visible;
-            //	GreenPiece4.Visibility = Visibility.Visible;
-            //}
-            //else if (PlayersNum == 3)
-            //{
-
-
-            //	GreenPiece1.Visibility = Visibility.Visible;
-            //	GreenPiece2.Visibility = Visibility.Visible;
-            //	GreenPiece3.Visibility = Visibility.Visible;
-            //	GreenPiece4.Visibility = Visibility.Visible;
-
-            if (PlayersNum == 1 || PlayersNum == 2)
-            {
-
-
-                //	YellowPiece1.Visibility = Visibility.Visible;
-                //	YellowPiece2.Visibility = Visibility.Visible;
-                //	YellowPiece3.Visibility = Visibility.Visible;
-                //	YellowPiece4.Visibility = Visibility.Visible;
-                //}
-            }
         }
+
         private string GetColorName(SolidColorBrush brush)
         {
+            //Kanske Onödigt, behövde någon som fick mig färger på enkel sätt
             if (brush.Color == Colors.Red)
                 return "Red";
             if (brush.Color == Colors.Green)
@@ -157,50 +135,118 @@ namespace FMK_1
             if (brush.Color == Colors.Blue)
                 return "Blue";
 
-            // Add more color comparisons as needed
             return "UnknownColor";
+        }
+
+        public class CustomGrid : Grid
+        {
+            public string SpotName { get; set; } //function för customgrid för att spara stringen
         }
 
         private void CreatePieces(string Name, SolidColorBrush color, string Tag)
         {
             for (int i = 0; i < 4; i++)
             {
-                string name = $"{Name}{i}";
-                Grid P1 = CreateGrid(name, color, Tag);
-
                 string colorName = GetColorName(color);
                 string spotName = $"{colorName}Spot{i}";
                 var spotGrid = FindName(spotName) as Grid;
+                CustomGrid P1 = CreateGrid($"{Name}{i}", color, Tag, spotName);
 
                 spotGrid.Children.Add(P1);
                 createdGrids.Add(P1);
+                //Borde vara relativt förståbart, lite kronligt hur jag har gjort men funkar, skapar 4 pjäser med vad kan skrev in
             }
         }
 
-        private Grid CreateGrid(string Name, SolidColorBrush color, string Tag)
+        private CustomGrid CreateGrid(string Name, SolidColorBrush color, string Tag, string spotName)
         {
-            Grid grid = new Grid
+            CustomGrid grid = new CustomGrid
             {
                 Name = Name,
-                Background = color,
+                Background = new SolidColorBrush(Windows.UI.Colors.Transparent),
                 Height = 50,
                 Width = 50,
                 Visibility = Visibility.Visible,
                 CanDrag = true,
-                Tag = Tag   //Path och steg
+                Tag = Tag
+                //Tag är indelat i 2 nummer delat med ett "," för att skilja på dom
+                //Det är för första nummeret "[0]" visar vilken färg den tillhör, just nu är 0 röd, 1 grön, 2 rosa, 3 blå, och det tillhör Tag som ligger på stegen (själva spelplanen)
+                //det andra nummret är vilken plats är på, den börjar på 0 för första steget är 1 och sista är 44 eller 45 med målet (Men den kan aldrig stå på målet för den försvinner)
+                //Så om en pjäs har tags "2,30" så vet man att det tillhör rosa boet eller spelare 3 (Lite problem med färger och vilken spelare som är vem)
+                //Och den är på steg 30,
+
+                //Medans stegen har 4 olika nummer, 1 för varje färg som kan ställa sig på den
+                //så säg tillex första röda steget, Tag="1,31,21,11" har den,  Men det är första steget för red, 31 för grön, 21 för rosa, 11 för blå
+                //(Lite roligt att den har alltid samma sista nummer)
+            };
+            grid.SpotName = spotName;
+
+            const double scaleFactor = 0.1; // Adjust this scale as needed
+            double offsetX = 10; // Adjust offset if needed
+            double offsetY = 0;
+
+            //Detta är hur jag fick pjäserna att få sin form, osynlig grid med dessa på som fyller färger
+            //Hade ingen anning hur jag skulle ändra pjäsern jag gjorde på figma till detta, försökte göra Path men fixade inte det
+            Polygon canvas = new Polygon
+            {
+                Visibility = Visibility.Visible,
+                Fill = color,
+                Stroke = new SolidColorBrush(Windows.UI.Colors.Black),
+                StrokeThickness = 1,
+                Points = new PointCollection
+                {
+                    new Point(109 * scaleFactor + offsetX, 172 * scaleFactor + offsetY),
+                    new Point(87 * scaleFactor + offsetX, 159 * scaleFactor + offsetY),
+                    new Point(65 * scaleFactor + offsetX, 136 * scaleFactor + offsetY),
+                    new Point(53 * scaleFactor + offsetX, 106 * scaleFactor + offsetY),
+                    new Point(53 * scaleFactor + offsetX, 76 * scaleFactor + offsetY),
+                    new Point(64 * scaleFactor + offsetX, 48 * scaleFactor + offsetY),
+                    new Point(76 * scaleFactor + offsetX, 34 * scaleFactor + offsetY),
+                    new Point(91 * scaleFactor + offsetX, 21 * scaleFactor + offsetY),
+                    new Point(105 * scaleFactor + offsetX, 11 * scaleFactor + offsetY),
+                    new Point(124 * scaleFactor + offsetX, 3 * scaleFactor + offsetY),
+                    new Point(157 * scaleFactor + offsetX, 0 * scaleFactor + offsetY),
+                    new Point(176 * scaleFactor + offsetX, 3 * scaleFactor + offsetY),
+                    new Point(196 * scaleFactor + offsetX, 12 * scaleFactor + offsetY),
+                    new Point(212 * scaleFactor + offsetX, 23 * scaleFactor + offsetY),
+                    new Point(225 * scaleFactor + offsetX, 38 * scaleFactor + offsetY),
+                    new Point(236 * scaleFactor + offsetX, 56 * scaleFactor + offsetY),
+                    new Point(240 * scaleFactor + offsetX, 81 * scaleFactor + offsetY),
+                    new Point(240 * scaleFactor + offsetX, 103 * scaleFactor + offsetY),
+                    new Point(234 * scaleFactor + offsetX, 120 * scaleFactor + offsetY),
+                    new Point(228 * scaleFactor + offsetX, 137 * scaleFactor + offsetY),
+                    new Point(218 * scaleFactor + offsetX, 146 * scaleFactor + offsetY),
+                    new Point(209 * scaleFactor + offsetX, 155 * scaleFactor + offsetY),
+                    new Point(200 * scaleFactor + offsetX, 161 * scaleFactor + offsetY),
+                    new Point(191 * scaleFactor + offsetX, 167 * scaleFactor + offsetY),
+                    new Point(186 * scaleFactor + offsetX, 172 * scaleFactor + offsetY),
+                    new Point(288 * scaleFactor + offsetX, 432 * scaleFactor + offsetY),
+                    new Point(286 * scaleFactor + offsetX, 441 * scaleFactor + offsetY),
+                    new Point(280 * scaleFactor + offsetX, 446 * scaleFactor + offsetY),
+                    new Point(274 * scaleFactor + offsetX, 451 * scaleFactor + offsetY),
+                    new Point(261 * scaleFactor + offsetX, 456 * scaleFactor + offsetY),
+                    new Point(239 * scaleFactor + offsetX, 462 * scaleFactor + offsetY),
+                    new Point(207 * scaleFactor + offsetX, 468 * scaleFactor + offsetY),
+                    new Point(175 * scaleFactor + offsetX, 471 * scaleFactor + offsetY),
+                    new Point(145 * scaleFactor + offsetX, 471 * scaleFactor + offsetY),
+                    new Point(111 * scaleFactor + offsetX, 471 * scaleFactor + offsetY),
+                    new Point(81 * scaleFactor + offsetX, 467 * scaleFactor + offsetY),
+                    new Point(64 * scaleFactor + offsetX, 465 * scaleFactor + offsetY),
+                    new Point(40 * scaleFactor + offsetX, 460 * scaleFactor + offsetY),
+                    new Point(18 * scaleFactor + offsetX, 451 * scaleFactor + offsetY),
+                    new Point(8 * scaleFactor + offsetX, 439 * scaleFactor + offsetY),
+                    new Point(3 * scaleFactor + offsetX, 435 * scaleFactor + offsetY),
+                    // Closing back to the first point (optional if you want a closed shape)
+                    new Point(109 * scaleFactor + offsetX, 172 * scaleFactor + offsetY)
+                }
             };
 
-            TextBlock textBlock = new TextBlock
-            {
-                Name = "Textblock_" + Name,
-                Text = "TEST",
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-            grid.Children.Add(textBlock);
+            grid.Children.Add(canvas);
 
             grid.DragStarting += PieceDrag;
-			return (grid);
+
+            return grid;
+
         }
 
         private void Bts_click(object sender, RoutedEventArgs e)
@@ -208,24 +254,9 @@ namespace FMK_1
             Start.Visibility = Visibility.Visible;
             End.Visibility = Visibility.Collapsed;
 
-			//GreenPiece1.Visibility = Visibility.Collapsed;
-			//GreenPiece2.Visibility = Visibility.Collapsed;
-			//GreenPiece3.Visibility = Visibility.Collapsed;
-			//GreenPiece4.Visibility = Visibility.Collapsed;
-
-			//BluePiece1.Visibility = Visibility.Collapsed;
-			//BluePiece2.Visibility = Visibility.Collapsed;
-			//BluePiece3.Visibility = Visibility.Collapsed;
-			//BluePiece4.Visibility = Visibility.Collapsed;
-
-			//YellowPiece1.Visibility = Visibility.Collapsed;
-			//YellowPiece2.Visibility = Visibility.Collapsed;
-			//YellowPiece3.Visibility = Visibility.Collapsed;
-			//YellowPiece4.Visibility = Visibility.Collapsed;
-
             colorIndex = 0;
         }
-
+        //Gör en int utanför så kan hämta den för flytta pjäser
         public int DiceValue;
 
         private void DiceButton_Click(object sender, RoutedEventArgs e)
@@ -451,13 +482,17 @@ namespace FMK_1
 			DicePlaceOnBoard(playerTurn);
 		}
 
-		private void ChooseClrSqr1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+		private void ChooseClrSqr_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Rectangle clickedRectangle = sender as Rectangle;
 
             clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
 
-            PlayerOneColor = new SolidColorBrush(colors[colorIndex]);
+            //Trök ihop dessa till en function som borde funka, känns dock att man kan fixa "if" sattsena till något enklare
+            if(clickedRectangle.Name == "ChooseClrSqr1") { PlayerOneColor = new SolidColorBrush(colors[colorIndex]); }
+            if(clickedRectangle.Name == "ChooseClrSqr2") { PlayerTwoColor = new SolidColorBrush(colors[colorIndex]); }
+            if(clickedRectangle.Name == "ChooseClrSqr3") { PlayerThreeColor = new SolidColorBrush(colors[colorIndex]); }
+            if(clickedRectangle.Name == "ChooseClrSqr4") { PlayerFourColor = new SolidColorBrush(colors[colorIndex]); }
 
             colorIndex++;
 
@@ -467,76 +502,12 @@ namespace FMK_1
 			}
 		}
 
-        private void ChooseClrSqr2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Rectangle clickedRectangle = sender as Rectangle;
-
-            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
-
-            PlayerTwoColor = new SolidColorBrush(colors[colorIndex]);
-
-            colorIndex++;
-
-            if (colorIndex >= colors.Length)
-            {
-                colorIndex = 0;
-            }
-        }
-
-        private void ChooseClrSqr3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Rectangle clickedRectangle = sender as Rectangle;
-
-            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
-
-            PlayerThreeColor = new SolidColorBrush(colors[colorIndex]);
-
-            colorIndex++;
-
-            if (colorIndex >= colors.Length)
-            {
-                colorIndex = 0;
-            }
-
-        }
-
-        private void ChooseClrSqr4_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Rectangle clickedRectangle = sender as Rectangle;
-
-            clickedRectangle.Fill = new SolidColorBrush(colors[colorIndex]);
-
-            PlayerFourColor = new SolidColorBrush(colors[colorIndex]);
-
-            colorIndex++;
-
-            if (colorIndex >= colors.Length)
-            {
-                colorIndex = 0;
-            }
-
-        }
-
 		private void ColorPieces()
 		{
             PlayerBox1.Fill = PlayerOneColor;
             PlayerBox2.Fill = PlayerTwoColor;
             PlayerBox3.Fill = PlayerThreeColor;
             PlayerBox4.Fill = PlayerFourColor;
-            //GreenPiece1.Fill = PlayerTwoColor;
-            //GreenPiece2.Fill = PlayerTwoColor;
-            //GreenPiece3.Fill = PlayerTwoColor;
-            //GreenPiece4.Fill = PlayerTwoColor;
-
-            //BluePiece1.Fill = PlayerThreeColor;
-            //BluePiece2.Fill = PlayerThreeColor;
-            //BluePiece3.Fill = PlayerThreeColor;
-            //BluePiece4.Fill = PlayerThreeColor;
-
-			//YellowPiece1.Fill = PlayerFourColor;
-			//YellowPiece2.Fill = PlayerFourColor;
-			//YellowPiece3.Fill = PlayerFourColor;
-			//YellowPiece4.Fill = PlayerFourColor;
 		}
 
         private async void Push_Click(object sender, RoutedEventArgs e)
@@ -555,6 +526,8 @@ namespace FMK_1
 
         private void PieceDragOver(object sender, DragEventArgs e)
         {
+            //Detta är när man dra något dra bart över något dropbart, tog bort lite Default UI saker som dåligt ut
+            //TODO: ta bort att det är ett X när man drar över något man inte kan släppa på
             e.AcceptedOperation = DataPackageOperation.Move;
             e.DragUIOverride.IsGlyphVisible = false;
             e.DragUIOverride.IsCaptionVisible = false;
@@ -563,17 +536,20 @@ namespace FMK_1
 
         private void PieceDrag(UIElement sender, DragStartingEventArgs args)
         {
+            //Hur saker sparars när man börjar dra saker
             if (sender is FrameworkElement element)
             {
                 string name = element.Name;
-
                 string tag = element.Tag?.ToString();
+                string spotName = (element as CustomGrid)?.SpotName;
 
                 args.Data.Properties.Add("Name", name);
                 args.Data.Properties.Add("Tag", tag);
+                args.Data.Properties.Add("SpotName", spotName);
 
                 args.Data.SetText(name); // Default text format
                 args.Data.SetData("CustomTagFormat", tag); // Custom format for the tag
+                args.Data.SetData("CustomSpotFormat", spotName);
             }
         }
 
@@ -587,45 +563,23 @@ namespace FMK_1
 
             if (draggedElement != null)
             {
-                var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
-
-                if (sender is FrameworkElement element && element.Name == "Goal")
+                if (sender is Panel dropZone)
                 {
-                    parent?.Children.Remove(draggedElement);
-                    draggedElement.Visibility = Visibility.Collapsed;
-                    player++;
-
-                    if (player == 4)
-                    {
-                        foreach (Grid grid in createdGrids)
-                        {
-                            if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
-                            {
-                                parentPanel.Children.Remove(grid);
-                            }
-                        }
-                        End.Visibility = Visibility.Visible;
-                        await PlaySound("ms-appx:///Assets/Win.mp3");
-                    }
-                }
-
-                else if (sender is Panel dropZone)
-                {
-                    //
+                    var parent = VisualTreeHelper.GetParent(draggedElement) as Panel;
                     string[] PieceTags = PieceTag.Split(',');                //Det ska vara Typ "Path 1, Steg 2"
                     int Path = int.Parse(PieceTags[0].Trim());               //Visar om det är för första eller andra eller...
-                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från böjran till slutet,
-                    //
-                    //
+                    int CurrentPieceSpot = int.Parse(PieceTags[1].Trim());   //Vilket steg det är i från början till slutet
+
                     var SpotTags = (string)dropZone.Tag;
                     string[] SpotTag = SpotTags.Split(",");
-                    int SpotPath = int.Parse(SpotTag[Path].Trim());
-                    //
-                    DiceValue = 1;		//Test Value TaBort
+                    int SpotPath = int.Parse(SpotTag[Path].Trim());         //Delar bara tags på steget som man har dragit till
+
 					if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 1)
                     {
-						Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
+                        //OM PjäsPlats + Tärningskast ÄR Steget OCH Steget har EXAKT 1 Barn
 
+                        //Letar efter barnet, hämtar dens StartZon i hemmet och Flytter ditt
+						Panel child = (Grid)VisualTreeHelper.GetChild(dropZone, 0);
 						var ChildTags = (string)child.Tag;
                         string[] ChildTag = ChildTags.Split(',');
                         int ChildPath = int.Parse(ChildTag[0].Trim());
@@ -635,27 +589,75 @@ namespace FMK_1
                             if (child.Parent is Panel parentPanel)
                             {
                                 parentPanel.Children.Remove(child);
-								//Lägg tillbacka den i hemmet
+                                //Lägg tillbacka den i hemmet och sätter dens steg till 0
+                                //Detta känns som mycket kod för vad jag gör men kom inte på något annat sätt
+                                //Kanske man kunde lägga dom i en array? eller något med att göra som alla "Spots" gör sina barn till 0? vet inte Men Funkar
+
+                                string spotName = ((CustomGrid)child).SpotName;
+                                var targetPanel = FindName(spotName) as Panel;
+                                targetPanel.Children.Add(child);
+                                if(targetPanel.Name == "RedSpot0" || targetPanel.Name == "RedSpot1" || targetPanel.Name == "RedSpot2" || targetPanel.Name == "RedSpot3")
+                                {
+                                    child.Tag = "0,0";
+                                }
+                                else if (targetPanel.Name == "GreenSpot0" || targetPanel.Name == "GreenSpot1" || targetPanel.Name == "GreenSpot2" || targetPanel.Name == "GreenSpot3")
+                                {
+                                    child.Tag = "1,0";
+                                }
+                                else if (targetPanel.Name == "PinkSpot0" || targetPanel.Name == "PinkSpot1" || targetPanel.Name == "PinkSpot2" || targetPanel.Name == "PinkSpot3")
+                                {
+                                    child.Tag = "2,0";
+                                }
+                                else if (targetPanel.Name == "BlueSpot0" || targetPanel.Name == "BlueSpot1" || targetPanel.Name == "BlueSpot2" || targetPanel.Name == "BlueSpot3")
+                                {
+                                    child.Tag = "3,0";
+                                }
                             }
                         }
                     }
-                    //Checka så om Path[0] är Olika och gör det lagligt att gå på och  parent?.Children.Remove() på något sätt^
 
-
-                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)       //CurrentPieceSpot + DiceRoll = SpotPath
+                    if (CurrentPieceSpot + DiceValue == SpotPath && dropZone.Children.Count == 0)
                     {
-                        draggedElement.Tag = $"{Path},{SpotPath}";
+                        //OM PjäsPlats + Tärningskast ÄR Steget OCH Steget har EXAKT 0 Barn
 
+                        //Lägg in den du drog, ta bort dens gamla hem och uppdatera tagen så den säger rätt steg den är på
+                        //Och spela ett litet ljud
+                        draggedElement.Tag = $"{Path},{SpotPath}";
                         parent?.Children.Remove(draggedElement);
                         dropZone.Children.Add(draggedElement);
                         await PlaySound("ms-appx:///Assets/Goal.mp3");
                     }
+                    if (sender is FrameworkElement element && element.Name == "Goal" && CurrentPieceSpot + DiceValue >= SpotPath)
+                    {
+                        //OM PjäsPlats + Tärningskast ÄR Steget OCH Namnet är EXAKT "Goal"
+                        
+                        //När man går in i mål, ta bort pjäsern, lägg till ett vinn poäng (Som sakt borde fixas) Och ett litet ljud klipp
+                        parent?.Children.Remove(draggedElement);
+                        draggedElement.Visibility = Visibility.Collapsed;
+                        Win_Points++;
+
+                        if (Win_Points == 4)
+                        {
+                            //när spelat har slutat
+                            foreach (Grid grid in createdGrids)
+                            {
+                                if (VisualTreeHelper.GetParent(grid) is Panel parentPanel)
+                                {
+                                    parentPanel.Children.Remove(grid);
+                                }
+                            }
+                            End.Visibility = Visibility.Visible;
+                            await PlaySound("ms-appx:///Assets/Win.mp3");
+                        }
+                    }
                 }
             }
         }
-
+        //TODO: Ändra så bara 6 gör som man kan lämna Boet
+        //TODO: Ska kan kunna vinna på ett nummer över målet eller ska man ha exakt (Just nu över)
         private static async Task PlaySound(string sound)
         {
+            //Spelar ljud som har i "sound"
             MediaElement SoundPlayer = new MediaElement();
             var soundFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri(sound));
             var stream = await soundFile.OpenAsync(Windows.Storage.FileAccessMode.Read);

@@ -819,10 +819,10 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr1_Tapped" RadiusX="28" RadiusY="28"/>
-                        <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr2_Tapped" RadiusX="28" RadiusY="28"/>
-                        <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr3_Tapped" RadiusX="28" RadiusY="28"/>
-                        <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr4_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr1" Fill="Red" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr2" Fill="Green" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr3" Fill="Blue" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr_Tapped" RadiusX="28" RadiusY="28"/>
+                        <Rectangle x:Name="ChooseClrSqr4" Fill="Yellow" Width="100" Height="100" Margin="5" Tapped="ChooseClrSqr_Tapped" RadiusX="28" RadiusY="28"/>
 
                         <TextBlock FontSize="60" Visibility="Collapsed"/>
 
