@@ -120,7 +120,7 @@ namespace FMK_1
             CreatePieces("Pink", new SolidColorBrush(Colors.Pink), "2,0");
             CreatePieces("Blue", new SolidColorBrush(Colors.Blue), "3,0");
 
-            ColorPieces();
+            //ColorPieces();
         }
 
         private string GetColorName(SolidColorBrush brush)
@@ -451,6 +451,7 @@ namespace FMK_1
                     break;
             }
         }
+
 		/* Clickable Button for switch turns.
 		private void TurnBtn_Click(object sender, RoutedEventArgs e)
 		{
@@ -501,6 +502,7 @@ namespace FMK_1
 				colorIndex = 0;
 			}
 		}
+
 
 		private void ColorPieces()
 		{

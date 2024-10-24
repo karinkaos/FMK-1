@@ -692,95 +692,7 @@
                 </Grid>
 
                 <!-- Rules and AboutPage -->
-                <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="100" Width="100" Margin="50,5" CornerRadius="18"
-                        Background="DarkRed" Click="RulesBtn_Click" FontSize="24"/>
-
-                <Grid x:Name="AboutAndRules" Width="650" Height="850" Background="#EED1D1" CornerRadius="8" Visibility="Collapsed" BorderBrush="Black" BorderThickness="2">
-
-                    <StackPanel x:Name="PiecesPanel" Width="560" Height="180" VerticalAlignment="Top" Orientation="Horizontal" Margin="30">
-                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
-                            <Rectangle x:Name="rectangle" Margin="10" RenderTransformOrigin="0.5,0.5">
-                                <Rectangle.RenderTransform>
-                                    <CompositeTransform/>
-                                </Rectangle.RenderTransform>
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="Assets/Pieces/GreenPiece.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
-                        </Grid>
-                        <Grid Width="90" Height="120" Margin="25">
-                            <Rectangle x:Name="rectangle1" Margin="10" RenderTransformOrigin="0.5,0.5" Canvas.ZIndex="1">
-                                <Rectangle.RenderTransform>
-                                    <CompositeTransform/>
-                                </Rectangle.RenderTransform>
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="Assets/Pieces/RedPiece.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
-                        </Grid>
-                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
-                            <Rectangle x:Name="rectangle2" Margin="10" RenderTransformOrigin="0.5,0.5">
-                                <Rectangle.RenderTransform>
-                                    <CompositeTransform/>
-                                </Rectangle.RenderTransform>
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="Assets/Pieces/BluePiece.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
-                        </Grid>
-                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
-                            <Rectangle x:Name="rectangle3" Margin="10" RenderTransformOrigin="0.5,0.5">
-                                <Rectangle.RenderTransform>
-                                    <CompositeTransform/>
-                                </Rectangle.RenderTransform>
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="Assets/Pieces/YellowPiece.png"/>
-                                </Rectangle.Fill>
-                            </Rectangle>
-                        </Grid>
-                    </StackPanel>
-
-                    <!-- Rules -->
-                    <Grid x:Name="RulesGrid" Height="450" Width="450" Margin="0,100,0,80" Background="LightCoral" Visibility="Collapsed" BorderBrush="DarkGray">
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <ImageBrush ImageSource="/Assets/FMK-RulesImage.png" Stretch="Fill"/>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                    </Grid>
-
-                    <!-- About -->
-                    <Grid x:Name="AboutGrid" Visibility="Collapsed">
-                        <TextBlock x:Name="AboutText" Text="About" Height="45" Width="450" Margin="0,0,0,350" FontSize="38" Foreground="Black" TextAlignment="Center"/>
-                        <TextBlock Height="300" Width="400" Foreground="Black" TextWrapping="Wrap">
-                    
-                    <LineBreak/>Creators:<LineBreak/>
-                            Christoffer Lundberg<LineBreak/>
-                            Karin Oskarsson<LineBreak/>
-                            Dennis Wiklund<LineBreak/>
-                            Mohammed Rezki<LineBreak/>
-                    <LineBreak/>
-                    October 2024<LineBreak/>
-                    <LineBreak/>
-                    This project was created for the purpose of a school assignment.
-                            
-                            <LineBreak/><LineBreak/>
-                            Soundeffects<LineBreak/>
-                            Startsound from: freesound.org/people/Beetlemuse/sounds/554482/ <LineBreak/>
-                            Goal trumpet generated from: myedit.online/en/audio-editor/ai-sound-effect-generator, edited in Microsoft Clipchamp
-                            
-                            
-                        </TextBlock>
-                        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="Rules" CornerRadius="8" Background="green" Foreground="Black"
-                        Click="BackToRulesBtn_Click"/>
-                    </Grid>
-
-                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50" Height="75" Width="170" Content="Close" CornerRadius="8" Background="Green" Foreground="Black"
-                        Click="CloseBtn_Click"/>
-                    <Button x:Name="AboutBtn" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="About" CornerRadius="8" Background="Green" Foreground="Black"
-                        Click="AboutBtn_Click"/>
-
-                </Grid>
+                
 
                 <!--Dice-->
                 <Grid x:Name="DiceBox" Width="320" Height="320" Background="DarkGray" Visibility="Visible" CornerRadius="28" BorderBrush="Black" BorderThickness="0.5"
@@ -865,6 +777,96 @@
                         </Slider>
                     </Grid>
                 </Grid>
+                <Button x:Name="RulesBtn" Content="Rules" VerticalAlignment="Top" HorizontalAlignment="Right" Height="100" Width="100" Margin="50,5" CornerRadius="18"
+        Background="DarkRed" Click="RulesBtn_Click" FontSize="24"/>
+
+                <Grid x:Name="AboutAndRules" Width="650" Height="850" Background="#EED1D1" CornerRadius="8" Visibility="Collapsed" BorderBrush="Black" BorderThickness="2">
+
+                    <StackPanel x:Name="PiecesPanel" Width="560" Height="180" VerticalAlignment="Top" Orientation="Horizontal" Margin="30">
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/GreenPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Margin="25">
+                            <Rectangle x:Name="rectangle1" Margin="10" RenderTransformOrigin="0.5,0.5" Canvas.ZIndex="1">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/RedPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle2" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/BluePiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <Grid Width="90" Height="120" Background="Transparent" Margin="25">
+                            <Rectangle x:Name="rectangle3" Margin="10" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <CompositeTransform/>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="Assets/Pieces/YellowPiece.png"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Rules -->
+                    <Grid x:Name="RulesGrid" Height="450" Width="450" Margin="0,100,0,80" Background="LightCoral" Visibility="Collapsed" BorderBrush="DarkGray">
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/Assets/FMK-RulesImage.png" Stretch="Fill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Grid>
+
+                    <!-- About -->
+                    <Grid x:Name="AboutGrid" Visibility="Collapsed">
+                        <TextBlock x:Name="AboutText" Text="About" Height="45" Width="450" Margin="0,0,0,350" FontSize="38" Foreground="Black" TextAlignment="Center"/>
+                        <TextBlock Height="300" Width="400" Foreground="Black" TextWrapping="Wrap">
+    
+                        <LineBreak/>Creators:<LineBreak/>
+                            Christoffer Lundberg<LineBreak/>
+                            Karin Oskarsson<LineBreak/>
+                            Dennis Wiklund<LineBreak/>
+                            Mohammed Rezki<LineBreak/>
+                        <LineBreak/>
+                            October 2024<LineBreak/>
+                        <LineBreak/>
+                            This project was created for the purpose of a school assignment.
+            
+                        <LineBreak/>
+                            <LineBreak/>
+                            Soundeffects
+                            <LineBreak/>
+                            
+                            Startsound from: freesound.org/people/Beetlemuse/sounds/554482/ <LineBreak/>
+                            Goal trumpet generated from: myedit.online/en/audio-editor/ai-sound-effect-generator, edited in Microsoft Clipchamp
+
+                        </TextBlock>
+                        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="Rules" CornerRadius="8" Background="green" Foreground="Black"
+                        Click="BackToRulesBtn_Click"/>
+                    </Grid>
+
+                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50" Height="75" Width="170" Content="Close" CornerRadius="8" Background="Green" Foreground="Black"
+                            Click="CloseBtn_Click"/>
+                    <Button x:Name="AboutBtn" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="About" CornerRadius="8" Background="Green" Foreground="Black"
+                            Click="AboutBtn_Click"/>
+                </Grid>
 
                 <!--EndView-->
                 <Grid Name="End" Width="450" Height="600" Background="DarkGray" Visibility="Collapsed" CornerRadius="28" BorderBrush="Black" BorderThickness="1   ">
@@ -948,8 +950,8 @@
                     <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <!-- Menu Buttons-->
                         <Button x:Name="Resumebtn" Content="Resume" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00897B" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="Resumebtn_Click"/>
-                        <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click"/>
-                        <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click"/>
+                        <Button x:Name="SaveBtnM" Content="Save" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Blue" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="SaveBtnM_Click" IsEnabled="False"/>
+                        <Button x:Name="LoadBtnM" Content="Load" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="LoadGameBtn_Click" IsEnabled="False"/>
                         <Button x:Name="BackBtnM" Content="New Game" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="BackBtnM_Click"/>
                         <Button x:Name="ExitProgram" Content="Exit" Width="250" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DarkRed" Foreground="White" Margin="0,10,0,10" FontSize="24" CornerRadius="15" Click="ExitBtn_Click"/>
                     </StackPanel>
