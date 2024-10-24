@@ -751,11 +751,10 @@
 
                     <!-- About -->
                     <Grid x:Name="AboutGrid" Visibility="Collapsed">
-                        <TextBlock x:Name="AboutText" Text="About" Height="60" Width="450" Margin="0,0,0,350" FontSize="40" Foreground="Black" TextAlignment="Center"/>
+                        <TextBlock x:Name="AboutText" Text="About" Height="45" Width="450" Margin="0,0,0,350" FontSize="38" Foreground="Black" TextAlignment="Center"/>
                         <TextBlock Height="300" Width="400" Foreground="Black" TextWrapping="Wrap">
                     
-                    <LineBreak/><LineBreak/>Creators:<LineBreak/>
-                    <LineBreak/>
+                    <LineBreak/>Creators:<LineBreak/>
                             Christoffer Lundberg<LineBreak/>
                             Karin Oskarsson<LineBreak/>
                             Dennis Wiklund<LineBreak/>
@@ -764,7 +763,13 @@
                     October 2024<LineBreak/>
                     <LineBreak/>
                     This project was created for the purpose of a school assignment.
-
+                            
+                            <LineBreak/><LineBreak/>
+                            Soundeffects<LineBreak/>
+                            Startsound from: freesound.org/people/Beetlemuse/sounds/554482/ <LineBreak/>
+                            Goal trumpet generated from: myedit.online/en/audio-editor/ai-sound-effect-generator, edited in Microsoft Clipchamp
+                            
+                            
                         </TextBlock>
                         <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50" Height="75" Width="170" Content="Rules" CornerRadius="8" Background="green" Foreground="Black"
                         Click="BackToRulesBtn_Click"/>
